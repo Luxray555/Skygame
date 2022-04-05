@@ -1,0 +1,327 @@
+.game{
+    margin-top: 7%;
+    margin-bottom: 5%;
+    transition: all .5s;
+    height: 80%;
+    width: 100%;
+    position: relative;
+}
+.block{
+    height: 100%;
+    width: 100%;
+    background-color: #242424;
+    border: white solid 4px;
+}
+.game p{
+    margin-top: 20px;
+    white-space: pre-wrap;
+    color: black;
+    text-align: left;
+    font-size: 15px;
+    color: white;
+    font-weight: lighter;
+}
+
+.game .title-game{
+    font-size: 110%;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 100%;
+    transition: 0.5s;
+}
+.game:hover .title-game{
+    opacity: 0;
+}
+.game .info h4{
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+.game .info{
+    -webkit-user-select: none;
+    user-select: none;
+    position:absolute;
+    padding: 0% 4%;
+    opacity: 0;
+    transition: 0.5s;
+    overflow: auto;
+    height: 98%;
+    width: 98%;
+    z-index: 100;
+}
+.game .info button{
+    margin: 20px 0px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 0px;
+}
+.game .info button:hover{
+    background-color: rgb(78, 78, 78);
+    cursor: pointer;
+}
+.game .info::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.game .info::-webkit-scrollbar-track {
+    background: #858585;
+    border-radius: 20px;
+    border: solid black 1px;
+}
+  
+  
+.game .info::-webkit-scrollbar-thumb {
+    background: rgb(46, 46, 46);
+    border-radius: 20px;
+    border: solid rgb(138, 138, 138) 1px;
+}
+  
+.game .info::-webkit-scrollbar-thumb:hover {
+    background: rgb(36, 36, 36);
+}
+  
+.game:hover .info{
+    opacity: 1;
+}
+.game:hover{
+    box-shadow: 0px 0px 10px 10px black;
+}
+.game-panel{
+    text-align: center;
+    position: relative;
+}
+h1{
+    padding-top: 1%;
+    font-size: 45px;
+    font-family: RaceSportFree;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+h2{
+    font-size: 35px;
+    font-family: RaceSportFree;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.game-panel ul{
+    display: grid;
+    margin: 1% 5%;
+    column-gap: 5%;
+    transition: 1s;
+    list-style-type: none;
+}
+@media screen and (min-width:1400px){
+    .game-panel ul{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media screen and (min-width:900px) and (max-width:1400px){
+    .game-panel ul{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (min-width:600px) and (max-width:900px){
+    .game-panel ul{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width:0px) and (max-width:600px){
+    h1{
+        font-size: 35px;
+    }
+    .game-panel ul{
+        grid-template-columns: 1fr;
+    }
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+
+.gameImg{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.game:hover .gameImg{
+    opacity: 0.2;
+}
+.game:hover .block{
+    border: rgba(0, 0, 0, 0) solid 4px;
+}
+.info div{
+    margin-top: 20px;
+    text-align: left;
+    background-color: #4b4b4b;
+    border-radius: 10px;
+    padding: 5px;
+}
+.info div h4{
+    font-size: 15px;
+    text-align: left;
+}
+.info div span{
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 20px;
+    background-color: #242424;
+    color: white;
+    padding: 6px;
+    margin: 5px;
+    display: inline-block;
+}
+.top{
+    background: rgb(17, 17, 17);
+    position: sticky;
+    top:0;
+    z-index: 1000;
+    border-bottom: solid white 1px;
+}
+.search-bar{
+    margin: 15px auto;
+    padding-bottom: 15px;
+    min-width: 250px;
+    max-width: 32%;
+}
+.search-bar .search{
+    height: 40px;
+    display: flex;
+    width: 100%;
+}
+.search-bar .filtre{
+    user-select: none;
+    background: none;
+    border: none;
+    filter: contrast(50%);
+    margin: 10px 0px;
+    width: max-content;
+    padding: 5px;
+    color: white;
+    display: flex;
+    font-weight: bold;
+}
+.search-bar .filtre span{
+    margin: auto;
+}
+.search-bar .filtre img{
+    width:25px;
+    margin-right: 5px;
+}
+.search-bar .filtre:hover{
+    filter: contrast(100%);
+    cursor: pointer;
+}
+.search-bar .filtreList{
+    display: flex;
+    color: white;
+    height: 0;
+    overflow: hidden;
+    transition: height .5s ease-out;
+}
+.search-bar .filtreList hr{
+    border: #838383 solid 1px;
+    margin: 5px 0px;
+}
+.search-bar .filtreList div{
+    margin: 0px auto;
+}
+.search-bar .filtreList span{
+    font-size: 20px;
+    font-weight: bold;
+}
+.search-bar .filtreList ul{
+    list-style-type: none;
+}
+.search-bar .filtreList ul li input[type="checkbox"]{
+    margin-right: 5px;
+    opacity: 0.7;
+}
+.search-bar input[type="search"]::placeholder{
+    color: #1b1b1b;
+}
+.search-bar input[type="search"]{
+    border: none;
+    font-size: 20px;
+    margin-right:1px;
+    border-radius:10px 0px 0px 10px;
+    width: 75%;
+    text-align: center;
+    background-color: rgb(156, 156, 156);
+    height: 100%;
+    outline: none;
+    color: rgb(0, 0, 0);
+    transition: ease 0.5s;
+    text-decoration: none;
+}
+.search-bar input[type="search"]::-webkit-search-cancel-button{
+    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    cursor: pointer;
+    margin-right: 10px;
+}
+.search-bar input[type="search"]:focus{
+    border:  #ffffff solid 2px;
+    background-color: rgb(209, 209, 209);
+}
+.search-bar input[type="search"]::selection{
+    background-color: white;
+    color: black;
+}
+::placeholder{
+    color: grey;
+}
+.search-bar button[type="submit"]{
+    margin-left:1px;
+    border: #fff solid 1px;
+    border-radius:0px 10px 10px 0px;
+    font-weight: bold;
+    transition: 0.25s;
+    color: white;
+    background-color: rgb(97, 97, 97);
+    width: 25%;
+    height: 100%;
+    border:none;
+}
+
+.search-bar button[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #464646;
+}
+.no-game{
+    color: white;
+    margin: 300px 0px;
+    text-align: center;
+    font-size: 50px;
+    font-family: fantasy;
+    letter-spacing: 3px;
+    font-weight: lighter;
+}
+.nbPage{
+    margin-bottom: 20px;
+}
+.nbPage span{
+    padding: 0px 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nbPage button{
+    padding: 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+.nbPage .precedent{
+    transform: rotate(180deg);
+}
+.nbPage img{
+    width:15px;
+    filter: invert(100%);
+}

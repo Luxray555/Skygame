@@ -1,0 +1,51 @@
+.main{
+  position: relative;
+  height: 120vh;
+}
+.verification-box{
+  position: relative;
+  top:40%;
+  transform: translateY(-50%);
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+  margin: auto;
+}
+.verification-box h1{
+    margin: 0px 0px 20px 0px;
+    color: white;
+}
+.verification-box h2{
+  margin: 0px 0px 30px 0px;
+  color: white;
+}
+.verification-box input[type="text"]{
+  color: white;
+  background-color: black;
+  border: white solid 1px;
+  border-radius: 1vh;
+  width: 150px;
+  padding: 5px 0px;
+  font-size: 30px;
+  text-align: center;
+}
+.verification-box input[type="submit"]{
+  cursor: pointer;
+  padding: 5px 10px;
+  color: white ;
+  background-color: black;
+  border-radius: 1vh;
+  border: solid 1px white;
+  margin: 20px;
+  font-size: 20px;
+  transition: all .4s;
+}
+.verification-box input[type="submit"]:hover{
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+}
