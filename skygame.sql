@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 06 avr. 2022 à 14:01
+-- Généré le : mer. 06 avr. 2022 à 16:41
 -- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Version de PHP : 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,13 +51,21 @@ INSERT INTO `accesstoken` (`id`, `token`, `expireTokenTime`) VALUES
 DROP TABLE IF EXISTS `amis`;
 CREATE TABLE IF NOT EXISTS `amis` (
   `idAmi` int(11) NOT NULL AUTO_INCREMENT,
+  `demande` int(1) NOT NULL DEFAULT '0',
   `dateAmi` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idUtilisateur1` int(11) NOT NULL,
   `idUtilisateur2` int(11) NOT NULL,
   PRIMARY KEY (`idAmi`),
   KEY `idUtilisateur2` (`idUtilisateur2`) USING BTREE,
   KEY `idUtilisateur1` (`idUtilisateur1`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `amis`
+--
+
+INSERT INTO `amis` (`idAmi`, `demande`, `dateAmi`, `idUtilisateur1`, `idUtilisateur2`) VALUES
+(2, 0, '2022-04-06 00:34:56', 22, 23);
 
 -- --------------------------------------------------------
 
@@ -80,12 +88,16 @@ CREATE TABLE IF NOT EXISTS `jeux` (
 --
 
 INSERT INTO `jeux` (`idJeu`, `nomJeu`, `idImageJeu`, `noteMoyenne`, `prixJeu`) VALUES
-(1905, 'Fortnite', 'co2ekt', 4, 800),
+(121, 'Minecraft', 'co49x5', 4, 2600),
+(1905, 'Fortnite', 'co2ekt', 5, 800),
 (11198, 'Rocket League', 'co4cfe', NULL, 5900),
+(45131, 'Grand Theft Auto V: Special Edition', 'co2nbc', NULL, 6200),
+(98077, 'Grand Theft Auto V: Premium Online Edition', 'co1twh', NULL, 1800),
 (163826, 'Blake: The Visual Novel', 'co3mcj', NULL, 7000),
 (182125, 'Far Cry 6: Insanity', 'co48um', NULL, 2700),
 (186234, 'Grand Mountain Adventure: Wonderlands', 'co4it8', NULL, 2600),
-(186597, 'Strange Horticulture', 'co4bsb', 4, 600);
+(186597, 'Strange Horticulture', 'co4bsb', 4, 600),
+(188661, 'MLB The Show 22', 'co4fcv', NULL, 400);
 
 -- --------------------------------------------------------
 
@@ -103,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `notesjeu` (
   PRIMARY KEY (`idNote`),
   KEY `idUtilisateur` (`idUtilisateur`,`idJeu`),
   KEY `idJeu` (`idJeu`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `notesjeu`
@@ -111,7 +123,8 @@ CREATE TABLE IF NOT EXISTS `notesjeu` (
 
 INSERT INTO `notesjeu` (`idNote`, `note`, `dateNote`, `idUtilisateur`, `idJeu`) VALUES
 (7, 4, '2022-03-28 17:04:19', 22, 186597),
-(8, 4, '2022-03-28 18:17:04', 22, 1905);
+(8, 5, '2022-03-28 18:17:04', 22, 1905),
+(9, 4, '2022-04-05 14:21:46', 22, 121);
 
 -- --------------------------------------------------------
 
@@ -184,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `transactionsskycoin` (
   PRIMARY KEY (`idTransactionSkyCoin`),
   KEY `idSkycoin` (`idSkycoin`) USING BTREE,
   KEY `idUtilisateur` (`idUtilisateur`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `transactionsskycoin`
@@ -200,7 +213,24 @@ INSERT INTO `transactionsskycoin` (`idTransactionSkyCoin`, `dateTransaction`, `i
 (23, '2022-03-28 19:25:14', 22, 8),
 (24, '2022-03-28 19:25:15', 22, 8),
 (25, '2022-03-31 16:29:23', 22, 8),
-(26, '2022-03-31 20:17:53', 22, 1);
+(26, '2022-03-31 20:17:53', 22, 1),
+(27, '2022-04-01 15:49:43', 22, 1),
+(28, '2022-04-03 19:58:14', 22, 8),
+(29, '2022-04-03 19:58:15', 22, 8),
+(30, '2022-04-03 19:58:17', 22, 8),
+(31, '2022-04-03 19:58:18', 22, 8),
+(32, '2022-04-03 19:58:19', 22, 8),
+(33, '2022-04-03 19:58:22', 22, 8),
+(34, '2022-04-03 19:58:23', 22, 8),
+(35, '2022-04-03 19:58:24', 22, 8),
+(36, '2022-04-03 19:58:25', 22, 8),
+(37, '2022-04-03 19:58:26', 22, 8),
+(38, '2022-04-03 19:58:27', 22, 8),
+(39, '2022-04-04 16:26:02', 22, 1),
+(40, '2022-04-04 16:29:43', 22, 8),
+(41, '2022-04-05 14:14:11', 22, 8),
+(42, '2022-04-05 14:14:15', 22, 8),
+(43, '2022-04-05 15:02:32', 37, 1);
 
 -- --------------------------------------------------------
 
@@ -216,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenom` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `pseudo` varchar(25) NOT NULL,
+  `pseudo` varchar(15) NOT NULL,
   `dateCreation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `photo` int(1) DEFAULT NULL,
   `banniere` int(1) NOT NULL DEFAULT '1',
@@ -226,15 +256,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `verifMail` int(1) NOT NULL DEFAULT '0',
   `codeVerifMail` int(4) DEFAULT NULL,
   PRIMARY KEY (`idUtilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `civilite`, `nom`, `prenom`, `email`, `password`, `pseudo`, `dateCreation`, `photo`, `banniere`, `description`, `skyCoin`, `lastRecompence`, `verifMail`, `codeVerifMail`) VALUES
-(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 3, 3, 'jhsgfujsdgfjkdz\r\nfgdsglk', 90300, '2022-03-31 20:17:53', 1, 2466),
-(23, 0, 'dujyzfguyj', 'dyagzujyfhd', 'dakew60144@jo6s.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'dszujagfdujhy', '2022-03-28 18:19:27', NULL, 1, NULL, 100, NULL, 1, 181);
+(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 3, 1, 'C\'est moi Luxreyli\r\nlet\'s go', 272500, '2022-04-04 16:26:02', 1, 2466),
+(23, 0, 'dujyzfguyj', 'dyagzujyfhd', 'dakew60144@jo6s.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'dszujagfdujhy', '2022-03-28 18:19:27', 1, 3, NULL, 100, NULL, 1, 181),
+(37, 0, 'gvedfsgvedgvefds', 'egved', 'weporix683@royins.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'edgvedsgvf', '2022-04-05 15:01:43', NULL, 1, NULL, 200, '2022-04-05 15:02:32', 1, 9386);
 
 --
 -- Contraintes pour les tables déchargées
