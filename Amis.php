@@ -76,7 +76,7 @@
                     <li><a href="Profil.php?idUtilisateur='.$amisTotal[$i]['idUtilisateur'].'">
                     <img src="Public/Images/profil/';
                     imgProfil($amisTotal[$i]);
-                    echo '.jpg" alt=" Photo de '.$utilisateurTotal[$i]['pseudo'].'">
+                    echo '.jpg" alt=" Photo de '.$amisTotal[$i]['pseudo'].'">
                       <span>'.$amisTotal[$i]['pseudo'].'</span>
                     </a></li>';
                   }
@@ -93,7 +93,7 @@
                     <li><a href="Profil.php?idUtilisateur='.$demandeTotal[$i]['idUtilisateur'].'">
                     <img src="Public/Images/profil/';
                     imgProfil($demandeTotal[$i]);
-                    echo '.jpg" alt="Photo de '.$utilisateurTotal[$i]['pseudo'].'">
+                    echo '.jpg" alt="Photo de '.$demandeTotal[$i]['pseudo'].'">
                       <span>'.$demandeTotal[$i]['pseudo'].'</span>
                     </a></li>';
                   }
