@@ -285,7 +285,7 @@
                         list[1][i].querySelector("h4").innerHTML = game[i].name;
                         list[1][i].querySelector("h3").innerHTML = game[i].name;
                         list[1][i].querySelector("a").href = "PageJeu.php?idJeu="+game[i].id;
-                        undefinedSummary(game[i].summary)
+                        list[1][i].querySelector("p").innerHTML = undefinedSummary(game[i].summary);
                         list[1][i].querySelector(".block").style.background = "black";
                         list[1][i].querySelector("img").src = undefinedCover(game[i].cover);
                         undefinedPlatforms(game[i].platforms,list[1][i]);
@@ -335,7 +335,7 @@
                     for(i=0;i<e;i++){
                         list[1][i].querySelector("h4").innerHTML = game[i+'.($_GET['page']-1)*16 .'].name;
                         list[1][i].querySelector("h3").innerHTML = game[i+'.($_GET['page']-1)*16 .'].name;
-                        undefinedSummary(game[i].summary)
+                        list[1][i].querySelector("p").innerHTML = undefinedSummary(game[i].summary);
                         list[1][i].querySelector(".block").style.background = "black";
                         list[1][i].querySelector("img").src = undefinedCover(game[i+'.($_GET['page']-1)*16 .'].cover);
                         undefinedPlatforms(game[i+'.($_GET['page']-1)*16 .'].platforms,list[1][i]);

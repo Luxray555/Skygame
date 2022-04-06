@@ -62,7 +62,7 @@
                     <div class="Game" id="Game">';
             if(isset($_GET['idJeu']) && is_numeric($_GET['idJeu'])){
               $stmt = $bdd -> prepare("SELECT jeux.idJeu,transactionsJeu.cleJeu FROM ((utilisateurs INNER JOIN transactionsJeu ON utilisateurs.idUtilisateur=transactionsJeu.idUtilisateur) INNER JOIN jeux ON transactionsJeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? AND jeux.idJeu=?");
-              $stmt ->execute([$user['idUtilisateur'],$_GET['idJeu']]);
+              $stmt->execute([$user['idUtilisateur'],$_GET['idJeu']]);
               $verifJeu = $stmt->fetch();
               if($verifJeu!=false){
                 require_once "RessourceAPI/IGDB/src/class.igdb.php";
