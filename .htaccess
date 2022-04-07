@@ -1,3 +1,10 @@
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+Options -Indexes 
+
 Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
@@ -8,3 +15,5 @@ RewriteRule ^ %1 [R=302,L,NE]
 
 RewriteCond %{REQUEST_FILENAME}.php -f [NC]
 RewriteRule ^ %{REQUEST_URI}.php [L]
+
+ErrorDocument 404 http://%{HTTP_HOST}/Skygame/NotFound
