@@ -133,6 +133,7 @@
                 echo '<h2>Vous ne possédez pas ce jeu ou ce jeu n'."'".'existe pas</h2>
                       <style>
                       .Game{
+                        height: 80vh;
                         display:unset;
                         position:relative;
                         max-height:100%;
@@ -153,10 +154,9 @@
               echo '<h2>Vous ne possédez pas ce jeu ou ce jeu n'."'".'existe pas</h2>
                       <style>
                       .Game{
+                        height: 80vh;
                         display:unset;
                         position:relative;
-                        max-height:100%;
-                        min-height:200px;
                       }
                       .Game h2{
                         text-align: center;
