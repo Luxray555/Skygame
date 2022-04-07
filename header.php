@@ -1,6 +1,6 @@
 <?php
 $page = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Support", 4 => "Inscription", 5 => "Connexion", 6 => "Profil", 7 => "PageJeu",8 => "Boutique",9=>"VerifMail",10=>"Amis");
-$css = array( 0 => "index", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Support", 4 => "Inscription", 5 => "Connexion", 6 => "Profil", 7 => "PageJeu",8 => "Boutique",9=>"VerifMail",10=>"Amis");
+$css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Support", 4 => "Inscription", 5 => "Connexion", 6 => "Profil", 7 => "PageJeu",8 => "Boutique",9=>"VerifMail",10=>"Amis");
 ?>
 <head>
     <meta charset="UTF-8">
