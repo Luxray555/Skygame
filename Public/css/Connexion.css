@@ -8,9 +8,7 @@ body{
 }
 .wrapper{
     height:100vh;
-    width:100vw;
     text-align:center;
-    line-height:400px;
     background-repeat:repeat;
     background-position: center;
     background-size: 140vw,auto,cover;
