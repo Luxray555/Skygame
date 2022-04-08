@@ -84,8 +84,6 @@
                 header($text);
         }
     }
-    
-    $header = 1;
     include "header.php";
 ?>
     <main class="main close">

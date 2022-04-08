@@ -24,7 +24,6 @@
 <!doctype html>
 <html lang="fr">
 <?php
-    $header = 2;
     include "header.php";
 ?>
     <main class="main close">

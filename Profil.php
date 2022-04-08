@@ -24,7 +24,6 @@ if(isset($_GET['idUtilisateur'])){
 <!DOCTYPE html>
 <html lang="fr">
   <?php
-  $header=6;
   include "header.php";
   ?>
   <main class="main close">

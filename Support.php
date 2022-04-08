@@ -19,7 +19,6 @@ if(isset($_SESSION['idUtilisateur'])){
 <html lang="fr">
   
   <?php
-  $header=3;
   include "header.php";
   ?>
     <main class="main close">

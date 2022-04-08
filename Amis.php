@@ -14,7 +14,6 @@
         $user = informationUser($_SESSION['idUtilisateur'],$bdd);
       }
     
-    $header = 10;
     include "header.php";
 ?>
     <main class="main close">

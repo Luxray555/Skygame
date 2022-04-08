@@ -23,7 +23,6 @@ if(isset($_POST['email']) && isset($_POST['mdp'])){
 	        $_SESSION['timestamp'] = time();
 	        header('Location: Chargement.php');
         }else {
-            $header=9;
             include "header.php";
             echo '<main class="main close">
             <form class="verification-box" action="" method="POST">

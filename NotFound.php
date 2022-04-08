@@ -15,7 +15,6 @@
     }
 ?>
 <?php
-    $header=0;
     include "header.php";
 ?>
 <main class="main close">

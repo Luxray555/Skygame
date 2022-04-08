@@ -1,6 +1,8 @@
 <?php
-$page = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Support", 4 => "Inscription", 5 => "Connexion", 6 => "Profil", 7 => "PageJeu",8 => "Boutique",9=>"VerifMail",10=>"Amis");
-$css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Support", 4 => "Inscription", 5 => "Connexion", 6 => "Profil", 7 => "PageJeu",8 => "Boutique",9=>"VerifMail",10=>"Amis");
+$page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10);
+if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
+  $header=$page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]];
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -9,8 +11,8 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
     <title>
       Skygame
       <?php
-      if($header!=7 && $header!=6){
-        echo ' - '.$page[$header];
+      if((isset($header) && $header!=7 && $header!=6) || !isset($header)){
+        echo ' - '.explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0];
       }else{
         if($header==7 && isset($game)){
           echo ' - '.$game[0]->name;
@@ -21,7 +23,12 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
       }
       ?></title>
     <link rel="stylesheet" type="text/css" href="Public/css/General.css">
-    <link rel="stylesheet" type="text/css" href="Public/css/<?php echo $css[$header]?>.css">
+    <?php
+    if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
+      echo '<link rel="stylesheet" type="text/css" href="Public/css/'. explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0].'.css">';
+    }
+    ?>
+    
   </head>
   <body>
   <?php
@@ -63,7 +70,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link" <?php
-                    if($header==0){
+                    if(isset($header) && $header==0){
                         echo 'id="active"';
                     }
                     ?>>
@@ -74,7 +81,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                     </li>
 
                     <li class="nav-link" <?php
-                    if($header==1){
+                    if(isset($header) && $header==1){
                         echo 'id="active"';
                     }
                     ?>>
@@ -86,7 +93,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                     <?php
                       if(isset($_SESSION['idUtilisateur']) && $user['verifMail']==1){
                         echo '<li class="nav-link"';
-                          if($header==2){
+                          if(isset($header) && $header==2){
                             echo 'id="active"';
                           }
                           echo '>
@@ -95,7 +102,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                                   </a>
                                 </li>';
                         echo '<li class="nav-link"';
-                          if($header==10){
+                          if(isset($header) && $header==10){
                              echo 'id="active"';
                           }
                           echo '>
@@ -104,7 +111,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                             </a>
                           </li>';
                         echo '<li class="nav-link"';
-                          if($header==8){
+                          if(isset($header) && $header==8){
                             echo 'id="active"';
                           }
                           echo '>
@@ -116,7 +123,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                     ?>
 
                     <li class="nav-link" <?php
-                    if($header==3){
+                    if(isset($header) && $header==3){
                         echo 'id="active"';
                     }
                     ?>>
@@ -135,7 +142,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                   }
                   echo '<div style="margin-bottom:20px;" class="bottom-content">
                           <li ';
-                    if($header==6 && $_SESSION['idUtilisateur']==$_GET['idUtilisateur']){
+                    if(isset($header) && $header==6 && $_SESSION['idUtilisateur']==$_GET['idUtilisateur']){
                         echo 'id="active"';
                     }
                   echo '>
@@ -156,7 +163,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                 }else{
                   echo '<div class="bottom-content">
                           <li ';
-                  if($header==4){
+                  if(isset($header) && $header==4){
                     echo 'id="active"';
                   }
                   echo '>
@@ -166,7 +173,7 @@ $css = array( 0 => "Accueil", 1 => "Catalogue", 2 => "Bibliotheque", 3 => "Suppo
                           </a>
                         </li>
                         <li ';
-                    if($header==5){
+                    if(isset($header) && $header==5){
                         echo 'id="active"';
                     }
                         echo '>

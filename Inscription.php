@@ -35,7 +35,6 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html lang="fr">
   <?php
-  $header=4;
   include "header.php";
   ?>
     <main class="main close">

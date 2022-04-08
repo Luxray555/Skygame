@@ -67,7 +67,6 @@
 <!doctype html>
 <html lang="fr">
 <?php
-    $header = 7;
     include "header.php";
 ?>
     <main class="main close">
