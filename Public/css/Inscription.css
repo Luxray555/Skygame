@@ -8,10 +8,11 @@ body{
 }
 .wrapper{
     height:100vh;
+    width: 100vw;
     text-align:center;
     background-repeat:repeat;
     background-position: center;
-    background-size: 140vw,auto,cover;
+    background-size: 140vw,cover,cover;
 }
 form {
     top: 0%;

@@ -8,6 +8,7 @@ body{
 }
 .wrapper{
     height:100vh;
+    width: 100vw;
     text-align:center;
     background-repeat:repeat;
     background-position: center;
@@ -19,7 +20,7 @@ form {
     transform: translateX(-50%);
     position: absolute;
     width: 50vw;
-    margin: 25vh auto;
+    margin: 15vw auto;
     background-color: rgba(59, 59, 59, 0.6);
     padding: 2vh 3vw;
     border-radius: 1vh;

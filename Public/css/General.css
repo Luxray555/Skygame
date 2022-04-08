@@ -229,6 +229,7 @@ header .image-text .coin img{
     flex-direction: column;
     justify-content: space-between;
     overflow-x: none;
+    overflow-y: auto;
 }
 .menu-bar::-webkit-scrollbar{
     display: none;
