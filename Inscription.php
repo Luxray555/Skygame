@@ -14,22 +14,6 @@ if(isset($_SESSION['idUtilisateur'])){
     }
     $user = informationUser($_SESSION['idUtilisateur'],$bdd);
 }
-if(!empty($_POST)){
-	$code=randomVerifCode();
-    $to   = $_POST['email'];
-    $from = 'skygameprojet@gmail.com';
-    $name = 'SkyGame Corporation';
-    $subj = 'SkyGame Mail Verification';
-    $msg = '<div style="background-color:#070831;padding:20px;">
-                <h1 style="text-align:center;margin-bottom:50px;color:white">SkyGame</h1>
-                <p style="text-align:center;font-size:18px;color:white;"><span style="font-weight:bold;">Code de verification : </span><span style="border:solid white 2px;padding:5px;border-radius:5px;">'.$code.'</span></p>
-            </div>';
-    $error=smtpmailer($to,$from, $name ,$subj, $msg);
-	$insertUser = $bdd->prepare("INSERT INTO utilisateurs(civilite,nom,prenom,pseudo,email,password,codeVerifMail)VALUES(?,?,?,?,?,?,?)");
-	$insertUser->execute(array(substr($_POST['civilite'],0,1),substr(htmlspecialchars($_POST["nom"]),0,25),substr(htmlspecialchars($_POST["prenom"]),0,25),substr(htmlspecialchars($_POST["pseudo"]),0,15),substr(htmlspecialchars($_POST["email"]),0,255),substr(sha1($_POST["mdp"]),0,50),$code));
-	$_SESSION["chargement"]= "Création du compte";
-	header('Location: Chargement.php');
-}
 
 ?>
 <!DOCTYPE html>
@@ -43,10 +27,10 @@ if(!empty($_POST)){
 			$_SESSION['text']='deconnexion';
                 echo '<div class="wrapper">
 					</div>
-				<form id="form-inscription" method="POST">
+				<form id="form-inscription" method="POST" action="FonctionPHP/AddInscription.php">
 						<h1>S'."'".'inscrire</h1>
 						<div class="inputs">
-							<label>
+							<label class="civilite">
 								Civilité :
 								<input type="radio" name="civilite" title="M." autocomplete="off" value="0" required minlength="4" maxlength="25" checked>M.
 								<input type="radio" name="civilite" title="Mme." autocomplete="off" value="1" required minlength="4" maxlength="25">Mme.

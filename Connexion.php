@@ -24,7 +24,7 @@ if(isset($_SESSION['idUtilisateur'])){
 		if(!isset($user['idUtilisateur'])){
 			echo '<div class="wrapper">
 				</div>
-		<form id="form-connexion" method="POST" action="verifMail.php">
+		<form id="form-connexion" method="POST" action="VerifMail">
      				<h1>Se connecter</h1>
 						<label>
 							<input id="email" class="input" type="email" name="email" placeholder="email@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="on" required/>

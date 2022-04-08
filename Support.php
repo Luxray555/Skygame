@@ -22,28 +22,6 @@ if(isset($_SESSION['idUtilisateur'])){
   include "header.php";
   ?>
     <main class="main close">
-	<h1>Support</h1>
-		<div class="top">
-    
-     
-     <div class="supportbox">
-        <strong>
-			<p>Besoin d'aide ?</p>
-		</strong>
-        <br>
-        <strong>
-			<p>Séléctionnez dans les aides disponibles celles qui vous conviendra le plus :</p>
-		</strong>
-        <br><br>
-        <div class="BOUTON">
-        <button>Assistance technique</button>
-        <br><br>
-    	<button>Contacter-nous</button>
-        <br><br>
-        <button>Donner votre avis</button>
-      </div>
-
-</div>
 	<?php
 	include "footer.php";
 	?>
