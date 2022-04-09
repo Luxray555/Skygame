@@ -18,6 +18,15 @@
     include "header.php";
 ?>
 <main class="main close">
+  <div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>404</h1>
+				<h2>Page Introuvable</h2>
+			</div>
+			<a href="Accueil.php">Accueil</a>
+		</div>
+	</div>
 <?php
     include "footer.php";
 ?>

@@ -22,58 +22,54 @@ if(isset($_SESSION['idUtilisateur'])){
   include "header.php";
   ?>
     <main class="main close">
+		<?php
+		if(isset($_SESSION['notif'])){
+			echo '<div id="error" style="background-color:green"><p class="error">'.$_SESSION['notif'].'</p></div>';
+		}
+		?>
+		<h1>Support</h1>
+		<div class="mail">
+			<h2>Nous contactez par mail</h2>
+			<fieldset>
+			<form action="FonctionPHP/EnvoieMailSupport.php" method="POST">
+				<label>
+					Adresse email :
+					<input id="email" class="input" type="email" name="email" placeholder="email@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="on" required/>
+				</label><br>
+				<label>
+					Sujet :
+					<select name="sujet">
+						<option value="Jeu">Jeu</option>
+						<option value="Skycoin">Skycoin</option>
+						<option value="Connexion">Connexion</option>
+						<option value="Inscription">Inscription</option>
+						<option value="Autres">Autres</option>
+					</select>
+				</label><br>
+				<label>Description :<br><textarea name="description" resize="none" required></textarea></label><br>
+				<div class="button">
+					<input type="submit" value="Envoyer">
+				</div>
+			</form>
+			</fieldset>
+		</div>
+		<div class="tel">
+			<h2>Nous contactez par téléphone</h2>
+			<fieldset>
+				<h3><span>Numéro Tél :</span> <span class="num">02 22 22 22 22</span></h3>
+			</fieldset>
+		</div>
 	<?php
 	include "footer.php";
 	?>
     </main>
 	</body>
 	<script>
-		function Afficher(input,eye){
-			if (input.type == "password"){
-				input.type = "text";
-				eye.src = "Public/Images/icon/eye-open.png";
-			} else{
-				input.type = "password";
-				eye.src = "Public/Images/icon/eye-close.png"
-			}
-		}
-		document.getElementById("c1").onclick = function(){Afficher(document.getElementById('mdp'),document.getElementById('eye1'))};
-		document.getElementById("c2").onclick = function(){Afficher(document.getElementById('mdpv'),document.getElementById('eye2'))};
-		form = document.getElementById("form-inscription");
-
-		form.addEventListener ("submit", function(e) {
-			e.preventDefault();
-			document.getElementById("error").style.opacity = 0;
-			document.getElementById("error").style.transform = "scale(1)";
-  			var password = document.getElementById("mdp"),
-  				repeat_password = document.getElementById("mdpv"),
-				httpr = new XMLHttpRequest(),
-				pseudo = document.getElementById("pseudo").value,
-				email = document.getElementById("email").value;
-				console.log(pseudo+" "+email);
-  			if (password.value != repeat_password.value) {
-    			repeat_password.setCustomValidity("Mot de passe non identique");
-    			return false;
-  			}
-			httpr.open("POST", "FonctionPHP/IdentificationVerification.php");
-			httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			httpr.send("pseudo="+pseudo+"&email="+email);
-			httpr.onload = function(){
-				console.log(this);
-				document.getElementById("error").innerHTML = httpr.responseText;
-				if(httpr.responseText==""){
-					form.submit();
-				}else{
-					setTimeout(() => {
-						document.getElementById("error").style.opacity = 1;
-						document.getElementById("error").style.transform = "scale(1.2)";
-					}, 100);
-				}
-			}
-		})
-		document.getElementById("mdpv").onchange = function(e) {
-  			e.target.setCustomValidity('')
-		}
-
+		<?php
+    		if(isset($_SESSION['notif'])){
+      			notifJs($_SESSION['notif']);
+      			unset($_SESSION['notif']);
+    		}
+    	?>
 	</script>
 </html>

@@ -1,5 +1,5 @@
 <?php
-$page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10);
+$page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10,"NotFound" => 11);
 if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
   $header=$page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]];
 }
