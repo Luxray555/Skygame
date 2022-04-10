@@ -24,7 +24,13 @@ if(isset($_SESSION['idUtilisateur'])){
     <main class="main close">
 		<?php
 		if(isset($_SESSION['notif'])){
-			echo '<div id="error" style="background-color:green"><p class="error">'.$_SESSION['notif'].'</p></div>';
+			echo '<div id="error" style="background-color:';
+			if($_SESSION['notif']=="Erreur"){
+				echo "red";
+			}else{
+				echo "green";
+			}
+			echo '"><p class="error">'.$_SESSION['notif'].'</p></div>';
 		}
 		?>
 		<h1>Support</h1>
