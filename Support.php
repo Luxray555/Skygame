@@ -17,7 +17,6 @@ if(isset($_SESSION['idUtilisateur'])){
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-  
   <?php
   include "header.php";
   ?>
@@ -62,7 +61,7 @@ if(isset($_SESSION['idUtilisateur'])){
 		<div class="tel">
 			<h2>Nous contactez par téléphone</h2>
 			<fieldset>
-				<h3><span>Numéro Tél :</span> <span class="num">02 22 22 22 22</span></h3>
+				<h3><span>Numéro Tél :</span> <span class="num" ><a href="tel:#" style="color:black;">02 22 22 22 22</a></span></h3>
 			</fieldset>
 		</div>
 	<?php

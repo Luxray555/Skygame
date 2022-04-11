@@ -84,6 +84,7 @@ body{
   transition: all 1s ease-out;
 }
 .info{
+  transition: all .5s;
   background-color: #1e3268;
   border-radius: 10px;
   padding: 20px 5%;
@@ -117,11 +118,13 @@ body{
   font-size: 20px;
 }
 .nous{
+  transition: all .5s;
   border-radius: 10px;
   padding: 10px 10%;
   background-color: #1e3268;
 }
 .nous .part{
+  transition: all .5s;
   text-align: center;
   display: flex;
   justify-content: space-between;

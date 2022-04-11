@@ -32,12 +32,86 @@
       <div class="content">
     </section>
     <div class="sec" id="sec">
-      <h2><img src="Public/Images/icon/LogoSkyGame.gif" alt="Logo Skygame"></h2>
+      <div class="imgGif"><img src="Public/Images/icon/LogoSkyGame.gif" alt="Logo Skygame"></div>
       <div class="home-block">
         <img class="img1" src="Public/Images/background/no-screenshot-image.png">
         <p class="text1">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
         <p class="text2">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
         <img class="img2" src="Public/Images/background/no-screenshot-image.png">
+      </div>
+      <div class="info">
+      <h2>Statistique(s)</h2>
+        <div class="part">
+          <div>
+            <h3><?php
+            $stmt=$bdd->prepare("SELECT COUNT(idUtilisateur) FROM utilisateurs");
+            $stmt->execute();
+            echo $stmt->fetch()[0];
+            ?></h3>
+            <h4>Utilisateur(s)</h4>
+          </div>
+          <div>
+            <h3><?php
+            $stmt=$bdd->prepare("SELECT COUNT(idTransactionJeu) FROM transactionsJeu");
+            $stmt->execute();
+            echo $stmt->fetch()[0];
+            ?></h3>
+            <h4>Clé(s) acheté</h4>
+          </div>
+          <div>
+            <h3><?php
+            $stmt=$bdd->prepare("SELECT ROUND((SELECT COUNT(idTransactionJeu) FROM transactionsJeu)/(SELECT COUNT(idUtilisateur) FROM utilisateurs),2)");
+            $stmt->execute();
+            echo $stmt->fetch()[0];
+            ?></h3>
+            <h4>Clé(s) acheté par personne</h4>
+          </div>
+          <div>
+            <h3><?php
+            $stmt=$bdd->prepare("SELECT SUM(totalSkycoin) FROM transactionsSkycoin INNER JOIN skycoins ON transactionsSkycoin.idSkycoin=skycoins.idSkycoin");
+            $stmt->execute();
+            echo $stmt->fetch()[0];
+            ?></h3>
+            <h4>Skycoin(s) acheté</h4>
+          </div>
+        </div>
+      </div>
+      <div class="nous">
+        <h2>Qui sommes nous ?</h2>
+        <div class="part">
+          <div>
+            <img src="Public/Images/background/nous1.png">
+            <h3>Votre vision, notre savoir faire</h3>
+            <p>rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg
+              rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg
+            </p>
+          </div>
+          <div>
+            <img src="Public/Images/background/nous2.png">
+            <h3>Vos données, notre écosystème</h3>
+            <p>rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg
+              rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg</p>
+          </div>
+          <div>
+            <img src="Public/Images/background/nous3.png">
+            <h3> Votre stratégie, notre expertise</h3>
+            <p>rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg
+              rtzhsttrzghzreiuhguitzreg
+              trzhrzthtrzh
+              rzthtzrhtgzrhttzrhg</p>
+          </div>
+        </div>
+        <i></i>
       </div>
     </div>
     <?php
@@ -71,10 +145,12 @@
         reset: true,
         distance: '60px',
         duration: 2500,
+        opacity: 0
       });
       ScrollReveal().reveal('h2 img', { delay: 100, origin: 'top' });
       ScrollReveal().reveal('.img1, .text2', { delay: 100, origin: 'left' });
       ScrollReveal().reveal('.text1, .img2', { delay: 100, origin: 'right' });
+      ScrollReveal().reveal('.info,.info .part,.nous,.nous .part', {distance: '200px',interval: 200, delay: 100, origin: 'bottom' });
     </script>
 
 </html>

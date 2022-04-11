@@ -14,9 +14,11 @@
       $user = informationUser($_SESSION['idUtilisateur'],$bdd);
     }
 ?>
-<?php
-    include "header.php";
-?>
+<!doctype html>
+<html lang="fr">
+  <?php
+  include "header.php";
+  ?>
 <main class="main close">
   <div id="notfound">
 		<div class="notfound">

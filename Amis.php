@@ -13,9 +13,12 @@
         }
         $user = informationUser($_SESSION['idUtilisateur'],$bdd);
       }
-    
-    include "header.php";
 ?>
+<!doctype html>
+<html lang="fr">
+  <?php
+  include "header.php";
+  ?>
     <main class="main close">
         <h1>Amis</h1>
         <div class="container">

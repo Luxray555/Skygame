@@ -84,8 +84,12 @@
                 header($text);
         }
     }
-    include "header.php";
 ?>
+<!doctype html>
+<html lang="fr">
+  <?php
+  include "header.php";
+  ?>
     <main class="main close">
         <div class="top">
             <h1>Catalogue</h1>
