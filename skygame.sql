@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 06 avr. 2022 à 16:41
+-- Généré le : lun. 11 avr. 2022 à 10:37
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -58,14 +58,14 @@ CREATE TABLE IF NOT EXISTS `amis` (
   PRIMARY KEY (`idAmi`),
   KEY `idUtilisateur2` (`idUtilisateur2`) USING BTREE,
   KEY `idUtilisateur1` (`idUtilisateur1`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `amis`
 --
 
 INSERT INTO `amis` (`idAmi`, `demande`, `dateAmi`, `idUtilisateur1`, `idUtilisateur2`) VALUES
-(2, 0, '2022-04-06 00:34:56', 22, 23);
+(1, 1, '2022-04-08 23:00:42', 40, 22);
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,26 @@ INSERT INTO `jeux` (`idJeu`, `nomJeu`, `idImageJeu`, `noteMoyenne`, `prixJeu`) V
 (182125, 'Far Cry 6: Insanity', 'co48um', NULL, 2700),
 (186234, 'Grand Mountain Adventure: Wonderlands', 'co4it8', NULL, 2600),
 (186597, 'Strange Horticulture', 'co4bsb', 4, 600),
-(188661, 'MLB The Show 22', 'co4fcv', NULL, 400);
+(188661, 'MLB The Show 22', 'co4fcv', NULL, 400),
+(191404, 'Chrono Cross: The Radical Dreamers Edition', 'co4hbr', NULL, 600),
+(194737, 'Demeo: PC Edition', 'co4kxh', NULL, 5800);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `idMessage` int(11) NOT NULL AUTO_INCREMENT,
+  `dateMessage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `idUtilisateur1` int(11) NOT NULL,
+  `idUtilisateur2` int(11) NOT NULL,
+  PRIMARY KEY (`idMessage`),
+  KEY `idUtilisateur1` (`idUtilisateur1`) USING BTREE,
+  KEY `idUtilisateur2` (`idUtilisateur2`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -172,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `transactionsjeu` (
   PRIMARY KEY (`idTransactionJeu`),
   KEY `idJeu` (`idJeu`),
   KEY `idUtilisateur` (`idUtilisateur`,`idJeu`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `transactionsjeu`
@@ -180,7 +199,8 @@ CREATE TABLE IF NOT EXISTS `transactionsjeu` (
 
 INSERT INTO `transactionsjeu` (`idTransactionJeu`, `cleJeu`, `dateTransaction`, `idUtilisateur`, `idJeu`) VALUES
 (3, 'CUG3E86LXJJ0', '2022-03-28 17:12:19', 22, 182125),
-(4, 'ATZ22RU8ONQK', '2022-03-28 18:16:53', 22, 1905);
+(4, 'ATZ22RU8ONQK', '2022-03-28 18:16:53', 22, 1905),
+(5, '0PK3NRLMUG7U', '2022-04-10 22:49:27', 22, 186597);
 
 -- --------------------------------------------------------
 
@@ -197,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `transactionsskycoin` (
   PRIMARY KEY (`idTransactionSkyCoin`),
   KEY `idSkycoin` (`idSkycoin`) USING BTREE,
   KEY `idUtilisateur` (`idUtilisateur`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `transactionsskycoin`
@@ -230,7 +250,16 @@ INSERT INTO `transactionsskycoin` (`idTransactionSkyCoin`, `dateTransaction`, `i
 (40, '2022-04-04 16:29:43', 22, 8),
 (41, '2022-04-05 14:14:11', 22, 8),
 (42, '2022-04-05 14:14:15', 22, 8),
-(43, '2022-04-05 15:02:32', 37, 1);
+(43, '2022-04-05 15:02:32', 37, 1),
+(44, '2022-04-06 17:06:17', 22, 1),
+(45, '2022-04-06 17:06:26', 22, 8),
+(46, '2022-04-07 21:57:48', 22, 1),
+(47, '2022-04-08 21:00:46', 40, 1),
+(48, '2022-04-09 18:26:03', 22, 1),
+(49, '2022-04-09 18:26:08', 22, 8),
+(50, '2022-04-10 17:27:21', 22, 1),
+(51, '2022-04-11 09:16:35', 22, 1),
+(52, '2022-04-11 09:16:44', 22, 8);
 
 -- --------------------------------------------------------
 
@@ -256,16 +285,20 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `verifMail` int(1) NOT NULL DEFAULT '0',
   `codeVerifMail` int(4) DEFAULT NULL,
   PRIMARY KEY (`idUtilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `civilite`, `nom`, `prenom`, `email`, `password`, `pseudo`, `dateCreation`, `photo`, `banniere`, `description`, `skyCoin`, `lastRecompence`, `verifMail`, `codeVerifMail`) VALUES
-(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 3, 1, 'C\'est moi Luxreyli\r\nlet\'s go', 272500, '2022-04-04 16:26:02', 1, 2466),
+(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 2, 1, '', 311400, '2022-04-11 09:16:35', 1, 2466),
 (23, 0, 'dujyzfguyj', 'dyagzujyfhd', 'dakew60144@jo6s.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'dszujagfdujhy', '2022-03-28 18:19:27', 1, 3, NULL, 100, NULL, 1, 181),
-(37, 0, 'gvedfsgvedgvefds', 'egved', 'weporix683@royins.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'edgvedsgvf', '2022-04-05 15:01:43', NULL, 1, NULL, 200, '2022-04-05 15:02:32', 1, 9386);
+(37, 0, 'gvedfsgvedgvefds', 'egved', 'weporix683@royins.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'edgvedsgvf', '2022-04-05 15:01:43', NULL, 1, NULL, 200, '2022-04-05 15:02:32', 1, 9386),
+(38, 1, 'szdfgvsedqgedsg', 'rshrsdgh', 'derthrt@rzhrt.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'hrdsehredsh', '2022-04-08 20:39:46', NULL, 1, NULL, 100, NULL, 0, 9561),
+(39, 0, 'dfsqgsqg', 'deqsgdqesgf', 'gsedqgszqedg@edgszq.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'sqgedsqfgsed', '2022-04-08 20:40:10', NULL, 1, NULL, 100, NULL, 0, 3976),
+(40, 0, 'dsgdrfg', 'eqdsgesdg', 'cifas16120@yeafam.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'rdetfghs', '2022-04-08 20:59:43', 1, 1, NULL, 200, '2022-04-08 21:00:46', 1, 2264),
+(43, 0, 'sdqzfzsef', 'zsefgvsedgv', 'dopahi6082@whwow.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'esgveszgv', '2022-04-08 22:27:11', NULL, 1, NULL, 100, NULL, 1, 3653);
 
 --
 -- Contraintes pour les tables déchargées
@@ -277,6 +310,13 @@ INSERT INTO `utilisateurs` (`idUtilisateur`, `civilite`, `nom`, `prenom`, `email
 ALTER TABLE `amis`
   ADD CONSTRAINT `amis_ibfk_1` FOREIGN KEY (`idUtilisateur1`) REFERENCES `utilisateurs` (`idUtilisateur`),
   ADD CONSTRAINT `amis_ibfk_2` FOREIGN KEY (`idUtilisateur2`) REFERENCES `utilisateurs` (`idUtilisateur`);
+
+--
+-- Contraintes pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`idUtilisateur1`) REFERENCES `utilisateurs` (`idUtilisateur`),
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`idUtilisateur2`) REFERENCES `utilisateurs` (`idUtilisateur`);
 
 --
 -- Contraintes pour la table `notesjeu`
