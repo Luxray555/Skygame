@@ -46,7 +46,7 @@ body{
 .accueil img#mountains_front{
   z-index: 10;
 }
-h2{
+.sec .imgGif{
   display: flex;
 }
 #btn{
@@ -66,24 +66,84 @@ h2{
   padding: 100px 50px 100px 50px;
   background: #060425;
 }
-.sec h2 img{
+.sec .imgGif img{
   margin-bottom: 10px;
   color: #fff;
   max-width: 300px;
   min-width: 100px;
 }
-.sec p{
+.sec .home-block p{
   font-size: 1.2em;
   color: #fff;
 }
 
 .home-block{
   margin-top: 100px;
-  display: grid;
+  display: grid; 
   grid-gap: 10px;
   transition: all 1s ease-out;
 }
-
+.info{
+  background-color: #1e3268;
+  border-radius: 10px;
+  padding: 20px 5%;
+  margin: 50px auto 100px auto;
+}
+.info h2,.nous h2{
+  text-align: center;
+  color:white;
+  text-transform: uppercase;
+  font-size:28px;
+  margin-bottom: 40px;
+}
+.info .part{
+  transition: all .5s;
+  width: 100%;
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+}
+.info .part div{
+  background-color: #14275a;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+.info .part div h3{
+  font-size: 30px;
+}
+.info .part div h4{
+  font-size: 20px;
+}
+.nous{
+  border-radius: 10px;
+  padding: 10px 10%;
+  background-color: #1e3268;
+}
+.nous .part{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.nous .part div img{
+  max-width: 100%;
+  min-width: 100px;
+}
+.nous .part div h3{
+  color: white;
+  margin: 10px auto;
+  text-align: center;
+  max-width: 200px;
+  min-width: 100px;
+}
+.nous .part div p{
+  color: #e2e2e2;
+  margin: 10px auto;
+  text-align: center;
+  max-width: 250px;
+  min-width: 100px;
+}
 @media (max-width: 500px){
   .slider .slide .info h2{
     font-size: 1.8em;
@@ -143,5 +203,12 @@ h2{
   }
   .text2{
     grid-row: 4;
+  }
+  .info .part,.nous .part {
+    flex-direction: column;
+  }
+  .info .part div,.nous .part div{
+    text-align: center;
+    margin: 20px 0px;
   }
 }

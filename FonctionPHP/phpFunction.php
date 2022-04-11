@@ -91,8 +91,11 @@ function verifyAccessToken($bdd){
 }
 
 function notifJs($value){
-  echo 'document.getElementById("error").style.opacity = 1;
-		document.getElementById("error").style.transform = "scale(1.2)";
+  echo '
+    setTimeout(() => {
+      document.getElementById("error").style.opacity = 1;
+		  document.getElementById("error").style.transform = "scale(1.2)";
+    },100);
 		setTimeout(() => {
 			document.getElementById("error").style.opacity = 0;
 			document.getElementById("error").style.transform = "scale(0.1) translateY(-50%)";
