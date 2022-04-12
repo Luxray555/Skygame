@@ -38,7 +38,7 @@ if(isset($_SESSION['idUtilisateur'])){
 						</label>
 					<a href="Inscription.php"><p class="inscription">Je n'."'".'ai pas de <span>compte</span>. Je m'."'".'en <span>crée</span> un.</p></a>
 					<div align="center">
-						<input type="submit" name="envoi" value="Connexion" autocomplete="off">
+						<input id="bouton-connexion" type="submit" name="envoi" value="Connexion" autocomplete="off">
 					</div>
 		  		</form>
 				<div id="error"></div>'; 
@@ -95,13 +95,13 @@ if(isset($_SESSION['idUtilisateur'])){
 	})();
 	</script>
 	<script>
-		form = document.getElementById('form-connexion');
-		var error= true,
-			first = true;
+		const form = document.getElementById('form-connexion'),
+			bouton = document.getElementById('bouton-connexion');
+
+		let	interalErrorId = null,
+			timeoutErrorId = null;
 		form.addEventListener ("submit", function(e) {
 			e.preventDefault();
-			if(error==true){
-				error=false;
 				var httpr = new XMLHttpRequest(),
 				email = document.getElementById("email").value,
 				mdp = document.getElementById("mdp").value;
@@ -113,29 +113,27 @@ if(isset($_SESSION['idUtilisateur'])){
 					if(httpr.responseText==""){
 						form.submit();
 					}else{
-						end_time = performance.now()+5000;
+						bouton.disabled=true;
 						document.getElementById("error").style.opacity = 1;
 						document.getElementById("error").style.transform = "scale(1.2)";
-						setTimeout(() => {
+						now_time = 5;
+						document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
+						interalErrorId = setInterval(function(){
+							now_time--;
+							document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
+						},1000);
+						timeoutErrorId = setTimeout(() => {
+							bouton.disabled=false;
+							clearInterval(interalErrorId);
+							interalErrorId = null;
+							clearTimeout(timeoutErrorId);
+							timeoutErrorId = null;
 							document.getElementById("error").style.opacity = 0;
 							document.getElementById("error").style.transform = "scale(0.1) translateY(-50%)";
-							error=true;
 							document.getElementById("error").removeChild(document.querySelector("#error .error"));
-							first = true
 						},5000);
 					}
 				}
-			}else{
-				now_time = performance.now();
-				if(first==true){
-					document.getElementById("error").innerHTML += '<p class="time_error">Réssayer dans '+(Math.round((end_time-now_time)/1000))+" seconde(s)</p>";
-					first=false
-				}else{
-					document.querySelector(".time_error").innerHTML = 'Réssayer dans '+(Math.round((end_time-now_time)/1000))+" seconde(s)";
-				}
-				
-				
-			}
 		})
 	</script>
 </html>

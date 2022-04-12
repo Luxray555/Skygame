@@ -2,7 +2,7 @@
 require_once "Setup/database.php";
 session_start();
 require "FonctionPHP/phpFunction.php";
-if(isset($_POST['email']) && isset($_POST['mdp'])){
+if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 	$stmt = $bdd->prepare("SELECT civilite,idUtilisateur,email,pseudo,password,skyCoin,verifMail,codeVerifMail FROM utilisateurs WHERE email=?");
     $stmt->execute([$_POST['email']]);
     $user = $stmt->fetch();

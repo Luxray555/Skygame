@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 11 avr. 2022 à 10:37
+-- Généré le : mar. 12 avr. 2022 à 22:14
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -58,14 +58,16 @@ CREATE TABLE IF NOT EXISTS `amis` (
   PRIMARY KEY (`idAmi`),
   KEY `idUtilisateur2` (`idUtilisateur2`) USING BTREE,
   KEY `idUtilisateur1` (`idUtilisateur1`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `amis`
 --
 
 INSERT INTO `amis` (`idAmi`, `demande`, `dateAmi`, `idUtilisateur1`, `idUtilisateur2`) VALUES
-(1, 1, '2022-04-08 23:00:42', 40, 22);
+(2, 1, '2022-04-12 01:19:14', 22, 23),
+(3, 1, '2022-04-12 15:31:18', 22, 40),
+(4, 1, '2022-04-12 16:12:12', 22, 37);
 
 -- --------------------------------------------------------
 
@@ -93,6 +95,7 @@ INSERT INTO `jeux` (`idJeu`, `nomJeu`, `idImageJeu`, `noteMoyenne`, `prixJeu`) V
 (11198, 'Rocket League', 'co4cfe', NULL, 5900),
 (45131, 'Grand Theft Auto V: Special Edition', 'co2nbc', NULL, 6200),
 (98077, 'Grand Theft Auto V: Premium Online Edition', 'co1twh', NULL, 1800),
+(163631, 'Slime Rancher: Plortable Edition', 'co3jlo', NULL, 1100),
 (163826, 'Blake: The Visual Novel', 'co3mcj', NULL, 7000),
 (182125, 'Far Cry 6: Insanity', 'co48um', NULL, 2700),
 (186234, 'Grand Mountain Adventure: Wonderlands', 'co4it8', NULL, 2600),
@@ -110,13 +113,47 @@ INSERT INTO `jeux` (`idJeu`, `nomJeu`, `idImageJeu`, `noteMoyenne`, `prixJeu`) V
 DROP TABLE IF EXISTS `messages`;
 CREATE TABLE IF NOT EXISTS `messages` (
   `idMessage` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(200) NOT NULL,
   `dateMessage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `idUtilisateur1` int(11) NOT NULL,
   `idUtilisateur2` int(11) NOT NULL,
   PRIMARY KEY (`idMessage`),
   KEY `idUtilisateur1` (`idUtilisateur1`) USING BTREE,
   KEY `idUtilisateur2` (`idUtilisateur2`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `messages`
+--
+
+INSERT INTO `messages` (`idMessage`, `message`, `dateMessage`, `idUtilisateur1`, `idUtilisateur2`) VALUES
+(1, 'zaefdzefeizuefz\r\ngegergergf', '2022-04-11 22:54:13', 22, 40),
+(2, 'ujqydsgfvujzsqfczesfgezrd', '2022-04-11 22:55:33', 40, 22),
+(3, 'ergrefgretfdghzrshg', '2022-04-12 12:36:37', 22, 40),
+(4, 'T\'es serieux là vient bagarre ????', '2022-04-12 12:37:12', 22, 40),
+(5, 'Ok', '2022-04-12 12:37:50', 22, 40),
+(6, 'Ok', '2022-04-12 12:38:31', 40, 22),
+(7, 'oiszqhydfikuzefezf', '2022-04-12 12:41:58', 22, 40),
+(8, 'Ton site pue la merde ', '2022-04-12 12:42:52', 40, 22),
+(9, 'dzfdytzefdzedfzefredgv', '2022-04-12 13:01:13', 22, 40),
+(10, 'dszfhdsqzgfjhzearf\r\nfegsfedgh\r\ndfgqshdqs', '2022-04-12 13:01:27', 22, 23),
+(11, 'ergfrfedgezg', '2022-04-12 13:03:54', 22, 23),
+(12, 'gfhsbsgfhfsrh', '2022-04-12 13:04:20', 22, 23),
+(13, 'dseqgdfqs', '2022-04-12 13:04:25', 22, 23),
+(14, 'efgfrergrfgthygtr', '2022-04-12 13:04:30', 22, 40),
+(15, 'Hdbdvdhdbd', '2022-04-12 13:05:47', 40, 22),
+(16, 'ertygtedhygtrhg\r\n', '2022-04-12 13:06:07', 22, 40),
+(17, 'Jdbdvdhbd', '2022-04-12 13:06:43', 40, 22),
+(18, 'ok fdp qaikdsgbsaqjhkd\r\neszfgsrdeg', '2022-04-12 13:25:39', 22, 40),
+(19, 'htfdhytfdchgdygdegtrd\r\noe', '2022-04-12 13:26:09', 22, 40),
+(20, 'hgbjhyuygtkuytuyijgtuikl\r\niutguytkg\r\niuytgujytguiytiu', '2022-04-12 13:26:58', 22, 40),
+(21, 'hrtgyrtfhgtrfhdfsrh', '2022-04-12 13:43:35', 22, 23),
+(22, 'dfghdgfhfgdhfdgh', '2022-04-12 13:55:34', 22, 40),
+(23, 'dfbhgdgfhdfgh', '2022-04-12 13:56:49', 22, 40),
+(24, 'zefrdedzsfezdsf', '2022-04-12 14:12:57', 22, 37),
+(25, 'sfvsdfs', '2022-04-12 14:13:01', 22, 37),
+(26, 'Luhjdsbjdvdbd', '2022-04-12 14:20:19', 40, 22),
+(27, 'dfskijuhgiksugfdsg', '2022-04-12 16:07:16', 22, 40);
 
 -- --------------------------------------------------------
 
@@ -217,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `transactionsskycoin` (
   PRIMARY KEY (`idTransactionSkyCoin`),
   KEY `idSkycoin` (`idSkycoin`) USING BTREE,
   KEY `idUtilisateur` (`idUtilisateur`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `transactionsskycoin`
@@ -259,7 +296,8 @@ INSERT INTO `transactionsskycoin` (`idTransactionSkyCoin`, `dateTransaction`, `i
 (49, '2022-04-09 18:26:08', 22, 8),
 (50, '2022-04-10 17:27:21', 22, 1),
 (51, '2022-04-11 09:16:35', 22, 1),
-(52, '2022-04-11 09:16:44', 22, 8);
+(52, '2022-04-11 09:16:44', 22, 8),
+(53, '2022-04-12 17:16:15', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -285,20 +323,30 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `verifMail` int(1) NOT NULL DEFAULT '0',
   `codeVerifMail` int(4) DEFAULT NULL,
   PRIMARY KEY (`idUtilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `civilite`, `nom`, `prenom`, `email`, `password`, `pseudo`, `dateCreation`, `photo`, `banniere`, `description`, `skyCoin`, `lastRecompence`, `verifMail`, `codeVerifMail`) VALUES
-(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 2, 1, '', 311400, '2022-04-11 09:16:35', 1, 2466),
+(22, 0, 'Dieumegard', 'Bilal', 'bilal.dieumegard@gmail.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray555', '2022-03-28 17:03:19', 1, 2, '', 311400, '2022-04-11 09:16:35', 1, 2466),
 (23, 0, 'dujyzfguyj', 'dyagzujyfhd', 'dakew60144@jo6s.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'dszujagfdujhy', '2022-03-28 18:19:27', 1, 3, NULL, 100, NULL, 1, 181),
 (37, 0, 'gvedfsgvedgvefds', 'egved', 'weporix683@royins.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'edgvedsgvf', '2022-04-05 15:01:43', NULL, 1, NULL, 200, '2022-04-05 15:02:32', 1, 9386),
 (38, 1, 'szdfgvsedqgedsg', 'rshrsdgh', 'derthrt@rzhrt.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'hrdsehredsh', '2022-04-08 20:39:46', NULL, 1, NULL, 100, NULL, 0, 9561),
 (39, 0, 'dfsqgsqg', 'deqsgdqesgf', 'gsedqgszqedg@edgszq.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'sqgedsqfgsed', '2022-04-08 20:40:10', NULL, 1, NULL, 100, NULL, 0, 3976),
-(40, 0, 'dsgdrfg', 'eqdsgesdg', 'cifas16120@yeafam.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'rdetfghs', '2022-04-08 20:59:43', 1, 1, NULL, 200, '2022-04-08 21:00:46', 1, 2264),
-(43, 0, 'sdqzfzsef', 'zsefgvsedgv', 'dopahi6082@whwow.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'esgveszgv', '2022-04-08 22:27:11', NULL, 1, NULL, 100, NULL, 1, 3653);
+(40, 0, 'dsgdrfg', 'eqdsgesdg', 'cifas16120@yeafam.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'MYOKI', '2022-04-08 20:59:43', 3, 3, 'Je suis le personnage test du site \r\n', 200, '2022-04-08 21:00:46', 1, 2264),
+(43, 0, 'sdqzfzsef', 'zsefgvsedgv', 'dopahi6082@whwow.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'esgveszgv', '2022-04-08 22:27:11', NULL, 1, NULL, 100, NULL, 1, 3653),
+(45, 0, 'zegfergf', 'refzgzefg', 'gerzheherh', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'zrgfrzeghrezshg', '2022-04-12 15:40:17', NULL, 1, NULL, 100, NULL, 0, 121),
+(46, 0, 'zdefqszdfg', 'ezaqgfrergf', 'egeregser', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'rzegerfzgerzsff', '2022-04-12 15:40:54', NULL, 1, NULL, 100, NULL, 0, 1826),
+(47, 0, 'qegqefdsg', 'fedqszgedzqsgfeszg', 'zfdezdefedzrsfgd', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'zsggzrghrzshgbr', '2022-04-12 15:41:58', NULL, 1, NULL, 100, NULL, 0, 5679),
+(48, 0, 'sdfgsfqdg', 'dfsgsdfgdfsg', 'sdjffds@sdfg.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray5', '2022-04-12 16:49:10', NULL, 1, NULL, 100, NULL, 0, 9109),
+(49, 0, 'qsfddsqfdsf', 'dsfsdfgsd', 'abcabc@dfdsf.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray', '2022-04-12 17:00:32', NULL, 1, NULL, 100, NULL, 0, 504),
+(50, 0, 'uyqdsefgu', 'uygdsqzuyjh', 'bimofin250@hhmel.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'uyzqfdsuy', '2022-04-12 17:14:42', 1, 2, NULL, 200, '2022-04-12 17:16:15', 1, 342),
+(51, 0, 'sdfvsd', 'gvsdqgvfdqsgv', 'ikgsqujd@sfgfds.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray55', '2022-04-12 22:06:56', NULL, 1, NULL, 100, NULL, 0, 8747),
+(52, 0, 'sdfvsd', 'gvsdqgvfdqsgv', 'ikgsqujd@sfgfds.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray55', '2022-04-12 22:06:57', NULL, 1, NULL, 100, NULL, 0, 3289),
+(53, 0, 'sdfvsd', 'gvsdqgvfdqsgv', 'ikgsqujd@sfgfds.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray55', '2022-04-12 22:06:58', NULL, 1, NULL, 100, NULL, 0, 5796),
+(54, 0, 'sdfvsd', 'gvsdqgvfdqsgv', 'ikgsqujd@sfgfds.com', 'f8c1d87006fbf7e5cc4b026c3138bc046883dc71', 'Luxray55', '2022-04-12 22:06:59', NULL, 1, NULL, 100, NULL, 0, 3590);
 
 --
 -- Contraintes pour les tables déchargées

@@ -84,7 +84,7 @@
             }
         echo '</div>
         </div>
-        <div class="mesgs">';
+        <div class="mesgs" id="msg">';
         $stmt=$bdd->prepare("SELECT * FROM amis WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) LIMIT 1");
         $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
         $verifAmi =$stmt->fetchAll();
