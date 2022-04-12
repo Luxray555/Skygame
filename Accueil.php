@@ -14,7 +14,7 @@
     $user = informationUser($_SESSION['idUtilisateur'],$bdd);
   }
   ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <?php
   include "header.php";
@@ -46,7 +46,12 @@
             <h3><?php
             $stmt=$bdd->prepare("SELECT COUNT(idUtilisateur) FROM utilisateurs");
             $stmt->execute();
-            echo $stmt->fetch()[0];
+            $nb = $stmt->fetch()[0];
+            if($nb !=false){
+              echo $nb;
+            }else{
+              echo 0;
+            }
             ?></h3>
             <h4>Utilisateur(s)</h4>
           </div>
@@ -54,7 +59,12 @@
             <h3><?php
             $stmt=$bdd->prepare("SELECT COUNT(idTransactionJeu) FROM transactionsJeu");
             $stmt->execute();
-            echo $stmt->fetch()[0];
+            $nb = $stmt->fetch()[0];
+            if($nb !=false){
+              echo $nb;
+            }else{
+              echo 0;
+            }
             ?></h3>
             <h4>Clé(s) acheté</h4>
           </div>
@@ -62,7 +72,12 @@
             <h3><?php
             $stmt=$bdd->prepare("SELECT ROUND((SELECT COUNT(idTransactionJeu) FROM transactionsJeu)/(SELECT COUNT(idUtilisateur) FROM utilisateurs),2)");
             $stmt->execute();
-            echo $stmt->fetch()[0];
+            $nb = $stmt->fetch()[0];
+            if($nb !=false){
+              echo $nb;
+            }else{
+              echo 0;
+            }
             ?></h3>
             <h4>Clé(s) acheté par personne</h4>
           </div>
@@ -70,11 +85,17 @@
             <h3><?php
             $stmt=$bdd->prepare("SELECT SUM(totalSkycoin) FROM transactionsSkycoin INNER JOIN skycoins ON transactionsSkycoin.idSkycoin=skycoins.idSkycoin");
             $stmt->execute();
-            echo $stmt->fetch()[0];
+            $nb = $stmt->fetch()[0];
+            if($nb !=false){
+              echo $nb;
+            }else{
+              echo 0;
+            }
             ?></h3>
             <h4>Skycoin(s) acheté</h4>
           </div>
         </div>
+        <p><i>Informations en temps réel.</i></p>
       </div>
       <div class="nous">
         <h2>Qui sommes nous ?</h2>
@@ -111,7 +132,6 @@
               rzthtzrhtgzrhttzrhg</p>
           </div>
         </div>
-        <i></i>
       </div>
     </div>
     <?php
@@ -142,7 +162,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script type="text/javascript">
       ScrollReveal({
-        reset: true,
+        reset: false,
         distance: '60px',
         duration: 2500,
         opacity: 0
@@ -150,8 +170,8 @@
       ScrollReveal().reveal('h2 img', { delay: 100, origin: 'top' });
       ScrollReveal().reveal('.img1, .text2', { delay: 100, origin: 'left' });
       ScrollReveal().reveal('.text1, .img2', { delay: 100, origin: 'right' });
-      ScrollReveal().reveal('.info,.info .part,.nous,.nous .part', {distance: '200px',interval: 200, delay: 100, origin: 'bottom' });
+      ScrollReveal().reveal('.info,.info .part,.nous,.nous .part div', {distance: '200px',interval: 200, delay: 100, origin: 'bottom' });
+      ScrollReveal().reveal('.info p',{distance:'0px',delay:2000});
     </script>
-
 </html>
 

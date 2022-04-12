@@ -1,7 +1,10 @@
 <?php
-$page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10,"NotFound" => 11);
-if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
-  $header=$page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]];
+setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+error_reporting(E_ALL);
+$page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10,"NotFound" => 11,"Message" => 12);
+$URI=explode(".",explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0])[0];
+if(isset($page[$URI])){
+  $header=$page[$URI];
 }
 ?>
 <head>
@@ -24,8 +27,8 @@ if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
       ?></title>
     <link rel="stylesheet" type="text/css" href="Public/css/General.css">
     <?php
-    if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
-      echo '<link rel="stylesheet" type="text/css" href="Public/css/'. explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0].'.css">';
+    if(isset($page[$URI])){
+      echo '<link rel="stylesheet" type="text/css" href="Public/css/'.$URI.'.css">';
     }
     ?>
     
@@ -108,6 +111,15 @@ if(isset($page[explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0]])){
                           echo '>
                             <a href="Amis.php"><i class="bx icon" ><img width="35px" src="Public/Images/icon/amis.png" alt="Bouton Amis"></i>
                               <span class="text nav-text">Amis</span>
+                            </a>
+                          </li>';
+                        echo '<li class="nav-link"';
+                          if(isset($header) && $header==12){
+                             echo 'id="active"';
+                          }
+                          echo '>
+                            <a href="Message.php"><i class="bx icon" ><img width="35px" src="Public/Images/icon/messages.png" alt="Bouton Messages"></i>
+                              <span class="text nav-text">Messages</span>
                             </a>
                           </li>';
                         echo '<li class="nav-link"';

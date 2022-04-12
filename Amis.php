@@ -14,24 +14,25 @@
         $user = informationUser($_SESSION['idUtilisateur'],$bdd);
       }
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <?php
   include "header.php";
   ?>
     <main class="main close">
-        <h1>Amis</h1>
+      <?php
+      if(isset($user['idUtilisateur'])){
+        echo '<h1>Amis</h1>
         <div class="container">
           <div class="recherche">
           <form class="search" method="GET" action="">
-              <input type="search" name="search" placeholder="Rechercher un utilisateur" value="<?php
+              <input type="search" name="search" placeholder="Rechercher un utilisateur" value="';
               if(isset($_GET['search']) && !empty($_GET['search'])){
                 echo $_GET['search'];
               }
-              ?>" autocomplete="off">
+              echo'" autocomplete="off">
           </form>
-          <ul>
-          <?php
+          <ul>';
               if(isset($_GET['search']) && !empty($_GET['search'])){
                 $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE  idUtilisateur<>? AND pseudo LIKE ? ORDER BY pseudo DESC");
                 $stmt->execute([$user['idUtilisateur'],"%".$_GET['search']."%"]);
@@ -52,24 +53,26 @@
               }else{
                 echo "<h2>Effectuer une recherche<h2>";
               }
-            ?>
-          </ul>
+          echo '</ul>
           </div>
-          <div class="amis">
-            <?php
+          <div class="amis">';
             $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur IN (SELECT IF(idUtilisateur1=?,idUtilisateur2,idUtilisateur1) FROM amis  WHERE (idUtilisateur1=? OR idUtilisateur2=?) AND demande=1) ORDER BY pseudo DESC");
             $stmt->execute([$user['idUtilisateur'],$user['idUtilisateur'],$user['idUtilisateur']]);
             $amisTotal=$stmt->fetchAll();
             $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur IN (SELECT idUtilisateur1 FROM amis WHERE idUtilisateur2=? AND demande=0) ORDER BY pseudo DESC");
             $stmt->execute([$user['idUtilisateur']]);
             $demandeTotal=$stmt->fetchAll();
-            ?>
-            <div class="btnAmis">
+            echo '<div class="btnAmis">
               <button id="active">Mes Amis <?php echo " ( "; if($amisTotal!=false){ echo count($amisTotal);}else{echo 0;}; echo " )";?></button>
-              <button>Demande d'amis <?php echo " ( "; if($demandeTotal!=false){ echo count($demandeTotal);}else{echo 0;}; echo " )";?></button>
+              <button>Demande d'."'".'amis ( ';
+              if($demandeTotal!=false){
+                echo count($demandeTotal);
+              }else{
+                echo 0;
+              }
+              echo ' )</button>
             </div>
-            <ul id="mesAmis">
-              <?php
+            <ul id="mesAmis">';
                 if($amisTotal==false){
                   echo "<h2>Vous n'avez pas d'amis.</h2>";
                 }else{
@@ -83,10 +86,8 @@
                     </a></li>';
                   }
                 }
-              ?>
-          </ul>
-          <ul id="demandeAmis">
-              <?php
+          echo '</ul>
+          <ul id="demandeAmis">';
                 if($demandeTotal==false){
                   echo "<h2>Vous n'avez pas de demande d'amis.</h2>";
                 }else{
@@ -100,11 +101,15 @@
                     </a></li>';
                   }
                 }
-              ?>
-          </ul>
+          echo '</ul>
           </div>
-        </div>
-        <?php
+        </div>';
+        }else{
+          echo "<div class='no-access-page'>
+					<h1 >Vous n'avez pas accès à cette page</h1>
+					<button><a href='index.php'>Accueil</a></button>
+				  </div>";
+        }
             include "footer.php";
         ?>
     </main>

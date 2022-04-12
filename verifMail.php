@@ -23,7 +23,7 @@ if(isset($_POST['email']) && isset($_POST['mdp'])){
 	        header('Location: Chargement.php');
         }else {
             include "header.php";
-            echo '<!doctype html>
+            echo '<!DOCTYPE html>
             <html lang="fr">
             <main class="main close">
             <form class="verification-box" action="" method="POST">

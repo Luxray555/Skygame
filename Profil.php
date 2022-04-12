@@ -107,10 +107,17 @@ if(isset($_GET['idUtilisateur'])){
 							</form>';
 						}else{
 							if($demande['demande']==1){
-								echo '<form class="modif-bar" action="FonctionPHP/SupprimerAmis.php" method="POST">
+								echo '
+								<div class="modif-bar">
+								<form action="Message" method="POST">
+									<input type="hidden" name="idAmi" value="'.$profil['idUtilisateur'].'">
+									<div class="button"><button style="border:2px solid cyan;">Message</button></div>
+								</form>
+								<form action="FonctionPHP/SupprimerAmis.php" method="POST">
 									<input type="hidden" name="idAmi" value="'.$profil['idUtilisateur'].'">
 									<div class="button"><button style="border:2px solid red;">Supprimer l'."'".'ami</button></div>
-								</form>';
+								</form>
+								</div>';
 							}else{
 								if($demande['idUtilisateur1']==$user['idUtilisateur']){
 									echo '<form class="modif-bar" action="FonctionPHP/EnAttenteAmis.php" method="POST">
@@ -118,11 +125,17 @@ if(isset($_GET['idUtilisateur'])){
 										<div class="button"><button style="background-color:#2F4F4F;">En attente</button></div>
 									</form>';
 								}else{
-									echo '<form class="modif-bar" action="FonctionPHP/AccepterDemande.php" method="POST">
-										<input type="hidden" name="idAmi" value="'.$profil['idUtilisateur'].'">
-										<div class="button"><button style="border:2px solid cyan;">Accepter la demande</button></div>
-										<div class="button"><button style="border:2px solid red;">Refuser la demande</button></div>
-									</form>';
+									echo '
+									<div class="modif-bar">
+										<form action="FonctionPHP/AccepterDemande.php" method="POST">
+											<input type="hidden" name="idAmi" value="'.$profil['idUtilisateur'].'">
+											<div class="button"><button style="border:2px solid cyan;">Accepter la demande</button></div>
+										</form>
+										<form action="FonctionPHP/RefuserDemande.php" method="POST">
+											<input type="hidden" name="idAmi" value="'.$profil['idUtilisateur'].'">
+											<div class="button"><button style="border:2px solid red;">Refuser la demande</button></div>
+										</form>
+									</div>>';
 								}
 							}
 						}
