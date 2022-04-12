@@ -124,7 +124,7 @@ img{
 }
 .received_msg {
     display: inline-block;
-    padding: 0 10px 0 10px;
+    padding: 10px 10px 10px 10px;
     vertical-align: top;
     width: 92%;
  }
