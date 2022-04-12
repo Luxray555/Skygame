@@ -130,8 +130,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body){
   $mail->SMTPSecure = 'ssl';
   $mail->Host = 'smtp.gmail.com';
   $mail->Port = 465;  
-  $mail->Username = 'SkyGameProjet@gmail.com';
-  $mail->Password = 'ProjetToursInfo2202';
+  $mail->Username = 'skygamecorporation@gmail.com';
+  $mail->Password = 'SkygameCorporation2022';
 
   $mail->IsHTML(true);
   $mail->From="skygameprojet@gmail.com";

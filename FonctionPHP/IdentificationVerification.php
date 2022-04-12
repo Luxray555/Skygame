@@ -14,6 +14,9 @@ if(isset($_POST['email']) && !isset($_POST['mdp'])){
   $stmt = $bdd->prepare("SELECT idUtilisateur FROM utilisateurs WHERE email=?");
   $stmt->execute([$_POST['email']]); 
   $user = $stmt->fetch() ;
+  if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+    echo "<p class='error'>Format du mail incompatible.</p>";
+  }
   if ($user) {
     echo '<p class="error">Email déjà utilisé.</p>';
   }
@@ -23,6 +26,9 @@ if(isset($_POST['email']) && isset($_POST['mdp'])){
 	$stmt = $bdd->prepare("SELECT password FROM utilisateurs WHERE email=?");
 	$stmt->execute([$_POST['email']]);
 	$user = $stmt->fetch() ;
+  if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+    echo "<p class='error'>Format du mail incompatible.</p>";
+  }
 	if (!$user || $user['password'] != sha1($_POST['mdp'])) {
     echo "<p class='error'>Email ou mot de passe éronné.</p>";
   }

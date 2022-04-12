@@ -7,7 +7,7 @@ require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 if(!empty($_POST)){
 	$code=randomVerifCode();
     $to   = $_POST['email'];
-    $from = 'skygameprojet@gmail.com';
+    $from = 'skygamecorporation@gmail.com';
     $name = 'SkyGame Corporation';
     $subj = 'SkyGame Mail Verification';
     $msg = '<div style="background-color:#070831;padding:20px;">

@@ -7,7 +7,7 @@ require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 if(isset($_SESSION['email']) &&isset($_SESSION['mdp'])){
 	$code=randomVerifCode();
     $to   = $_SESSION['email'];
-    $from = 'skygameprojet@gmail.com';
+    $from = 'skygamecorporation@gmail.com';
     $name = 'SkyGame Corporation';
     $subj = 'SkyGame Mail Verification';
     $msg = '<div style="background-color:#070831;padding:20px;">

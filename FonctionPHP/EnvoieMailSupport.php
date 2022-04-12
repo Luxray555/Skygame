@@ -6,8 +6,8 @@ require '../FonctionPHP/phpFunction.php';
 require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 
 if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['description']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-    $to   = 'skygameprojet@gmail.com';
-    $from = 'skygameprojet@gmail.com';
+    $to   = 'skygamecorporation@gmail.com';
+    $from = 'skygamecorporation@gmail.com';
     $name = $_POST['email'];
     $subj = $_POST['sujet'];
     $msg = '<div style="background-color:#c9c9c9;padding:20px; width:90%;">
