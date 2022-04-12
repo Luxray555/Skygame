@@ -9,7 +9,7 @@ require 'phpFunction.php';
         $ami->execute([$_POST['idAmi']]);
         $ami = $ami->fetch();
         $_SESSION['notif']="Vous n'étes plus amis avec ".$ami['pseudo'].".";
-        header("Location:../Profil.php?idUtilisateur=".$_POST['idAmi']);
+        header("Location:".  $_SERVER['HTTP_REFERER']);
     }else{
         header("Location:".  $_SERVER['HTTP_REFERER']);
     }

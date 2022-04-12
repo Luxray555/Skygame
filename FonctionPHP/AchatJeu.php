@@ -3,12 +3,6 @@ require_once "../Setup/database.php";
 require "phpFunction.php";
 session_start();
 if(isset($_SESSION['idUtilisateur'])){
-    if ($_SESSION['timestamp']!=null) {
-      $_SESSION['timestamp'] = expiredSession($_SESSION['timestamp']);
-    }else{
-      $_SESSION['chargement'] = 'deconnexion par innactivité';
-      header('Location: Chargement.php');
-    }
     $user = informationUser($_SESSION['idUtilisateur'],$bdd);
 }
 if(isset($_POST['idJeu'])){

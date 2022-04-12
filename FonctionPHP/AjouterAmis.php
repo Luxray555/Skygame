@@ -3,8 +3,12 @@ require_once "../Setup/database.php";
 session_start();
 require 'phpFunction.php';
     if(isset($_POST['idAmi']) && isset($_SESSION['idUtilisateur'])){
-        $stmt=$bdd->prepare("INSERT INTO amis(idUtilisateur1,idUtilisateur2) VALUES (?,?)");
-        $stmt->execute([$_SESSION['idUtilisateur'],$_POST['idAmi']]);
+        try{
+            $stmt=$bdd->prepare("INSERT INTO amis(idUtilisateur1,idUtilisateur2) VALUES (?,?)");
+            $stmt->execute([$_SESSION['idUtilisateur'],$_POST['idAmi']]);
+        }catch(PDOException $e){
+            header("Location:".  $_SERVER['HTTP_REFERER']);
+        }
         $ami = $bdd->prepare("SELECT pseudo FROM utilisateurs WHERE idUtilisateur=?");
         $ami->execute([$_POST['idAmi']]);
         $ami = $ami->fetch();

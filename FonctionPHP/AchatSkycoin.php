@@ -2,7 +2,9 @@
 require_once "../Setup/database.php";
 require "phpFunction.php";
 session_start();
-$user = informationUser($_SESSION['idUtilisateur'],$bdd);
+if(isset($_SESSION['idUtilisateur'])){
+    $user = informationUser($_SESSION['idUtilisateur'],$bdd);
+}
 if(isset($_POST['idSkycoin'])){
     $stmt = $bdd->prepare('SELECT * FROM skycoins WHERE idSkycoin=?');
 	$stmt->execute([$_POST['idSkycoin']]);

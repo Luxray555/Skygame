@@ -84,6 +84,8 @@ body{
   transition: all 1s ease-out;
 }
 .info{
+  -webkit-box-shadow: 0px 0px 25px 5px #240053; 
+  box-shadow: 0px 0px 25px 5px #240053;
   transition: all .5s;
   background-color: #1e3268;
   border-radius: 10px;
@@ -95,7 +97,7 @@ body{
   color:white;
   text-transform: uppercase;
   font-size:28px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .info .part{
   transition: all .5s;
@@ -103,6 +105,7 @@ body{
   display: flex;
   flex: auto;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .info .part div{
   background-color: #14275a;
@@ -117,10 +120,17 @@ body{
 .info .part div h4{
   font-size: 20px;
 }
+.info p{
+  color: white;
+  text-align: center;
+  width: 100%;
+}
 .nous{
+  -webkit-box-shadow: 0px 0px 25px 5px #240053; 
+  box-shadow: 0px 0px 25px 5px #240053;
   transition: all .5s;
   border-radius: 10px;
-  padding: 10px 10%;
+  padding: 40px 10%;
   background-color: #1e3268;
 }
 .nous .part{

@@ -11,7 +11,7 @@ h1{
 }
 .container{
     margin: 50px 40px;
-    height: 100%;
+    height: 800px;
     display: grid;
     grid-template-columns: 1fr 500px;
     grid-template-rows: 1fr;
@@ -23,6 +23,7 @@ h1{
       "recherche mesAmis";
 }
 .container .amis{
+    height: 100%;
     padding: 20px;
     border:solid 2px white;
     border-radius: 5px;
@@ -86,6 +87,7 @@ h1{
     font-size: 18px;
 }
 .container .recherche{
+    height: 100%;
     padding: 20px;
     border:double 4px white;
     border-radius: 5px;
