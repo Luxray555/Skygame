@@ -85,64 +85,75 @@
         echo '</div>
         </div>
         <div class="mesgs" id="msg">';
-        $stmt=$bdd->prepare("SELECT * FROM amis WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) LIMIT 1");
-        $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
-        $verifAmi =$stmt->fetchAll();
-        if($verifAmi!=false){
-          echo '<div class="msg_history">';
-            $stmt=$bdd->prepare("SELECT * FROM messages WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) ORDER BY dateMessage ASC");
-            $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
-            $msg =$stmt->fetchAll();
-            if($msg){
-              $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur=?");
-              $stmt->execute([$_POST['idAmi']]);
-              $ami=$stmt->fetch();
-                for($i=0;$i<count($msg);$i++){
-                    if($msg[$i]['idUtilisateur1']==$user['idUtilisateur']){
-                        echo '
-                        <div ';
-                        if($i==count($msg)-1){
-                          echo 'id="lastMsg"';
-                        }
-                        echo ' class="outgoing_msg">
-                            <div class="sent_msg">
-                                <p>'.nl2br($msg[$i]['message']).'</p>
-                                <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
-                            </div>
-                        </div>';
-                    }else{
-                        //("%A %d %B %G");
-                        echo '
-                        <div ';
-                        if($i==count($msg)-1){
-                          echo 'id="lastMsg"';
-                        }
-                        echo ' class="incoming_msg">
-                            <div class="incoming_msg_img"> <img src="Public/Images/profil/';
-                            imgProfil($ami);
-                            echo '.jpg" alt="sunil"> </div>
-                            <div class="received_msg">
-                                <div class="received_withd_msg">
-                                    <p>'.nl2br($msg[$i]['message']).'</p>
-                                    <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
-                                </div>
-                            </div>
-                        </div>
-                        ';
-                    }
-                }
-            }else{
-                echo '
-                  <h1>Aucun message</h1>
-                  <style>
-                  .msg_history{
-                    display: flex;
-                    align-items: center;
-                    justify-content:center;
+        if(isset($_POST['idAmi'])){
+          $stmt=$bdd->prepare("SELECT * FROM amis WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) LIMIT 1");
+          $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
+          $verifAmi =$stmt->fetchAll();
+          if($verifAmi!=false){
+            echo '<div class="msg_history">';
+              $stmt=$bdd->prepare("SELECT * FROM messages WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) ORDER BY dateMessage ASC");
+              $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
+              $msg =$stmt->fetchAll();
+              if($msg){
+                $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur=?");
+                $stmt->execute([$_POST['idAmi']]);
+                $ami=$stmt->fetch();
+                  for($i=0;$i<count($msg);$i++){
+                      if($msg[$i]['idUtilisateur1']==$user['idUtilisateur']){
+                          echo '
+                          <div ';
+                          if($i==count($msg)-1){
+                            echo 'id="lastMsg"';
+                          }
+                          echo ' class="outgoing_msg">
+                              <div class="sent_msg">
+                                  <p>'.nl2br($msg[$i]['message']).'</p>
+                                  <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
+                              </div>
+                          </div>';
+                      }else{
+                          //("%A %d %B %G");
+                          echo '
+                          <div ';
+                          if($i==count($msg)-1){
+                            echo 'id="lastMsg"';
+                          }
+                          echo ' class="incoming_msg">
+                              <div class="incoming_msg_img"> <img src="Public/Images/profil/';
+                              imgProfil($ami);
+                              echo '.jpg" alt="sunil"> </div>
+                              <div class="received_msg">
+                                  <div class="received_withd_msg">
+                                      <p>'.nl2br($msg[$i]['message']).'</p>
+                                      <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
+                                  </div>
+                              </div>
+                          </div>
+                          ';
+                      }
                   }
-                  </style>
-              ';
+              }else{
+                  echo '
+                    <h1>Aucun message</h1>
+                    <style>
+                    .msg_history{
+                      display: flex;
+                      align-items: center;
+                      justify-content:center;
+                    }
+                    </style>
+                ';
+              }
+        }else{
+          echo '<h1>Vous n'."'".'étes pas amis</h1>
+          <style>
+            .mesgs{
+              display: flex;
+              align-items: center;
+              justify-content:center;
             }
+          </style>';
+        }
             echo'
             </div>
           <div class="type_msg">
@@ -153,14 +164,16 @@
             </form>
           </div>';
         }else{
-          echo '<h1>Vous n'."'".'étes pas amis</h1>
-          <style>
-            .mesgs{
-              display: flex;
-              align-items: center;
-              justify-content:center;
-            }
-          </style>';
+          echo '
+                <h1>Vous n'."'".'avez pas d'."'".'ami</h1>
+                    <style>
+                    .mesgs{
+                      display: flex;
+                      align-items: center;
+                      justify-content:center;
+                    }
+                    </style>
+                ';
         }
         echo '</div>
       </div>
@@ -181,8 +194,24 @@
     <script>
         const scrollMsg = document.querySelector(".msg_history");
         const output = document.getElementById("lastMsg");
-
         scrollMsg.scroll(0,scrollMsg.offsetHeight);
-
+        setInterval(function(){
+          var httpr = new XMLHttpRequest(); 
+          httpr.open("POST", "FonctionPHP/GenerateChat.php");
+				  httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				  httpr.send("idUtilisateur1="+<?php
+          if(isset($user)){
+            echo $user['idUtilisateur'];
+          }
+          ?>+"&idUtilisateur2="+<?php
+          if(isset($_POST['idAmi'])){
+            echo $_POST['idAmi'];
+          }
+          ?>
+          );
+          httpr.onload = function(){
+            document.querySelector('.msg_history').innerHTML = httpr.responseText;
+          }
+        },3000)
     </script>
 </html>

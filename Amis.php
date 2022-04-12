@@ -63,7 +63,13 @@
             $stmt->execute([$user['idUtilisateur']]);
             $demandeTotal=$stmt->fetchAll();
             echo '<div class="btnAmis">
-              <button id="active">Mes Amis <?php echo " ( "; if($amisTotal!=false){ echo count($amisTotal);}else{echo 0;}; echo " )";?></button>
+              <button id="active">Mes Amis ( ';
+              if($amisTotal!=false){
+                echo count($amisTotal);
+              }else{
+                echo 0;
+              };
+              echo ' )</button>
               <button>Demande d'."'".'amis ( ';
               if($demandeTotal!=false){
                 echo count($demandeTotal);
