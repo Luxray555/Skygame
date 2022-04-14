@@ -409,7 +409,7 @@ footer{
     background-color: #cc0000;
     border-radius: 10px;
     padding: 10px;
-    z-index: 100000;
+    z-index: 10000000;
 }
 #error .error{
     margin: 5px 0px;
