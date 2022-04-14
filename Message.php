@@ -119,9 +119,9 @@
                             echo 'id="lastMsg"';
                           }
                           echo ' class="incoming_msg">
-                              <div class="incoming_msg_img"> <img src="Public/Images/profil/';
+                              <div class="incoming_msg_img"> <a href="Profil.php?idUtilisateur='.$ami['idUtilisateur'].'"><img src="Public/Images/profil/';
                               imgProfil($ami);
-                              echo '.jpg" alt="sunil"> </div>
+                              echo '.jpg" alt="sunil"></a> </div>
                               <div class="received_msg">
                                   <div class="received_withd_msg">
                                       <p>'.nl2br($msg[$i]['message']).'</p>
@@ -212,6 +212,6 @@
           httpr.onload = function(){
             document.querySelector('.msg_history').innerHTML = httpr.responseText;
           }
-        },3000)
+        },1000)
     </script>
 </html>
