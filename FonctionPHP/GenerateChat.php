@@ -12,38 +12,35 @@
                 $stmt->execute([$_POST['idUtilisateur2']]);
                 $ami=$stmt->fetch();
                   for($i=0;$i<count($msg);$i++){
-                      if($msg[$i]['idUtilisateur1']==$_POST['idUtilisateur1']){
-                          echo '
-                          <div ';
-                          if($i==count($msg)-1){
-                            echo 'id="lastMsg"';
-                          }
-                          echo ' class="outgoing_msg">
-                              <div class="sent_msg">
-                                  <p>'.nl2br($msg[$i]['message']).'</p>
-                                  <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
-                              </div>
-                          </div>';
-                      }else{
-                          //("%A %d %B %G");
-                          echo '
-                          <div ';
-                          if($i==count($msg)-1){
-                            echo 'id="lastMsg"';
-                          }
-                          echo ' class="incoming_msg">
-                              <div class="incoming_msg_img"> <img src="Public/Images/profil/';
-                              imgProfil($ami);
-                              echo '.jpg" alt="sunil"> </div>
-                              <div class="received_msg">
-                                  <div class="received_withd_msg">
-                                      <p>'.nl2br($msg[$i]['message']).'</p>
-                                      <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
-                                  </div>
-                              </div>
-                          </div>
-                          ';
-                      }
+                    if($msg[$i]['idUtilisateur1']==$_POST['idUtilisateur1']){
+                        echo '<div';
+                        if($i==count($msg)-1){
+                          echo ' id="lastMsg"';
+                        }
+                        echo ' class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>'.nl2br($msg[$i]['message']).'</p>
+                                <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
+                            </div>
+                        </div>';
+                    }else{
+                        echo '
+                        <div';
+                        if($i==count($msg)-1){
+                          echo ' id="lastMsg"';
+                        }
+                        echo ' class="incoming_msg">
+                            <div class="incoming_msg_img"> <a href="Profil.php?idUtilisateur='.$ami['idUtilisateur'].'"><img src="Public/Images/profil/';
+                            imgProfil($ami);
+                            echo '.jpg" alt="sunil"></a> </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>'.nl2br($msg[$i]['message']).'</p>
+                                    <span class="time_date">'.ucwords(strftime("%A %d %B | ",strtotime($msg[$i]['dateMessage']))).date("H:i:s",strtotime($msg[$i]['dateMessage'])).'</span>
+                                </div>
+                            </div>
+                        </div>';
+                    }
                   }
             }
         }
