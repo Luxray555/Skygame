@@ -8,6 +8,9 @@ body {
     transition: all 0.3s ease;
     position: relative;
 }
+a{
+    text-decoration: none;
+}
 ::-webkit-scrollbar {
     width: 15px;
 }
