@@ -13,13 +13,18 @@ body{
     background-position: center;
     background-size: auto,auto,cover;
 }
-form {
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
+.formulaire{
+    top: 0;
+    left: 0;
     position: absolute;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-connexion {
     width: 50vw;
-    margin: 15vw auto;
     background-color: rgba(59, 59, 59, 0.6);
     padding: 2vh 3vw;
     border-radius: 1vh;
@@ -27,7 +32,7 @@ form {
     text-align: center;
     
 }
-form h1{
+#form-connexion h1{
     font-size: 2.5vw;
     transition: all .5s;
     color: #ffffff;
@@ -36,25 +41,25 @@ form h1{
     margin-bottom: 40px;
 }
 @media screen and (max-width:700px){
-    form{
+    #form-connexion{
         left: 50%;
         margin: 12vh auto;
     }
-    form h1{
+    #form-connexion h1{
         font-size: 3vh;
     }
 }
-form a:hover{
+#form-connexion a:hover{
     text-decoration: underline white;
 }
-form label{
+#form-connexion label{
     position: relative;
     font-size: 2vh;
     color: white;
     text-align: center;
     margin-bottom: 20px;
 }
-form label input {
+#form-connexion label input {
     margin-bottom: 20px;
     font-size: 15px;
     background-color: #dadada;
@@ -66,10 +71,10 @@ form label input {
     width: 55%;
     min-width: 200px;
   }
-form label input:focus {
+#form-connexion label input:focus {
     background-color: #ffffff;
 }
-form label .password-icon {
+#form-connexion label .password-icon {
     display: flex;
     align-items: center;
     position: absolute;
@@ -80,33 +85,32 @@ form label .password-icon {
     color: #000000;
     transition: all 0.2s;
 }
-form label .password-icon:hover {
+#form-connexion label .password-icon:hover {
     cursor: pointer;
     color: #ff4754;
 }
   
-form label .password-icon .feather-eye {
+#form-connexion label .password-icon .feather-eye {
     display: none;
 }
-form label input[type='radio']{
+#form-connexion label input[type='radio']{
     width: 2vh;
     height: 2vh;
     margin-left: 5px;
 }
-form p.inscription{
+#form-connexion p.inscription{
     text-align: center;
     font-size: 2vh;
     margin-bottom: 20px;
     color: #ffffff;
 }
-form p.inscription span{
+#form-connexion p.inscription span{
     color: #eb7371;
 }
-form input[type='submit']{
+#form-connexion input[type='submit']{
     height: 5vh;
     padding: 0px 25px;
     border-radius: 5px;
-    border:none;
     font-size: 15px;
     color: #fff;
     background-color: #eb7371;
@@ -115,7 +119,7 @@ form input[type='submit']{
     transition: all .5s;
     border: solid white 2px;
 }
-form input[type='submit']:hover{
+#form-connexion input[type='submit']:hover{
     background-color: red;
     border: solid black 2px;
 }

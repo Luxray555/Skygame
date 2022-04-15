@@ -61,7 +61,7 @@ function afficheJeuxCatalogue(){
 
 function verifyAccessToken($bdd){
   date_default_timezone_set("Europe/Paris");
-  $stmt = $bdd->prepare("SELECT * FROM accessToken");
+  $stmt = $bdd->prepare("SELECT * FROM access_token");
   $stmt->execute();
   $token_information = $stmt->fetch();
   if($token_information==false){
@@ -70,7 +70,7 @@ function verifyAccessToken($bdd){
     }catch (Exception $e) {
       echo $e->getMessage();
     }
-    $stmt = $bdd->prepare("INSERT INTO accessToken (token,expireTokenTime) VALUES (?,?)");
+    $stmt = $bdd->prepare("INSERT INTO access_token (token,expireTokenTime) VALUES (?,?)");
     $stmt->execute([$access_token->access_token,date('Y-m-d H:i:s',$access_token->expires_in+time()-500)]);
     return $access_token->access_token;
   }else{
@@ -81,7 +81,7 @@ function verifyAccessToken($bdd){
       }catch (Exception $e) {
         echo $e->getMessage();
       }
-      $stmt = $bdd->prepare("UPDATE accessToken SET token=?, expireTokenTime=?");
+      $stmt = $bdd->prepare("UPDATE access_token SET token=?, expireTokenTime=?");
       $stmt->execute([$access_token->access_token,date('Y-m-d H:i:s',$access_token->expires_in+time()-500)]);
       return $access_token->access_token;
     }else{

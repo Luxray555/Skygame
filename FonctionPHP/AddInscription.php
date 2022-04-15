@@ -2,7 +2,7 @@
 require_once "../Setup/database.php";
 session_start();
 
-require '../FonctionPHP/phpFunction.php';
+require 'phpFunction.php';
 require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 if(!empty($_POST)){
     if(isset($_POST['pseudo'])){
@@ -31,7 +31,7 @@ if(!empty($_POST)){
 	    $_SESSION["chargement"]= "Création du compte";
 	    header('Location: ../Chargement.php');
     }else{
-        header('Location: Accueil.php');
+        header('Location: ../Accueil.php');
     }
 }
 ?>

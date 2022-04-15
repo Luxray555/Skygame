@@ -9,7 +9,7 @@ if(isset($_POST['idJeu'])){
     $stmt = $bdd->prepare('SELECT * FROM jeux WHERE idJeu=?');
 	$stmt->execute([$_POST['idJeu']]);
     $jeu = $stmt->fetch();
-    $stmt = $bdd->prepare('SELECT * FROM transactionsJeu WHERE idJeu=? AND idUtilisateur=?');
+    $stmt = $bdd->prepare('SELECT * FROM transactions_jeu WHERE idJeu=? AND idUtilisateur=?');
 	$stmt->execute([$jeu['idJeu'],$user['idUtilisateur']]);
     $transaction = $stmt->fetch();
     if($transaction==false){
@@ -17,7 +17,7 @@ if(isset($_POST['idJeu'])){
             $stmt = $bdd->prepare("UPDATE utilisateurs SET skyCoin=skyCoin-? WHERE idUtilisateur=?");
             $stmt->execute([$jeu['prixJeu'],$user['idUtilisateur']]);
 
-            $stmt = $bdd->prepare("INSERT INTO transactionsJeu(cleJeu,idUtilisateur,idJeu) VALUES (?,?,?)");
+            $stmt = $bdd->prepare("INSERT INTO transactions_jeu(cleJeu,idUtilisateur,idJeu) VALUES (?,?,?)");
             $stmt->execute([randomKey(),$user['idUtilisateur'],$jeu['idJeu']]);
             $_SESSION['notif']="Achat effectué avec succès.<br>Retrouvez la clé dans votre bibliothéque.";
         }else{
