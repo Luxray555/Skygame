@@ -11,7 +11,7 @@
       header('Location: Chargement.php');
     }
     $user = informationUser($_SESSION['idUtilisateur'],$bdd);
-    $stmt = $bdd -> prepare("SELECT * FROM ((utilisateurs INNER JOIN transactionsJeu ON utilisateurs.idUtilisateur=transactionsJeu.idUtilisateur) INNER JOIN jeux ON transactionsJeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? ORDER BY nomJeu ASC");
+    $stmt = $bdd -> prepare("SELECT * FROM ((utilisateurs INNER JOIN transactions_jeu ON utilisateurs.idUtilisateur=transactions_jeu.idUtilisateur) INNER JOIN jeux ON transactions_jeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? ORDER BY nomJeu ASC");
     $stmt ->execute([$user['idUtilisateur']]);
     $jeu = $stmt->fetchAll();
     if(!isset($_GET['idJeu'])){
@@ -60,7 +60,7 @@
             echo '</ul>
                     <div class="Game" id="Game">';
             if(isset($_GET['idJeu']) && is_numeric($_GET['idJeu'])){
-              $stmt = $bdd -> prepare("SELECT jeux.idJeu,transactionsJeu.cleJeu FROM ((utilisateurs INNER JOIN transactionsJeu ON utilisateurs.idUtilisateur=transactionsJeu.idUtilisateur) INNER JOIN jeux ON transactionsJeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? AND jeux.idJeu=?");
+              $stmt = $bdd -> prepare("SELECT jeux.idJeu,transactions_jeu.cleJeu FROM ((utilisateurs INNER JOIN transactions_jeu ON utilisateurs.idUtilisateur=transactions_jeu.idUtilisateur) INNER JOIN jeux ON transactions_jeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? AND jeux.idJeu=?");
               $stmt->execute([$user['idUtilisateur'],$_GET['idJeu']]);
               $verifJeu = $stmt->fetch();
               if($verifJeu!=false){

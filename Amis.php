@@ -124,7 +124,6 @@
         var btnAmis = document.querySelectorAll(".btnAmis button");
         var mesAmis = document.getElementById("mesAmis");
         var demandeAmis = document.getElementById("demandeAmis");
-        console.log(demandeAmis);
         btnAmis[0].onclick = function(){
           btnAmis[0].id = "active";
           btnAmis[1].removeAttribute("id");

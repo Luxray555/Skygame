@@ -27,6 +27,7 @@ if(isset($_SESSION['idUtilisateur'])){
 			$_SESSION['text']='deconnexion';
                 echo '<div class="wrapper">
 					</div>
+				<div class="formulaire">
 				<form id="form-inscription" method="POST" action="FonctionPHP/AddInscription.php">
 						<h1>S'."'".'inscrire</h1>
 						<div class="inputs">
@@ -67,6 +68,7 @@ if(isset($_SESSION['idUtilisateur'])){
 							<input id="bouton-inscription" type="submit" name="envoi" value="Inscription" autocomplete="off">
 						</div>
                 	</form>
+					</div>
 					<div id="error"></div>';
 			}else{
 				echo "<div class='no-access-page'>

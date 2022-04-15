@@ -2,8 +2,7 @@
 require_once "Setup/database.php";
 session_start();
 require "FonctionPHP/phpFunction.php";
-
-if(isset($_POST['email']) && isset($_POST['mdp'])){
+if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 	$stmt = $bdd->prepare("SELECT civilite,idUtilisateur,email,pseudo,password,skyCoin,verifMail,codeVerifMail FROM utilisateurs WHERE email=?");
     $stmt->execute([$_POST['email']]);
     $user = $stmt->fetch();
@@ -24,7 +23,9 @@ if(isset($_POST['email']) && isset($_POST['mdp'])){
 	        header('Location: Chargement.php');
         }else {
             include "header.php";
-            echo '<main class="main close">
+            echo '<!DOCTYPE html>
+            <html lang="fr">
+            <main class="main close">
             <form class="verification-box" action="" method="POST">
                 <h1>Vérifier votre adresse mail</h1>
                 <h2>( '.$_POST['email'].' )</h2>

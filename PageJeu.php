@@ -38,14 +38,14 @@
           $stmt ->execute([$game[0]->id]);
           $jeu = $stmt->fetch();
           if(isset($_POST['rate'])){
-            $stmt = $bdd->prepare('SELECT note FROM notesJeu WHERE idUtilisateur=? AND idJeu=? ');
+            $stmt = $bdd->prepare('SELECT note FROM notes_jeu WHERE idUtilisateur=? AND idJeu=? ');
             $stmt->execute([$user['idUtilisateur'],$jeu['idJeu']]);
             $askRate = $stmt->fetch();
             if($askRate!=false){
-              $stmt = $bdd->prepare('UPDATE notesJeu SET note=? WHERE idUtilisateur=? AND idJeu=?');
+              $stmt = $bdd->prepare('UPDATE notes_jeu SET note=? WHERE idUtilisateur=? AND idJeu=?');
               $stmt->execute([$_POST['rate'],$user['idUtilisateur'],$jeu['idJeu']]);
             }else{
-              $stmt = $bdd->prepare('INSERT INTO notesJeu(note,idUtilisateur,idJeu) VALUES (?,?,?)');
+              $stmt = $bdd->prepare('INSERT INTO notes_jeu(note,idUtilisateur,idJeu) VALUES (?,?,?)');
               $stmt->execute([$_POST['rate'],$user['idUtilisateur'],$jeu['idJeu']]);
             }
           }
@@ -58,7 +58,7 @@
               $stmt ->execute([$game[0]->id,$game[0]->name,rand(1,70)*100]);
             }
           }else{
-            $stmt = $bdd->prepare('UPDATE jeux SET noteMoyenne=(SELECT AVG(note) FROM notesJeu WHERE idJeu=?) WHERE idJeu=?');
+            $stmt = $bdd->prepare('UPDATE jeux SET noteMoyenne=(SELECT AVG(note) FROM notes_jeu WHERE idJeu=?) WHERE idJeu=?');
             $stmt->execute([$jeu['idJeu'],$jeu['idJeu']]);
           }
       }
@@ -110,7 +110,7 @@
                 if(isset($user['idUtilisateur'])){
                   echo 'FonctionPHP/AchatJeu.php';
                 }else{
-                  echo 'Connexion.php';
+                  echo 'Connexion';
                 }
                 echo '">
                   <input type="hidden" name="idJeu" value="'.$game[0]->id.'">
@@ -121,7 +121,7 @@
             $stmt ->execute([$game[0]->id]);
             $jeu = $stmt->fetch();
             if(isset($_SESSION['idUtilisateur'])){
-              $stmt = $bdd->prepare('SELECT note FROM notesjeu WHERE idUtilisateur=? AND idJeu=?');
+              $stmt = $bdd->prepare('SELECT note FROM notes_jeu WHERE idUtilisateur=? AND idJeu=?');
               $stmt->execute([$user['idUtilisateur'],$jeu['idJeu']]);
               $note=$stmt->fetch();
             }

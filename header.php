@@ -1,6 +1,6 @@
 <?php
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
-error_reporting(E_ALL);
+error_reporting(0);
 $page = array( "Accueil" => 0, "Catalogue" => 1, "Bibliotheque" => 2, "Support" => 3, "Inscription" => 4, "Connexion" => 5, "Profil" => 6, "PageJeu" => 7 ,"Boutique" => 8,"VerifMail" => 9,"Amis" => 10,"NotFound" => 11,"Message" => 12);
 $URI=explode(".",explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0])[0];
 if(isset($page[$URI])){
@@ -11,11 +11,12 @@ if(isset($page[$URI])){
     <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="Public/Images/icon/logo.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="Public/Images/icon/logo.ico" type="image/x-icon"/>
     <title>
       Skygame
       <?php
       if((isset($header) && $header!=7 && $header!=6) || !isset($header)){
-        echo ' - '.explode("?",explode("/",$_SERVER['REQUEST_URI'])[2])[0];
+        echo ' - '.$URI;
       }else{
         if($header==7 && isset($game)){
           echo ' - '.$game[0]->name;

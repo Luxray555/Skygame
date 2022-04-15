@@ -57,7 +57,7 @@
           </div>
           <div>
             <h3><?php
-            $stmt=$bdd->prepare("SELECT COUNT(idTransactionJeu) FROM transactionsJeu");
+            $stmt=$bdd->prepare("SELECT COUNT(idTransactionJeu) FROM transactions_jeu");
             $stmt->execute();
             $nb = $stmt->fetch()[0];
             if($nb !=false){
@@ -70,7 +70,7 @@
           </div>
           <div>
             <h3><?php
-            $stmt=$bdd->prepare("SELECT ROUND((SELECT COUNT(idTransactionJeu) FROM transactionsJeu)/(SELECT COUNT(idUtilisateur) FROM utilisateurs),2)");
+            $stmt=$bdd->prepare("SELECT ROUND((SELECT COUNT(idTransactionJeu) FROM transactions_jeu)/(SELECT COUNT(idUtilisateur) FROM utilisateurs),2)");
             $stmt->execute();
             $nb = $stmt->fetch()[0];
             if($nb !=false){
@@ -83,7 +83,7 @@
           </div>
           <div>
             <h3><?php
-            $stmt=$bdd->prepare("SELECT SUM(totalSkycoin) FROM transactionsSkycoin INNER JOIN skycoins ON transactionsSkycoin.idSkycoin=skycoins.idSkycoin");
+            $stmt=$bdd->prepare("SELECT SUM(totalSkycoin) FROM transactions_skycoin INNER JOIN skycoins ON transactions_skycoin.idSkycoin=skycoins.idSkycoin");
             $stmt->execute();
             $nb = $stmt->fetch()[0];
             if($nb !=false){

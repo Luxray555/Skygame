@@ -24,6 +24,7 @@ if(isset($_SESSION['idUtilisateur'])){
 		if(!isset($user['idUtilisateur'])){
 			echo '<div class="wrapper">
 				</div>
+		<div class="formulaire">
 		<form id="form-connexion" method="POST" action="VerifMail">
      				<h1>Se connecter</h1>
 						<label>
@@ -41,6 +42,8 @@ if(isset($_SESSION['idUtilisateur'])){
 						<input id="bouton-connexion" type="submit" name="envoi" value="Connexion" autocomplete="off">
 					</div>
 		  		</form>
+		</form>
+		</div>
 				<div id="error"></div>'; 
 		}else{
 			echo "<div class='no-access-page'>
