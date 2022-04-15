@@ -39,6 +39,9 @@
         <p class="text2">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
         <img class="img2" src="Public/Images/background/no-screenshot-image.png">
       </div>
+      <div class="slider">
+        <h3>Les meilleurs jeux du moments</h3>
+      </div>
       <div class="info">
       <h2>Statistique(s)</h2>
         <div class="part">
