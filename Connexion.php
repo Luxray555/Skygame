@@ -58,85 +58,15 @@ if(isset($_SESSION['idUtilisateur'])){
   </main>
 	</body>
 	<script src="https://unpkg.com/feather-icons"></script>
+	<script src="Public/js/eyeCheck.js"></script>
 	<script>
   		feather.replace();
 		const eye = document.querySelector(".feather-eye");
 		const eyeoff = document.querySelector(".feather-eye-off");
 		const passwordField = document.querySelector("input[type=password]");
-		eye.addEventListener("click", () => {
-  			eye.style.display = "none";
-  			eyeoff.style.display = "block";
-  			passwordField.type = "password";
-		});
 
-		eyeoff.addEventListener("click", () => {
-  			eyeoff.style.display = "none";
-  			eye.style.display = "block";
-  			passwordField.type = "text";
-		});
+		eyeCheck(eye,eyeoff,passwordField);
 	</script>
-	<script>
-		
-	document.querySelector(".wrapper").style.backgroundImage="url('Public/Images/background/inscription-background"+Math.ceil(Math.random() * 3)+".jpg')";
-	
-	(function() {
-
-    	document.addEventListener("mousemove", parallax);
-    	const elem = document.querySelector(".wrapper");
-
-    	function parallax(e) {
-        	let _w = window.innerWidth/2;
-        	let _h = window.innerHeight/2;
-        	let _mouseX = e.clientX;
-        	let _mouseY = e.clientY;
-        	let _depth1 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let _depth2 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let _depth3 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let x = `${_depth3}, ${_depth2}, ${_depth1}`;
-        	elem.style.backgroundPosition = x;
-    	}
-	})();
-	</script>
-	<script>
-		const form = document.getElementById('form-connexion'),
-			bouton = document.getElementById('bouton-connexion');
-
-		let	interalErrorId = null,
-			timeoutErrorId = null;
-		form.addEventListener ("submit", function(e) {
-			e.preventDefault();
-				var httpr = new XMLHttpRequest(),
-				email = document.getElementById("email").value,
-				mdp = document.getElementById("mdp").value;
-				httpr.open("POST", "FonctionPHP/IdentificationVerification.php");
-				httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				httpr.send("email="+email+"&mdp="+mdp);
-				httpr.onload = function(){
-					document.getElementById("error").innerHTML = httpr.responseText;
-					if(httpr.responseText==""){
-						form.submit();
-					}else{
-						bouton.disabled=true;
-						document.getElementById("error").style.opacity = 1;
-						document.getElementById("error").style.transform = "scale(1.2)";
-						now_time = 5;
-						document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
-						interalErrorId = setInterval(function(){
-							now_time--;
-							document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
-						},1000);
-						timeoutErrorId = setTimeout(() => {
-							bouton.disabled=false;
-							clearInterval(interalErrorId);
-							interalErrorId = null;
-							clearTimeout(timeoutErrorId);
-							timeoutErrorId = null;
-							document.getElementById("error").style.opacity = 0;
-							document.getElementById("error").style.transform = "scale(0.1) translateY(-50%)";
-							document.getElementById("error").removeChild(document.querySelector("#error .error"));
-						},5000);
-					}
-				}
-		})
-	</script>
+	<script src="Public/js/Parallax.js"></script>
+	<script src="Public/js/Connexion.js"></script>
 </html>

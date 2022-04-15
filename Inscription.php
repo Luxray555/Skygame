@@ -83,115 +83,22 @@ if(isset($_SESSION['idUtilisateur'])){
     </main>
 	</body>
 	<script src="https://unpkg.com/feather-icons"></script>
+	<script src="Public/js/eyeCheck.js"></script>
 	<script>
-  		feather.replace();
+		feather.replace();
 		const eye1 = document.querySelector(".eye1");
 		const eyeoff1 = document.querySelector(".eye-off1");
 		const passwordField1 = document.querySelector("#mdp");
-		eye1.addEventListener("click", () => {
-  			eye1.style.display = "none";
-  			eyeoff1.style.display = "block";
-  			passwordField1.type = "password";
-		});
 
-		eyeoff1.addEventListener("click", () => {
-  			eyeoff1.style.display = "none";
-  			eye1.style.display = "block";
-  			passwordField1.type = "text";
-		})
+		eyeCheck(eye1,eyeoff1,passwordField1);
 
 		feather.replace();
 		const eye2 = document.querySelector(".eye2");
 		const eyeoff2 = document.querySelector(".eye-off2");
 		const passwordField2 = document.querySelector("#mdpv");
-		eye2.addEventListener("click", () => {
-  			eye2.style.display = "none";
-  			eyeoff2.style.display = "block";
-  			passwordField2.type = "password";
-		});
 
-		eyeoff2.addEventListener("click", () => {
-  			eyeoff2.style.display = "none";
-  			eye2.style.display = "block";
-  			passwordField2.type = "text";
-		});
+		eyeCheck(eye2,eyeoff2,passwordField2);
 	</script>
-	<script>
-	document.querySelector(".wrapper").style.backgroundImage="url('Public/Images/background/inscription-background"+Math.ceil(Math.random() * 3)+".jpg')";
-
-	(function() {
-
-    	document.addEventListener("mousemove", parallax);
-    	const elem = document.querySelector(".wrapper");
-
-    	function parallax(e) {
-        	let _w = window.innerWidth/2;
-        	let _h = window.innerHeight/2;
-        	let _mouseX = e.clientX;
-        	let _mouseY = e.clientY;
-        	let _depth1 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let _depth2 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let _depth3 = `${50 - (_mouseX - _w) * 0.005}% ${50 - (_mouseY - _h) * 0.04}%`;
-        	let x = `${_depth3}, ${_depth2}, ${_depth1}`;
-        	elem.style.backgroundPosition = x;
-    	}
-	})();
-	</script>
-	<script>
-		const form = document.getElementById("form-inscription"),
-		 	bouton = document.getElementById("bouton-inscription");
-
-		let	interalErrorId = null,
-			timeoutErrorId = null;
-		form.addEventListener ("submit", function(e) {
-			e.preventDefault();
-				var httpr = new XMLHttpRequest(),
-				pseudo = document.getElementById("pseudo").value,
-				email = document.getElementById("email").value;
-				httpr.open("POST", "FonctionPHP/IdentificationVerification.php");
-				httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				httpr.send("email="+email+"&pseudo="+pseudo);
-				httpr.onload = function(){
-					document.getElementById("error").innerHTML = httpr.responseText;
-					if(httpr.responseText=="" && validatePassword()){
-						form.submit();
-					}else if(httpr.responseText!=""){
-						bouton.disabled=true;
-						document.getElementById("error").style.opacity = 1;
-						document.getElementById("error").style.transform = "scale(1.2)";
-						now_time = 5;
-						document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
-						interalErrorId = setInterval(function(){
-							now_time--;
-							document.getElementById("error").innerHTML = httpr.responseText+'<p class="time_error">Réssayer dans '+now_time+" seconde(s)</p>";
-						},1000);
-						timeoutErrorId = setTimeout(() => {
-							bouton.disabled=false;
-							clearInterval(interalErrorId);
-							interalErrorId = null;
-							clearTimeout(timeoutErrorId);
-							timeoutErrorId = null;
-							document.getElementById("error").style.opacity = 0;
-							document.getElementById("error").style.transform = "scale(0.1) translateY(-50%)";
-							document.getElementById("error").removeChild(document.querySelector("#error .error"));
-						},5000);
-					}
-				}
-		})
-
-		function validatePassword(){
-			var password = document.getElementById("mdp")
-  			, confirm_password = document.getElementById("mdpv");
-  			if(password.value != confirm_password.value) {
-    			confirm_password.setCustomValidity("Mot de passe non identique");
-				return false;
-  			} else {
-    			confirm_password.setCustomValidity('');
-				return true;
-  			}
-		}
-		document.getElementById("mdp").onchange = validatePassword;
-		document.getElementById("mdpv").onkeyup = validatePassword;
-
-	</script>
+	<script src="Public/js/Parallax.js"></script>
+	<script src="Public/js/Inscription.js"></script>
 </html>

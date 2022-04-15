@@ -25,7 +25,7 @@ if(isset($_POST['idSkycoin'])){
     }else{
         header('Location: ../Boutique.php');
     }
-    $stmt = $bdd->prepare("INSERT INTO transactionsskycoin(idUtilisateur,idSkycoin) VALUES (?,?)");
+    $stmt = $bdd->prepare("INSERT INTO transactions_skycoin(idUtilisateur,idSkycoin) VALUES (?,?)");
     $stmt->execute([$user['idUtilisateur'],$skycoin['idSkycoin']]);
 }
 header('Location: ../Boutique.php');
