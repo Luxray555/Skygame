@@ -8,6 +8,8 @@
               $stmt->execute([$_POST['idUtilisateur1'],$_POST['idUtilisateur2'],$_POST['idUtilisateur1'],$_POST['idUtilisateur2']]);
               $msg =$stmt->fetchAll();
               if($msg){
+                $stmt=$bdd->prepare("UPDATE messages SET vuMessage=1 WHERE idUtilisateur1=? && idUtilisateur2=?");
+                $stmt->execute([$_POST['idUtilisateur2'],$_POST['idUtilisateur1']]);
                 $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur=?");
                 $stmt->execute([$_POST['idUtilisateur2']]);
                 $ami=$stmt->fetch();
