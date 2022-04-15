@@ -26,14 +26,16 @@ if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'],
             echo '<!DOCTYPE html>
             <html lang="fr">
             <main class="main close">
+            <div class="formulaire">
             <form class="verification-box" action="" method="POST">
                 <h1>Vérifier votre adresse mail</h1>
                 <h2>( '.$_POST['email'].' )</h2>
                 <input type="hidden" name="email" value="'.$_POST['email'].'">
                 <input type="hidden" name="mdp" value="'.$_POST['mdp'].'">
-                <input type="text" name="code" placeholder="Code" autocomplete="off" size="4" pattern="[0-9]{4}"><br>
-                <input type="submit" value="Vérifier">
-            </form>';
+                <input type="text" name="code" placeholder="Code" autocomplete="off" minlength="3" maxlength="4" size="4" pattern="[0-9]{4}"><br><br>
+                <input id="btnVerif" type="submit" value="Vérifier">
+            </form>
+            </div>';
             include "footer.php";
             echo '</main>
             </body>
