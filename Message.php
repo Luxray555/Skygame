@@ -60,7 +60,7 @@
                     imgProfil($amisTotal[$i]);
                     echo '.jpg" alt="Photo de profil de'.$amisTotal[$i]['pseudo'].'"> </div>
                     <div class="chat_ib">';
-                    $stmt=$bdd->prepare("SELECT message,dateMessage FROM messages WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) ORDER BY dateMessage DESC LIMIT 1");
+                    $stmt=$bdd->prepare("SELECT * FROM messages WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur2=? AND idUtilisateur1=?) ORDER BY dateMessage DESC LIMIT 1");
                     $stmt->execute([$user['idUtilisateur'],$amisTotal[$i]['idUtilisateur'],$user['idUtilisateur'],$amisTotal[$i]['idUtilisateur']]);
                     $lastMsg =$stmt->fetch();
                         echo '<h5>'.$amisTotal[$i]['pseudo'];
@@ -69,8 +69,12 @@
                         }
                         echo '</h5>';
                     if($lastMsg!=false){
-                        echo '<p>'.substr($lastMsg[0],0,35);
-                        if(strlen($lastMsg[0])>35){
+                        echo '<p ';
+                        if($lastMsg['vuMessage']==0 && $lastMsg['idUtilisateur2']==$user['idUtilisateur']){
+                          echo 'style="color:#d66060;"';
+                        }
+                        echo '>'.substr($lastMsg['message'],0,35);
+                        if(strlen($lastMsg['message'])>35){
                             echo '...';
                         }
                         echo '</p>';
@@ -95,6 +99,8 @@
               $stmt->execute([$user['idUtilisateur'],$_POST['idAmi'],$user['idUtilisateur'],$_POST['idAmi']]);
               $msg =$stmt->fetchAll();
               if($msg){
+                $stmt=$bdd->prepare("UPDATE messages SET vuMessage=1 WHERE idUtilisateur1=? && idUtilisateur2=?");
+                $stmt->execute([$_POST['idAmi'],$user['idUtilisateur']]);
                 $stmt=$bdd->prepare("SELECT idUtilisateur,pseudo,photo,civilite FROM utilisateurs WHERE idUtilisateur=?");
                 $stmt->execute([$_POST['idAmi']]);
                 $ami=$stmt->fetch();
@@ -194,7 +200,7 @@
     <script>
         const scrollMsg = document.querySelector(".msg_history");
         const output = document.getElementById("lastMsg");
-        scrollMsg.scroll(0,scrollMsg.offsetHeight);
+        scrollMsg.scroll(0,100000);
         setInterval(function(){
           var httpr = new XMLHttpRequest(); 
           httpr.open("POST", "FonctionPHP/GenerateChat.php");
@@ -212,6 +218,6 @@
           httpr.onload = function(){
             document.querySelector('.msg_history').innerHTML = httpr.responseText;
           }
-        },1000)
+        },3000)
     </script>
 </html>
