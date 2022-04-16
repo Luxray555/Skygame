@@ -15,7 +15,7 @@ if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['description
             <p style="font-size:18px;color:black;display:unset;width:100%;"><span style="font-weight:bold;">Email : </span><span style="padding:5px;">'.$_POST['email'].'</span></p><br><br>
             <p style="font-size:18px;color:black;display:unset;width:100%;"><span style="font-weight:bold;">Sujet : </span><span style="padding:5px;">'.$_POST['sujet'].'</span></p><br><br>
             <p style="font-size:18px;color:black;display:unset;width:100%;"><span style="font-weight:bold">Description : </span></p><br>
-            <p style="font-size:18px;color:black;display:inherit;border:solid black 2px;border-radius:5px;width: 90%;margin:auto;">'.$_POST['description'].'</p>
+            <p style="font-size:18px;color:black;display:inherit;border:solid black 2px;border-radius:5px;width: 90%;margin:auto;padding:20px;">'.$_POST['description'].'</p>
         </div>';
     $error=smtpmailer($to,$from, $name ,$subj, $msg);
     $_SESSION['notif']="Le message a été envoyer au support.";
