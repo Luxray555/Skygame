@@ -105,7 +105,7 @@ function notifJs($value){
 }
 
 function randomKey(){
-  $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   $randstring = '';
   for ($i = 0; $i < 12; $i++) {
     $randstring .= $characters[rand(0, strlen($characters)-1)];
@@ -117,6 +117,16 @@ function randomVerifCode(){
   $characters = '0123456789';
   $randstring = '';
   for ($i = 0; $i < 4; $i++) {
+    $randstring .= $characters[rand(0, strlen($characters)-1)];
+  }
+  return $randstring;
+}
+
+function randomMdp(){
+  $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  $randstring = '';
+  $randlen = random_int(6,25);
+  for ($i = 0; $i < $randlen; $i++) {
     $randstring .= $characters[rand(0, strlen($characters)-1)];
   }
   return $randstring;
@@ -180,5 +190,19 @@ function imgProfil($user){
     }else{
       echo 'pp'.$user['photo'];
     }
+}
+
+function mailExist($email,$bdd){
+  $stmt = $bdd->prepare("SELECT idUtilisateur FROM utilisateurs WHERE email=?");
+  $stmt->execute([$_POST['email']]); 
+  $user = $stmt->fetch() ;
+  if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+      echo "<p class='error'>Format du mail incompatible.</p>";
+  }
+  if ($user) {
+     return true;
+  }else{
+      false;
+  }
 }
 ?>

@@ -25,7 +25,7 @@ if(isset($_POST['email']) && !isset($_POST['mdp'])){
 if(isset($_POST['email']) && isset($_POST['mdp'])){
 	$stmt = $bdd->prepare("SELECT password FROM utilisateurs WHERE email=?");
 	$stmt->execute([$_POST['email']]);
-	$user = $stmt->fetch() ;
+	$user = $stmt->fetch();
   if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
     echo "<p class='error'>Format du mail incompatible.</p>";
   }

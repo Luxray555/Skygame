@@ -23,10 +23,10 @@ if(isset($_POST['idSkycoin'])){
             $_SESSION['notif']="Achat effectué avec succès.<br>+".$skycoin['totalSkycoin']." Skycoin";
         }
     }else{
-        header('Location: ../Boutique.php');
+        header("Location:".  $_SERVER['HTTP_REFERER']);
     }
     $stmt = $bdd->prepare("INSERT INTO transactions_skycoin(idUtilisateur,idSkycoin) VALUES (?,?)");
     $stmt->execute([$user['idUtilisateur'],$skycoin['idSkycoin']]);
 }
-header('Location: ../Boutique.php');
+header("Location:".  $_SERVER['HTTP_REFERER']);
 ?>

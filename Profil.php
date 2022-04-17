@@ -52,9 +52,17 @@ if(isset($_GET['idUtilisateur'])){
 			  		</div>
 					  <div id="myModal2" class="modal2">
 						<form class="modal-content2" action="FonctionPHP/ModifierProfil.php" method="POST">
-						<div class="pseudo"><label>
+						<div class="input"><label>
 							Pseudo:
 							<input type="text" value="'.$profil['pseudo'].'" name="pseudo" id="pseudo" placeholder="Pseudo" pattern="[a-zA-Z0-9_-]{3,15}" title="pseudo entre 4 et 15 caractéres, sans caractere spéciaux (sauf _ et - ), sans lettres accentués et sans espaces" autocomplete="off" required minlength="4" maxlength="15"/>
+						</label></div><br>
+						<div class="input"><label>
+							Modifier le mot de passe :
+							<input id="checkMdp" type="checkbox" name="modifMdp" value="0">
+							</label></div><br>
+						<div class="input"><label>
+							Nouveau mot de passe:<br>
+							<input type="text" value="" name="mdp" id="mdp" placeholder="Mot de passe"  autocomplete="off" required minlength="6" maxlength="50" disabled/>
 						</label></div><br>
 						<h2>Photo de profil:</h2>
 						<div class="photo">';
@@ -211,7 +219,19 @@ if(isset($_GET['idUtilisateur'])){
 		
 		btn2.onclick = function() {
 		  	modal2.style.display = "block";
-		}';
+		}
+		
+		var checkMdp = document.getElementById("checkMdp");
+		var newMdp = document.getElementById("mdp");
+
+		checkMdp.addEventListener("click",function(){
+			if(mdp.disabled){
+				mdp.disabled=false;
+			}else{
+				mdp.disabled=true;
+			}
+		})
+		';
 	}
 	?>
 	</script>

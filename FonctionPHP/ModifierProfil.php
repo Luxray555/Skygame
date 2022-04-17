@@ -18,6 +18,10 @@ require 'phpFunction.php';
             }
             header("Location:../Profil.php?idUtilisateur=".$_SESSION['idUtilisateur']);
         }else{
+            if(isset($_POST['modifMdp'])){
+                $stmt=$bdd->prepare("UPDATE utilisateurs SET password=? WHERE idUtilisateur=?");
+                $stmt->execute([sha1(substr($_POST['mdp'],0,50)),$_SESSION['idUtilisateur']]);
+            }
             $stmt=$bdd->prepare("UPDATE utilisateurs SET pseudo=?,photo=?,banniere=? WHERE idUtilisateur=?");
             $stmt->execute([substr($_POST['pseudo'],0,15),$_POST['photo'],$_POST['banniere'],$_SESSION['idUtilisateur']]);
             $_SESSION['notif']= "Profil modifier avec succès.";

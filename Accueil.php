@@ -142,7 +142,7 @@
     ?>
     </main>
   </body>
-  <script type="text/javascript">
+  <script>
     <?php
     if(isset($_SESSION['notif'])){
       notifJs($_SESSION['notif']);

@@ -10,7 +10,7 @@ if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['description
     $from = 'skygamecorporation@gmail.com';
     $name = $_POST['email'];
     $subj = $_POST['sujet'];
-    $msg = '<div style="background-color:#c9c9c9;padding:20px; width:90%;">
+    $msg = '<div style="background:linear-gradient(#130b3d,#000000);padding:20px; width:90%;">
             <h1 style="text-align:center;margin-bottom:50px;color:black">Support</h1>
             <p style="font-size:18px;color:black;display:unset;width:100%;"><span style="font-weight:bold;">Email : </span><span style="padding:5px;">'.$_POST['email'].'</span></p><br><br>
             <p style="font-size:18px;color:black;display:unset;width:100%;"><span style="font-weight:bold;">Sujet : </span><span style="padding:5px;">'.$_POST['sujet'].'</span></p><br><br>

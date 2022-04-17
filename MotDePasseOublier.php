@@ -21,34 +21,20 @@ if(isset($_SESSION['idUtilisateur'])){
   ?>
     <main class="main close">
 		<?php
-		if(isset($_SESSION['notif'])){
-			echo '<div id="error" style="background-color:green"><p class="error">'.$_SESSION['notif'].'</p></div>';
-		}
-		?>
-		<?php
 		if(!isset($user['idUtilisateur'])){
 			echo '<div class="wrapper">
 				</div>
 		<div class="formulaire">
-		<form id="form-connexion" method="POST" action="VerifMail">
-     		<h1>Se connecter</h1>
-			<label>
-				<input id="email" class="input" type="email" name="email" placeholder="email@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="on" required/>
-			</label><br>
-			<label>
-				<input id="mdp" type="password" name="mdp" placeholder="Mot de passe" autocomplete="off" required minlength="6" maxlength="50">
-				<div class="password-icon">
-    				<i data-feather="eye"></i>
-    				<i data-feather="eye-off"></i>
-  				</div>
-			</label><br>
-			<label id="mdpOublier">
-				<a href="MotDePasseOublier.php">Mot de passe oublier</a>
-			</label>
-			<p class="inscription"><a href="Inscription.php">Je n'."'".'ai pas de <span>compte</span>. Je m'."'".'en <span>crée</span> un.</a></p>
-			<div align="center">
-				<input id="bouton-connexion" type="submit" name="envoi" value="Connexion" autocomplete="off">
-			</div>
+		<form id="form-mdp" method="POST" action="FonctionPHP/EnvoieMdpOublier.php">
+     				<h1>Mot de passe oublier</h1>
+                        <p class="r-email" >Renseignez votre email</p>
+					<label>
+						<input id="email" class="input" type="email" name="email" placeholder="email@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="on" required/>
+					</label><br>
+					<div align="center">
+						<input id="bouton-connexion" type="submit" name="envoi" value="Envoyer un mail" autocomplete="off">
+					</div>
+		  		</form>
 		</form>
 		</div>
 				<div id="error"></div>'; 
@@ -66,14 +52,6 @@ if(isset($_SESSION['idUtilisateur'])){
 	</body>
 	<script src="https://unpkg.com/feather-icons"></script>
 	<script src="Public/js/eyeCheck.js"></script>
-	<script>
-	<?php
-		if(isset($_SESSION['notif'])){
-      		notifJs($_SESSION['notif']);
-      		unset($_SESSION['notif']);
-    	}
-	?>
-	</script>
 	<script>
   		feather.replace();
 		const eye = document.querySelector(".feather-eye");

@@ -26,6 +26,8 @@ if(isset($_POST['idJeu'])){
     }else{
         $_SESSION['notif']="Vous possèdez déjà une clé du jeu.<br>Allez dans votre bibliothéque.";
     }
+    header("Location:".  $_SERVER['HTTP_REFERER']);
+}else{
+    header("Location: ../Accueil.php");
 }
-header('Location: ../PageJeu.php?idJeu='.$jeu['idJeu']);
 ?>

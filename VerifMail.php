@@ -2,6 +2,12 @@
 require_once "Setup/database.php";
 session_start();
 require "FonctionPHP/phpFunction.php";
+if(isset($_SESSION['email']) && isset($_SESSION['mdp'])){
+    $_POST['email'] = $_SESSION['email'];
+    $_POST['mdp'] = $_SESSION['mdp'];
+    unset($_SESSION['email']);
+    unset($_SESSION['mdp']);
+}
 if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
 	$stmt = $bdd->prepare("SELECT civilite,idUtilisateur,email,pseudo,password,skyCoin,verifMail,codeVerifMail FROM utilisateurs WHERE email=?");
     $stmt->execute([$_POST['email']]);
@@ -34,6 +40,11 @@ if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'],
                 <input type="hidden" name="mdp" value="'.$_POST['mdp'].'">
                 <input type="text" name="code" placeholder="Code" autocomplete="off" minlength="3" maxlength="4" size="4" pattern="[0-9]{4}"><br><br>
                 <input id="btnVerif" type="submit" value="Vérifier">
+            </form>
+            <form action="FonctionPHP/RenvoieMailVerif.php" method="POST">
+                <input type="hidden" name="email" value="'.$_POST['email'].'">
+                <input type="hidden" name="mdp" value="'.$_POST['mdp'].'">
+                <input id="btnRenvoie" type="submit" value="Renvoyer un mail">
             </form>
             </div>';
             include "footer.php";
