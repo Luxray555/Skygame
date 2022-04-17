@@ -73,7 +73,7 @@
     }
 
     if(isset($_GET['search']) && $_GET['search']!="" && isset($_GET['page'])){
-        if($_GET['page']=="" || $_GET['page']<1){
+        if($_GET['page']=="" || $_GET['page']<1 || (string)(int)$_GET['page'] != $_GET['page']){
             $text='Location: Catalogue.php?search='.$_GET['search'].'&page=1';
                 for($i=0;$i<count($_GET['genres']);$i++){
                     $text.='&genres[]='.$_GET['genres'][$i];
@@ -326,6 +326,9 @@
 		        httpr.send("search='.$_GET['search'].'"+"&platforms='.$platforme_total.'&genres='.$genre_total.'");
                 httpr.onload = function(){
 			        var game = eval(httpr.response);
+                    if(Math.ceil(game.length/16)<'.$_GET['page'].'){
+                        document.location.href="Catalogue.php?search='.$_GET['search'].'&page="+Math.ceil(game.length/16)+"&genres[]='.$genre_total.'&platforms[]='.$platforme_total.'";
+                    }
                     if((game.length-('.$_GET['page'].'-1)*16)<list[1].length){
                         var e = (game.length-('.$_GET['page'].'-1)*16);
                         for(i=list[1].length-1;i>e-1;i--){
