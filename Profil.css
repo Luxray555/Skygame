@@ -1,0 +1,271 @@
+.container {
+	position: relative;
+	margin: auto;
+	width: 100%; height: 250px;
+	background-size: cover;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.informations-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 65px;
+	background-color: #151728;
+	transition: all .4s;
+}
+.profile {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	bottom: 20px;
+	left: 25px;
+}
+.container img {
+	width: 150px; height: 150px;
+	border-radius: 50%;
+	border: 3px solid #151728;
+}
+.container .name {
+	color: white;
+	margin-left: 1.5em;
+	font-size: 2em;
+}
+.informations-bar .modif-bar {
+	transition: all .4s;
+	justify-content: right;
+	z-index: 10;
+	position: relative;
+	width: 100%;
+	display: flex;
+	padding-left: 160px;
+	height: 100%;
+	margin: 0;
+}
+.informations-bar .modif-bar .button{
+	height: max-content;
+	margin: auto 50px auto 0px;
+	text-align: center;
+}
+@media screen and (max-width:800px) {
+	.profile {
+		bottom: 60px;
+		left: 25px;
+	}
+	.informations-bar {
+		height: 100px;
+	}
+	.informations-bar .modif-bar {
+		flex-direction: column;
+	}
+}
+@media screen and (max-width:800px) {
+	.profile {
+		bottom: 100px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.profile .name{
+		position: absolute;
+		font-size: 100%;
+		color: #ffffff;
+		-webkit-text-stroke: 1px black;
+		font-weight: bold;
+		margin: 0px;
+		text-align: center;
+		width: 100%;
+	}
+	.informations-bar {
+
+		height: 100px;
+		padding: 0px;
+	}
+	.informations-bar .modif-bar {
+		flex-direction: column;
+		justify-content: center;
+		padding: 0px;
+	}
+	.informations-bar .modif-bar .button{
+		margin: 0px;
+	}
+}
+.description{
+	margin: 120px auto;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #151728;
+	width: 80%;
+}
+.description h2{
+	margin-bottom: 10px;
+	color: white;
+}
+.description p{
+	overflow-wrap: break-word;
+	color: white;
+	font-size: 18px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	min-height: 300px;
+}
+.button{
+	text-align: center;
+}
+.button button{
+	margin-top: 10px;
+	border: white 1px solid;
+	background: none;
+	color: white;
+	font-size: 20px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	transition: all .5s;
+}
+.button button:hover{
+	cursor: pointer;
+	border: black 1px solid;
+	color: black;
+	background-color: white;
+}
+.modal1 {
+	display: none;
+	position: fixed;
+	z-index: 1000000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-content1 {
+	border-radius: 5px;
+	position: relative;
+	top:50%;
+	transform: translateY(-50%);
+	color: white;
+	background-color: #0a0c29;
+	margin: auto auto;
+	padding: 40px;
+	border: 1px solid #888;
+	width: 80%;
+}
+.modal1 form textarea{
+	resize: none;
+	font-weight: bold;
+	padding: 10px;
+	font-size: 17px;
+	border-radius: 5px;
+	margin:  40px auto 0px auto;
+	width: 100%;
+	min-height: 300px;
+}
+.modal2 {
+	display: none;
+	position: fixed;
+	z-index: 1000000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-content2 {
+	border-radius: 5px;
+	position: relative;
+	top:50%;
+	transform: translateY(-50%);
+	color: white;
+	background-color: #0a0c29;
+	margin: auto auto;
+	padding: 40px;
+	border: 1px solid #888;
+	width: 80%;
+}
+.modal2 form{
+	margin: auto;
+	width: 80%;
+	height: 90vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.modal2 form label{
+	font-weight: bold;
+	font-size: 22px;
+}
+.modal2 form label input[type="text"]{
+	width: 200px;
+	text-align: center;
+	padding: 5px 0px;
+	font-weight: bold;
+	border-radius: 10px;
+}
+.modal2 form h2{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.modal2 form .photo{
+	margin: auto;
+	width: 80%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 20px 0px;
+	transition: all .5s;
+}
+.modal2 form .banniere{
+	margin: auto;
+	width: 80%;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px 0px;
+	transition: all .5s;
+}
+@media screen and (max-width:850px) {
+	.modal2 form .photo{
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (max-width:500px) {
+	.modal2 form .photo{
+		grid-template-columns: 1fr;
+	}
+}
+.modal2 form .input{
+	text-align: center;
+}
+.modal2 form .input input[type="checkbox"]{
+	cursor: pointer;
+	margin-left: 10px;
+	width:20px;
+	height: 20px;
+}
+.modal2 form label{
+	text-align: center;
+}
+.modal2 form input[type="radio"] { 
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.modal2 form input[type="radio"] + img {
+	cursor: pointer;
+}
+.modal2 form input[type="radio"]:checked + img {
+	outline: 4px solid white;
+}
+.modal2 form .photo img{
+	width:100px;
+	border-radius: 50px;
+}
+.modal2 form .banniere img{ 
+	width: 100%;
+	height: 10vw;
+	border-radius: 5px;
+	border: white solid 1px;
+}
