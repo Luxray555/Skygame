@@ -5,21 +5,15 @@ body{
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.center{
-  height: 100vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
 }
 .verification-box{
   background-color: rgba(0, 0, 0, 0.459);
   border-radius: 10px;
   padding: 30px;
   text-align: center;
-  margin: auto;
 }
 .verification-box h1{
   transition: all .4s;
@@ -42,28 +36,6 @@ body{
   padding: 5px 0px;
   font-size: 30px;
   text-align: center;
-}
-@media screen and (max-width:500px) {
-  .verification-box h1{
-    font-size: 17px;
-    margin: 0px 0px 20px 0px;
-    color: white;
-  }
-  .verification-box h2{
-    font-size: 15px;
-    margin: 0px 0px 30px 0px;
-    color: white;
-  }
-  .verification-box input[type="text"]{
-    color: white;
-    background-color: black;
-    border: white solid 1px;
-    border-radius: 1vh;
-    width: 100px;
-    padding: 5px 0px;
-    font-size: 15px;
-    text-align: center;
-  }
 }
 #verifier{
   cursor: pointer;
@@ -102,9 +74,37 @@ body{
 .verification-box #btnVerif:hover{
   padding: 5px 20px;
 }
-a:hover{
-  font-weight: bold;
-  color: white;
+#btnRenvoie{
+  transition: all .4s;
+  margin: 10px 0px;
+  font-size: 20px;
   cursor: pointer;
-  background-color: transparent;
+  background: none;
+  color: white;
+  border: none;
+}
+#btnRenvoie:hover{
+  text-decoration: underline;
+}
+@media screen and (max-width:500px) {
+  .verification-box h1{
+    font-size: 17px;
+    margin: 0px 0px 20px 0px;
+    color: white;
+  }
+  .verification-box h2{
+    font-size: 15px;
+    margin: 0px 0px 30px 0px;
+    color: white;
+  }
+  .verification-box input[type="text"]{
+    color: white;
+    background-color: black;
+    border: white solid 1px;
+    border-radius: 1vh;
+    width: 100px;
+    padding: 5px 0px;
+    font-size: 15px;
+    text-align: center;
+  }
 }

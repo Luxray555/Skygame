@@ -235,8 +235,14 @@
 		grid-template-columns: 1fr;
 	}
 }
-.modal2 form .pseudo{
+.modal2 form .input{
 	text-align: center;
+}
+.modal2 form .input input[type="checkbox"]{
+	cursor: pointer;
+	margin-left: 10px;
+	width:20px;
+	height: 20px;
 }
 .modal2 form label{
 	text-align: center;

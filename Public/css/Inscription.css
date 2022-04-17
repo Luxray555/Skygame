@@ -49,9 +49,6 @@ body{
         font-size: 3vh;
     }
 }
-#form-inscription a:hover{
-    text-decoration: underline white;
-}
 #form-inscription .civilite input[type="radio"]{
     width: max-content;
     min-width: max-content;
@@ -102,13 +99,13 @@ body{
     height: 2vh;
     margin-left: 5px;
 }
-#form-inscription p.inscription{
+#form-inscription p.connexion{
     text-align: center;
     font-size: 2vh;
     margin-bottom: 20px;
     color: #ffffff;
 }
-#form-inscription p.inscription span{
+#form-inscription p.connexion span{
     color: #eb7371;
 }
 #form-inscription input[type='submit']{
@@ -126,4 +123,11 @@ body{
 #form-inscription input[type='submit']:hover{
     background-color: red;
     border: solid black 2px;
+}
+#form-inscription a{
+    color: white;
+    text-align: right;
+}
+#form-inscription a:hover{
+    text-decoration: underline white;
 }

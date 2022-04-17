@@ -24,7 +24,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-#form-connexion {
+#form-mdp {
     width: 50vw;
     background-color: rgba(59, 59, 59, 0.6);
     padding: 2vh 3vw;
@@ -32,7 +32,7 @@ body{
     min-width: 300px;
     text-align: center;
 }
-#form-connexion h1{
+#form-mdp h1{
     font-size: 2.5vw;
     transition: all .5s;
     color: #ffffff;
@@ -41,22 +41,22 @@ body{
     margin-bottom: 40px;
 }
 @media screen and (max-width:700px){
-    #form-connexion{
+    #form-mdp{
         left: 50%;
         margin: 12vh auto;
     }
-    #form-connexion h1{
+    #form-mdp h1{
         font-size: 3vh;
     }
 }
-#form-connexion label{
+#form-mdp label{
     position: relative;
     font-size: 2vh;
     color: white;
     text-align: center;
     margin-bottom: 20px;
 }
-#form-connexion label input {
+#form-mdp label input {
     margin-bottom: 20px;
     font-size: 15px;
     background-color: #dadada;
@@ -68,43 +68,16 @@ body{
     width: 55%;
     min-width: 200px;
   }
-#form-connexion label input:focus {
+#form-mdp label input:focus {
     background-color: #ffffff;
 }
-#form-connexion label .password-icon {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    width: 20px;
-    color: #000000;
-    transition: all 0.2s;
-}
-#form-connexion label .password-icon:hover {
-    cursor: pointer;
-    color: #ff4754;
-}
-  
-#form-connexion label .password-icon .feather-eye {
-    display: none;
-}
-#form-connexion label input[type='radio']{
-    width: 2vh;
-    height: 2vh;
-    margin-left: 5px;
-}
-#form-connexion p.inscription{
+#form-mdp p.r-email{
     text-align: center;
     font-size: 2vh;
     margin: 20px 0px;
     color: #ffffff;
 }
-#form-connexion p.inscription span{
-    color: #eb7371;
-}
-#form-connexion input[type='submit']{
+#form-mdp input[type='submit']{
     height: 5vh;
     padding: 0px 25px;
     border-radius: 5px;
@@ -116,15 +89,7 @@ body{
     transition: all .5s;
     border: solid white 2px;
 }
-#form-connexion input[type='submit']:hover{
+#form-mdp input[type='submit']:hover{
     background-color: red;
     border: solid black 2px;
-}
-#form-connexion a{
-    color: white;
-    text-align: right;
-    margin: 20px 0px;
-}
-#form-connexion a:hover{
-    text-decoration: underline white;
 }
