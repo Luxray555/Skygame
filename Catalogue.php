@@ -17,10 +17,6 @@
     $platforme = array("Toutes" => "6,14,7,8,9,38,48,167,11,12,49,169,5,20,37,41,130","PC" => "6,14","Playstation" => "7,8,9,38,48,167","Xbox" => "11,12,49,169","Nintendo" => "5,20,37,41,130");
     $genre = array("Tous" => "5,7,8,9,10,12,13,14,15,25,31,32,36","Adventure" => "31","Shooter" => "5","Role-playing (RPG)" => "12","Sport" => "14","Simulator" => "13","Racing" => "10","Platform" => "8","Strategy" => "15","Indie" => "32","Hack and slash/Beat" => "25","Puzzle" => "9","MOBA" => "36","Music" => "7");
     
-
-    if((!isset($_GET['search']) || !isset($_GET['page'])) && (isset($_GET['search']) || isset($_GET['page']))){
-        header('Location: Catalogue.php');
-    }
     if(isset($_GET['search']) && isset($_GET['page'])){
         if(!isset($_GET['genres'])){
             if(!isset($_GET['platforms'])){
@@ -68,11 +64,13 @@
             }
         }
     }
-    if(isset($_GET['search']) && $_GET['search']==""){
-        header('Location: Catalogue.php');
+    if(isset($_GET['genres']) && isset($_GET['platforms'])){
+        if(empty($_GET['search']) && $_GET['genres'][0]=="Tous" && $_GET['platforms'][0]=="Toutes"){
+            header("Location: Catalogue.php");
+        }
     }
 
-    if(isset($_GET['search']) && $_GET['search']!="" && isset($_GET['page'])){
+    if(isset($_GET['search']) && !empty($_GET['search']) && isset($_GET['page'])){
         if($_GET['page']=="" || $_GET['page']<1 || (string)(int)$_GET['page'] != $_GET['page']){
             $text='Location: Catalogue.php?search='.$_GET['search'].'&page=1';
                 for($i=0;$i<count($_GET['genres']);$i++){
@@ -156,7 +154,7 @@
         </div>
         <div class="game-panel">
         <?php
-        if(!isset($_GET['search']) || $_GET['search']==""){
+        if(!isset($_GET['search']) || !isset($_GET['page'])){
             echo '<h2>A la une</h2>
             <ul class="ALaUne">';
             for($i=0;$i<4;$i++){
@@ -267,7 +265,7 @@
             }
         }
         <?php
-        if(!isset($_GET['search']) || !isset($_GET['page']) ){
+        if(!isset($_GET['search']) || !isset($_GET['page'])){
             echo 'function accueilCatalogue(list,custom_where){
                 var httpr = new XMLHttpRequest();
                 httpr.open("POST", "FonctionPHP/LoadIGDBGame.php");
