@@ -27,7 +27,7 @@ if(!empty($_POST)){
             </div>';
         $error=smtpmailer($to,$from, $name ,$subj, $msg);
 	    $insertUser = $bdd->prepare("INSERT INTO utilisateurs(civilite,nom,prenom,pseudo,email,password,codeVerifMail)VALUES(?,?,?,?,?,?,?)");
-	    $insertUser->execute(array(substr($_POST['civilite'],0,1),substr(htmlspecialchars($_POST["nom"]),0,25),substr(htmlspecialchars($_POST["prenom"]),0,25),substr(htmlspecialchars($_POST["pseudo"]),0,15),substr(htmlspecialchars($_POST["email"]),0,255),sha1(substr($_POST["mdp"]),0,50),$code));
+	    $insertUser->execute(array(substr($_POST['civilite'],0,1),substr(htmlspecialchars($_POST["nom"]),0,25),substr(htmlspecialchars($_POST["prenom"]),0,25),substr(htmlspecialchars($_POST["pseudo"]),0,15),substr(htmlspecialchars($_POST["email"]),0,255),sha1(substr($_POST["mdp"],0,50)),$code));
 	    $_SESSION["chargement"]= "Création du compte";
 	    header('Location: ../Chargement.php');
     }else{
