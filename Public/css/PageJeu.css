@@ -69,7 +69,7 @@ body{
 }
 .note{
   height: 100px;
-  width: 280px;
+  width: max-content;
   margin: auto;
   text-align: center;
   grid-area: Note;
@@ -175,9 +175,6 @@ body{
     "Prix"
     "Note"
     "NoteGenerale";
-  }
-  .note{
-    width: 215px;
   }
   .note label{
     font-size: 40px;
