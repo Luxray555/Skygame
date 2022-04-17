@@ -326,7 +326,7 @@
 		        httpr.send("search='.$_GET['search'].'"+"&platforms='.$platforme_total.'&genres='.$genre_total.'");
                 httpr.onload = function(){
 			        var game = eval(httpr.response);
-                    if(Math.ceil(game.length/16)<'.$_GET['page'].'){
+                    if(Math.ceil(game.length/16)<'.$_GET['page'].' && game.length !=0){
                         document.location.href="Catalogue.php?search='.$_GET['search'].'&page="+Math.ceil(game.length/16)+"&genres[]='.$genre_total.'&platforms[]='.$platforme_total.'";
                     }
                     if((game.length-('.$_GET['page'].'-1)*16)<list[1].length){
