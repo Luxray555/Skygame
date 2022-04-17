@@ -22,7 +22,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         $_SESSION['notif']="Un nouveau mot de passe a été envoyer par mail.";
     }else{
         $_SESSION['notif']="Aucun compte ne possède cette email";
-        header("Location: ../MotDePasseOublier.php");
+        header("Location:".$_SERVER['HTTP_REFERER']);
     }
 }else{
     $_SESSION['notif']="Erreur";
