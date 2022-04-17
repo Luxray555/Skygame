@@ -153,7 +153,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body){
   $mail->AddAddress($to);
   if(!$mail->Send())
   {
-      $error ="Please try Later, Error Occured while Processing...";
+      $error = $mail->ErrorInfo;
       return $error; 
   }
   else 
