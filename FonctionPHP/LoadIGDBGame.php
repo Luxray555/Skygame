@@ -27,12 +27,20 @@ if(isset($_POST)){
   }elseif(isset($_POST['search']) && isset($_POST['platforms']) && isset($_POST['genres'])){
     $platformes_total = $_POST['platforms'];
     $genres_total = $_POST['genres'];
+    if(!empty($_POST['search'])){
       $options = array(
         "search" => $_POST['search'],
         "limit" => 500,
         "fields" => "id,name,cover.*,genres.name,platforms.name,summary,screenshots.*",
         "custom_where" => "platforms =($platformes_total) & genres =($genres_total)",
       );
+    }else{
+      $options = array(
+        "limit" => 500,
+        "fields" => "id,name,cover.*,genres.name,platforms.name,summary,screenshots.*",
+        "custom_where" => "platforms =($platformes_total) & genres =($genres_total)",
+      );
+    }
       try {
         $query = $builder->options($options)->build();
       } catch (IGDBInvaliParameterException $e) {
