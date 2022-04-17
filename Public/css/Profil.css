@@ -198,7 +198,7 @@
 	font-weight: bold;
 	font-size: 22px;
 }
-.modal2 form label input[type="text"]{
+.modal2 form label input[type="text"],input[type="password"]{
 	width: 200px;
 	text-align: center;
 	padding: 5px 0px;

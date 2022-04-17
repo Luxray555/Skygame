@@ -5,6 +5,7 @@ body{
 }
 .wrapper{
     height: 1400px;
+    width:100%;
     text-align:center;
     background-repeat:repeat;
     background-position: center;
