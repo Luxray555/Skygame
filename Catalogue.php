@@ -176,16 +176,15 @@
             }
             echo '</ul>
             <div class="nbPage">
-                <button class="precedent"><a href="Catalogue.php?search='.$_GET['search'].'&page='.($_GET['page']-1);
-                for($i=0;$i<count($_GET['genres']);$i++){
-                    echo '&genres[]='.$_GET['genres'][$i];
-                }
-                for($i=0;$i<count($_GET['platforms']);$i++){
-                    echo '&platforms[]='.$_GET['platforms'][$i];
-                }
-                echo '"><img src="Public/Images/icon/arrow.png"></a></button>
+            <a href="Catalogue.php?search='.$_GET['search'].'&page='.($_GET['page']-1);
+            for($i=0;$i<count($_GET['genres']);$i++){
+                echo '&genres[]='.$_GET['genres'][$i];
+            }
+            for($i=0;$i<count($_GET['platforms']);$i++){
+                echo '&platforms[]='.$_GET['platforms'][$i];
+            }
+            echo '" class="precedent"><button><img src="Public/Images/icon/arrow.png"></button></a>
                 <span></span>
-                <button class="suivant">
                 <a href="Catalogue.php?search='.$_GET['search'].'&page='.($_GET['page']+1);
                 for($i=0;$i<count($_GET['genres']);$i++){
                     echo '&genres[]='.$_GET['genres'][$i];
@@ -193,7 +192,8 @@
                 for($i=0;$i<count($_GET['platforms']);$i++){
                     echo '&platforms[]='.$_GET['platforms'][$i];
                 }
-                echo '"><img src="Public/Images/icon/arrow.png"></a></button>
+                echo '" class="suivant"><button>
+                <img src="Public/Images/icon/arrow.png"></button></a>
             </div>';
             }
         ?>
@@ -353,12 +353,12 @@
                     }
                     document.querySelector(".nbPage span").innerHTML ="'.$_GET['page'].'"+" / "+(Math.ceil((game.length/16))).toString();
                     if('.$_GET['page'].'==1){
-                        document.querySelector(".nbPage .precedent").disabled = true;
-                        document.querySelector(".nbPage .precedent a").style.pointerEvents = "none";
+                        document.querySelector(".nbPage .precedent button").disabled = true;
+                        document.querySelector(".nbPage .precedent").style.pointerEvents = "none";
                     }
                     if('.$_GET['page'].'==Math.ceil((game.length/16))){
-                        document.querySelector(".nbPage .suivant").disabled = true;
-                        document.querySelector(".nbPage .suivant a").style.pointerEvents = "none";
+                        document.querySelector(".nbPage .suivant button").disabled = true;
+                        document.querySelector(".nbPage .suivant").style.pointerEvents = "none";
                     }
 
 		        }
