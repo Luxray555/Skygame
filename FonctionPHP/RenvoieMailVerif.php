@@ -16,10 +16,10 @@ if(isset($_POST['email']) && isset($_POST['mdp'])){
             </div>';
     $error=smtpmailer($to,$from, $name ,$subj, $msg);
 	$stmt = $bdd->prepare("UPDATE utilisateurs SET codeVerifMail=? WHERE email=?");
-	$stmt->execute(array($code,$_SESSION['email']));
+	$stmt->execute(array($code,$_POST['email']));
 	$_SESSION["notif"]= "Un nouveau code vous a été envoyer pas mail.";
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['mdp'] = $_POST['mdp'];
-	header("Location: ../VerifMail.php");
+	header("Location:".  $_SERVER['HTTP_REFERER']);
 }
 ?>

@@ -1,7 +1,6 @@
 <?php
   require_once "Setup/database.php";
   session_start();
-  
   require 'FonctionPHP/phpFunction.php';
 
   if(isset($_SESSION['idUtilisateur'])){

@@ -62,7 +62,7 @@ if(isset($_GET['idUtilisateur'])){
 							</label></div><br>
 						<div class="input"><label>
 							Nouveau mot de passe:<br>
-							<input type="text" value="" name="mdp" id="mdp" placeholder="Mot de passe"  autocomplete="off" required minlength="6" maxlength="50" disabled/>
+							<input type="password" value="" name="mdp" id="mdp" placeholder="Mot de passe"  autocomplete="off" required minlength="6" maxlength="50" disabled/>
 						</label></div><br>
 						<h2>Photo de profil:</h2>
 						<div class="photo">';

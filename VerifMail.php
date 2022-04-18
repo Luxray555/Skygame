@@ -31,8 +31,11 @@ if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'],
             include "header.php";
             echo '<!DOCTYPE html>
             <html lang="fr">
-            <main class="main close">
-            <div class="formulaire">
+            <main class="main close">';
+            if(isset($_SESSION['notif'])){
+                echo '<div id="error" style="background-color:green"><p class="error">'.$_SESSION['notif'].'</p></div>';
+            }
+            echo '<div class="formulaire">
             <form class="verification-box" action="" method="POST">
                 <h1>Vérifier votre adresse mail</h1>
                 <h2>( '.$_POST['email'].' )</h2>
@@ -50,6 +53,12 @@ if(isset($_POST['email']) && isset($_POST['mdp']) && filter_var($_POST['email'],
             include "footer.php";
             echo '</main>
             </body>
+            <script>';
+            if(isset($_SESSION['notif'])){
+                notifJs($_SESSION['notif']);
+                unset($_SESSION['notif']);
+            }
+            echo '</script>
             </html>';
         }
     }else{

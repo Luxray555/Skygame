@@ -20,12 +20,13 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         $stmt = $bdd->prepare("UPDATE utilisateurs SET password=? WHERE email=?");
         $stmt->execute([sha1($password),$_POST['email']]);
         $_SESSION['notif']="Un nouveau mot de passe a été envoyer par mail.";
+        header("Location: ../Connexion.php");
     }else{
         $_SESSION['notif']="Aucun compte ne possède cette email";
         header("Location:".$_SERVER['HTTP_REFERER']);
     }
 }else{
     $_SESSION['notif']="Erreur";
+    header("Location:".$_SERVER['HTTP_REFERER']);
 }
-header("Location: ../Connexion.php");
 ?>  

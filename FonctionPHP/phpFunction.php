@@ -141,7 +141,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body){
   $mail->Host = 'smtp.gmail.com';
   $mail->Port = 465;  
   $mail->Username = 'skygamecorporation@gmail.com';
-  $mail->Password = 'SkygameCorporation2022';
+  $mail->Password = 'SkygameCorporation20222022';
 
   $mail->IsHTML(true);
   $mail->From="skygameprojet@gmail.com";

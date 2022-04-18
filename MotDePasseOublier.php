@@ -21,6 +21,15 @@ if(isset($_SESSION['idUtilisateur'])){
   ?>
     <main class="main close">
 		<?php
+		if(isset($_SESSION['notif'])){
+			echo '<div id="error" style="background-color:';
+			if($_SESSION['notif']=="Erreur"){
+				echo 'red';
+			}else{
+				echo 'green';
+			}
+			echo '"><p class="error">'.$_SESSION['notif'].'</p></div>';
+		}
 		if(!isset($user['idUtilisateur'])){
 			echo '<div class="wrapper">
 				</div>
@@ -53,6 +62,13 @@ if(isset($_SESSION['idUtilisateur'])){
 	<script src="https://unpkg.com/feather-icons"></script>
 	<script src="Public/js/eyeCheck.js"></script>
 	<script>
+		<?php
+		if(isset($_SESSION['notif'])){
+      		notifJs($_SESSION['notif']);
+      		unset($_SESSION['notif']);
+    	}
+		?>
+
   		feather.replace();
 		const eye = document.querySelector(".feather-eye");
 		const eyeoff = document.querySelector(".feather-eye-off");
