@@ -13,7 +13,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         $name = "Skygame Corporation";
         $subj = "Mot de passe oublier";
         $msg = '<div style="background:linear-gradient(#130b3d,#000000);padding:20px; width:90%;">
-                <h1 style="text-align:center;margin-bottom:50px;color:black">Skygame</h1>
+                <h1 style="text-align:center;margin-bottom:50px;color:white">Skygame</h1>
                 <p style="text-align:center;font-size:18px;color:white;"><span style="font-weight:bold;">Nouveau mot de passe : </span><span style="border:solid white 2px;padding:5px;border-radius:5px;">'.$password.'</span></p>
             </div>';
         $error=smtpmailer($to,$from, $name ,$subj, $msg);
