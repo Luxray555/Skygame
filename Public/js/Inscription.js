@@ -17,6 +17,7 @@ form.addEventListener ("submit", function(e) {
 			form.submit();
 		}else if(httpr.responseText!=""){
 			bouton.disabled=true;
+			document.getElementById("error").style.backgroundColor = "red";
 			document.getElementById("error").style.opacity = 1;
 			document.getElementById("error").style.transform = "scale(1.2)";
 			now_time = 5;

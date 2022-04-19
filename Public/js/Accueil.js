@@ -16,8 +16,8 @@ ScrollReveal({
     duration: 2500,
     opacity: 0
   });
-  ScrollReveal().reveal('h2 img', { delay: 100, origin: 'top' });
-  ScrollReveal().reveal('.img1, .text2', { delay: 100, origin: 'left' });
-  ScrollReveal().reveal('.text1, .img2', { delay: 100, origin: 'right' });
-  ScrollReveal().reveal('.slider,.info,.info .part,.nous,.nous .part div', {distance: '200px',interval: 200, delay: 100, origin: 'bottom' });
-  ScrollReveal().reveal('.info p',{distance:'0px',delay:2000});
+ScrollReveal().reveal('h2 img', { delay: 100, origin: 'top' });
+ScrollReveal().reveal('.img1, .text2', { delay: 100, origin: 'left' });
+ScrollReveal().reveal('.text1, .img2', { delay: 100, origin: 'right' });
+ScrollReveal().reveal('.slider,.info,.info .part,.nous,.nous .part div', {distance: '200px',interval: 200, delay: 100, origin: 'bottom' });
+ScrollReveal().reveal('.info p',{distance:'0px',delay:2000});
