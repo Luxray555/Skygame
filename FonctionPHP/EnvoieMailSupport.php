@@ -19,8 +19,8 @@ if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['description
         </div>';
     $error=smtpmailer($to,$from, $name ,$subj, $msg);
     $_SESSION['notif']="Le message a été envoyer au support.";
-    echo $error;
 }else{
     $_SESSION['notif']="Erreur";
 }
+header("Location:".  $_SERVER['HTTP_REFERER']);
 ?>  
