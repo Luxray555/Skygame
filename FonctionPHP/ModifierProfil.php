@@ -19,7 +19,7 @@ require 'phpFunction.php';
             }
             header("Location:../Profil.php?idUtilisateur=".$_SESSION['idUtilisateur']);
         }else{
-            if(isset($_POST['modifMdp'])){
+            if(isset($_POST['modifMdp']) && $_POST['modifMdp']>=6 && $_POST['modifMdp']<=50){
                 $stmt=$bdd->prepare("UPDATE utilisateurs SET password=? WHERE idUtilisateur=?");
                 $stmt->execute([sha1(substr($_POST['mdp'],0,50)),$_SESSION['idUtilisateur']]);
             }
