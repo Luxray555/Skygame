@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 function expiredSession(int $time){
 if($time + 1800 > time()){
@@ -133,34 +136,37 @@ function randomMdp(){
 }
 
 function smtpmailer($to, $from, $from_name, $subject, $body){
-  $mail = new PHPMailer();
-  $mail->IsSMTP();
-  $mail->SMTPAuth = true; 
+  require '../RessourceAPI/PHPMailer/Exception.php';
+  require '../RessourceAPI/PHPMailer/PHPMailer.php';
+  require '../RessourceAPI/PHPMailer/SMTP.php';
 
-  $mail->SMTPSecure = 'ssl';
-  $mail->Host = 'smtp.gmail.com';
-  $mail->Port = 465;  
-  $mail->Username = 'skygamecorporation@gmail.com';
-  $mail->Password = 'SkygameCorporation10';
+  $mail = new PHPMailer(true);
+  try {
+    //Server settings                   //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPSecure = 'ssl';
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'skygamecorporation@gmail.com';                     //SMTP username
+    $mail->Password   = 'SkygameCorporation10';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-  $mail->IsHTML(true);
-  $mail->From="skygameprojet@gmail.com";
-  $mail->FromName=$from_name;
-  $mail->Sender=$from;
-  $mail->AddReplyTo($from, $from_name);
-  $mail->Subject = $subject;
-  $mail->Body = $body;
-  $mail->AddAddress($to);
-  if(!$mail->Send())
-  {
-      $error = $mail->ErrorInfo;
-      return $error; 
-  }
-  else 
-  {
-      $error = "Thanks You !! Your email is sent.";  
-      return $error;
-  }
+    //Recipients
+    $mail->setFrom($from, $from_name);
+    $mail->addAddress($to);
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = $body;
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 }
 
 function keyArrayExistArray($array,$key_array){

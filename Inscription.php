@@ -3,7 +3,6 @@ require_once "Setup/database.php";
 session_start();
 
 require 'FonctionPHP/phpFunction.php';
-require "RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 
 if(isset($_SESSION['idUtilisateur'])){
     if ($_SESSION['timestamp']!=null) {

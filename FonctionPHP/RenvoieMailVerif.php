@@ -3,7 +3,7 @@ require_once "../Setup/database.php";
 session_start();
 
 require '../FonctionPHP/phpFunction.php';
-require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
+
 if(isset($_POST['email']) && isset($_POST['mdp'])){
 	$code=randomVerifCode();
     $to   = $_POST['email'];

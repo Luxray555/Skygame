@@ -3,7 +3,7 @@ require_once "../Setup/database.php";
 session_start();
 
 require 'phpFunction.php';
-require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
+
 if(!empty($_POST)){
     if(isset($_POST['pseudo'])){
         $stmt = $bdd->prepare("SELECT idUtilisateur FROM utilisateurs WHERE pseudo=?");

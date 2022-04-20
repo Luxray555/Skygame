@@ -3,7 +3,6 @@ require_once "../Setup/database.php";
 session_start();
 
 require '../FonctionPHP/phpFunction.php';
-require "../RessourceAPI/PHPMailer/PHPMailerAutoload.php";
 
 if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
     if(mailExist($_POST['email'],$bdd)){
