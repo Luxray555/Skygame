@@ -2,16 +2,17 @@
 require_once "../Setup/database.php";
 session_start();
 require 'phpFunction.php';
-    if(isset($_POST['pseudo']) && isset($_POST['photo']) && isset($_POST['banniere']) && isset($_SESSION['idUtilisateur'])){
+    if(isset($_POST['pseudo']) && isset($_POST['banniere']) && isset($_SESSION['idUtilisateur'])){
         $stmt=$bdd->prepare("SELECT idUtilisateur FROM utilisateurs WHERE pseudo=? AND pseudo<>(SELECT pseudo FROM utilisateurs WHERE idUtilisateur=?)");
         $stmt->execute([$_POST['pseudo'],$_SESSION['idUtilisateur']]);
         $pseudo=$stmt->fetch();
-        if(($_POST['photo']>4 || $_POST['photo']<1) || ($_POST['banniere']>3 || $_POST['banniere']<1) || $pseudo != false){
+        if($_POST['photo']>4 || $_POST['photo']<1){
+            $_SESSION['notif']="Photo de profil introuvable.";
+            header("Location:../Profil.php?idUtilisateur=".$_SESSION['idUtilisateur']);
+        }
+        if( ($_POST['banniere']>3 || $_POST['banniere']<1) || $pseudo != false){
             if($pseudo!=false){
                 $_SESSION['notif']="Pseudo déjà utiliser.";
-            }
-            if($_POST['photo']>4 || $_POST['photo']<1){
-                $_SESSION['notif']="Photo de profil introuvable.";
             }
             if($_POST['banniere']>3 || $_POST['banniere']<1){
                 $_SESSION['notif']="Banniere introuvable.";
