@@ -12,11 +12,11 @@
           header('Location: Chargement.php');
         }
         $user = informationUser($_SESSION['idUtilisateur'],$bdd);
-    }
-    if($user){
-      if($user['verifMail']==0){
-        session_destroy();
-      }
+        if($user){
+          if($user['verifMail']==0){
+            session_destroy();
+          }
+        }
     }
 ?>
 <!DOCTYPE html>
