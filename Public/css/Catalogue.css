@@ -215,6 +215,7 @@ a{
 }
 .search-bar .filtre img{
     width:25px;
+    height: 25px;
     margin-right: 5px;
 }
 .search-bar .filtre:hover{
