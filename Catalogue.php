@@ -12,6 +12,11 @@
           header('Location: Chargement.php');
         }
         $user = informationUser($_SESSION['idUtilisateur'],$bdd);
+        if($user){
+            if($user['verifMail']==0){
+              session_destroy();
+            }
+        }
       }
     
     $platforme = array("Toutes" => "6,14,7,8,9,38,48,167,11,12,49,169,5,20,37,41,130","PC" => "6,14","Playstation" => "7,8,9,38,48,167","Xbox" => "11,12,49,169","Nintendo" => "5,20,37,41,130");

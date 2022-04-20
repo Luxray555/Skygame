@@ -14,9 +14,9 @@
     $stmt = $bdd -> prepare("SELECT * FROM ((utilisateurs INNER JOIN transactions_jeu ON utilisateurs.idUtilisateur=transactions_jeu.idUtilisateur) INNER JOIN jeux ON transactions_jeu.idJeu=jeux.idJeu) WHERE utilisateurs.idUtilisateur=? ORDER BY nomJeu ASC");
     $stmt ->execute([$user['idUtilisateur']]);
     $jeu = $stmt->fetchAll();
-    if(!isset($_GET['idJeu'])){
-      if($jeu!=false){
-        header('Location:Bibliotheque.php?idJeu='.$jeu[0]['idJeu']);
+    if($user){
+      if($user['verifMail']==0){
+        session_destroy();
       }
     }
   }
