@@ -49,13 +49,14 @@ if(isset($page[$URI])){
               <span class="image">
                 <img src="Public/Images/icon/logo.png" alt="Logo Skygame">
               </span>
+              <button><img src="Public/Images/icon/hamburger.png"></button>
               <div class="text logo-text">
                 <span class="name" style="font-family:RaceSportFree;font-size:21px;">Skygame</span>
               </div>
             </div>
                 <?php
                 if(isset($user['idUtilisateur']) && $user['verifMail'] == 1){
-                    echo '<div class="image-text" style="background: #131313;border-radius:10px;padding:10px 0px;">
+                    echo '<div id="profil-box" class="image-text">
                     <span class="image">
                             <img src="Public/Images/profil/';
                     imgProfil($user);
