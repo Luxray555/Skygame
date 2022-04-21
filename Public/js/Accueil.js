@@ -6,6 +6,8 @@ let header = document.querySelector('header');
 window.addEventListener('scroll', function() {
     var value = window.scrollY;
     title.style.top = -value * -2.05 + 'px';
+    title.querySelector("p").style.marginTop = -value/10 +"px";
+    title.querySelector("p").style.opacity = 1-(value/200);
     stars.style.left = value * 0.25 + 'px';
     header.style.top =-value * -0.5 + 'px';
     mountains_front.style.top =-value * 0 + 'px';

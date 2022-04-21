@@ -30,17 +30,59 @@ body{
   object-fit: cover;
   pointer-events: none;
 }
+@keyframes text {
+  0%{
+    color: black;
+    margin-bottom: -40px;
+  }
+  30%{
+    letter-spacing: 2vw;
+    margin-bottom: -40px;
+  }
+  85%{
+    letter-spacing: 1vw;
+    margin-bottom: -40px;
+  }
+}
+@keyframes textOp {
+  0%
+  {
+    opacity: 0;
+  }
+  85%
+  {
+    opacity: 0;
+  }
+  100%
+  {
+    opacity:1;
+  }
+}
 .accueil #title{
-  font-family: RaceSportFree;
-  text-shadow: 0 0 20px rgb(0, 0, 0);
   margin-top: 20px;
   position: absolute;
-  font-size: 5.5vw;
-  color: #fff;
   top: 0;
   left: 50%;
+  width: 100%;
+  text-align: center;
   transform: translateX(-50%);
   z-index: 40;
+}
+.accueil #title h1{
+  font-family: RaceSportFree;
+  text-shadow: 0 0 20px rgb(0, 0, 0);
+  font-size: 70px;
+  color: #fff;
+  animation: text 3s 1;
+  transition: font-size .4s;
+}
+.accueil #title p{
+  text-align: center;
+  font-family: RaceSportFree;
+  font-size: 40px;
+  color: #c4c4c4;
+  animation: textOp 3s 1;
+  transition: font-size .4s;
 }
 .accueil img#mountains_front{
   z-index: 10;
@@ -278,6 +320,12 @@ body{
   }
 }
 @media screen and (max-width:901px){
+  .accueil #title h1{
+    font-size: 50px;
+  }
+  .accueil #title p{
+    font-size: 30px;
+  }
   .home-block{
     grid-template-columns: 1fr;
   }
@@ -305,5 +353,29 @@ body{
   .info .part div,.nous .part div{
     text-align: center;
     margin: 20px 0px;
+  }
+}
+@media screen and (max-width:700px) {
+  .accueil #title h1{
+    font-size: 30px;
+  }
+  .accueil #title p{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width:510px) {
+  .accueil #title h1{
+    font-size: 25px;
+  }
+  .accueil #title p{
+    font-size: 15px;
+  }
+}
+@media screen and (max-width:330px) {
+  .accueil #title h1{
+    font-size: 20px;
+  }
+  .accueil #title p{
+    font-size: 13px;
   }
 }
