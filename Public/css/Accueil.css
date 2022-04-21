@@ -41,7 +41,6 @@ body{
   left: 50%;
   transform: translateX(-50%);
   z-index: 40;
-
 }
 .accueil img#mountains_front{
   z-index: 10;
