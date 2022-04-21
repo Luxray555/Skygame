@@ -31,7 +31,10 @@
     ?>
     <section class="accueil">
       <img src="Public/Images/background/stars.png" id="stars">
-      <h1 id="title">Sky Game</h1>
+      <div id="title">
+        <h1>Sky Game</h1>
+        <p>Bienvenue</p>
+      </div>
       <img src="Public/Images/background/montain.png" id="mountains_front">
       <div class="content">
     </section>
