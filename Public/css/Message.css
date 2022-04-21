@@ -2,7 +2,7 @@
     height:100vh;
     margin:auto;
 }
-img{
+.chat_img img{
     max-width:100%;
 }
 .inbox_people {

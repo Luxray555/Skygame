@@ -2,9 +2,10 @@ const body = document.querySelector('body'),
       main = document.querySelector('main'),
       page = body.querySelector('.main'),
       sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle");
+      toggle = body.querySelector(".toggle"),
+      button = document.querySelector('.sidebar header button');
 
-      close = true;
+close = true;
 toggle.addEventListener("click" , () =>{
     sidebar.classList.toggle("close");
     main.classList.toggle("close");
@@ -21,3 +22,31 @@ toggle.addEventListener("click" , () =>{
         
     }
 })
+hamburger = true;
+button.addEventListener("click",()=>{
+    if(hamburger){
+        sidebar.style.height = "100%";
+        sidebar.style.backgroundColor = "#303030";
+        sidebar.style.borderRight = "white solid 1px"
+        hamburger = false;
+    }else{
+        sidebar.style.height = "80px";
+        sidebar.style.backgroundColor = "transparent";
+        sidebar.style.borderRight = "none"
+        hamburger = true;
+    }
+})
+
+window.addEventListener("resize", function() {
+    if (window.matchMedia("(min-width: 900px)").matches) {
+        sidebar.style.height = "100%";
+        sidebar.style.backgroundColor = "#303030";
+        sidebar.style.borderRight = "white solid 1px"
+        hamburger = false;
+    }else{
+        sidebar.style.height = "80px";
+        sidebar.style.backgroundColor = "transparent";
+        sidebar.style.borderRight = "none"
+        hamburger = true;
+    }
+  })
