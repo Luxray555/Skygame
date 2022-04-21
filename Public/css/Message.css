@@ -120,6 +120,9 @@
     width: 6%;
 }
 .incoming_msg_img img{
+    max-width:100%;
+}
+.incoming_msg_img img{
     border-radius: 100px;
 }
 .received_msg {
