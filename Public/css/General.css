@@ -40,11 +40,6 @@ a{
     margin-left: 250px;
     transition: all 0.3s ease;;
 }
-@media screen and (max-width: 900px){
-.main{
-    margin-left: 88px;
-}
-}
 .main.close{
     margin-left: 88px;
 }
