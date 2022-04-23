@@ -27,12 +27,14 @@ button.addEventListener("click",()=>{
     if(hamburger){
         sidebar.style.height = "100%";
         sidebar.style.backgroundColor = "#303030";
-        sidebar.style.borderRight = "white solid 1px"
+        sidebar.style.borderRight = "white solid 1px";
+        button.querySelector("img").src = "Public/Images/icon/cross.png";
         hamburger = false;
     }else{
         sidebar.style.height = "80px";
         sidebar.style.backgroundColor = "transparent";
-        sidebar.style.borderRight = "none"
+        sidebar.style.borderRight = "none";
+        button.querySelector("img").src = "Public/Images/icon/hamburger.png";
         hamburger = true;
     }
 })
@@ -41,12 +43,14 @@ window.addEventListener("resize", function() {
     if (window.matchMedia("(min-width: 900px)").matches) {
         sidebar.style.height = "100%";
         sidebar.style.backgroundColor = "#303030";
-        sidebar.style.borderRight = "white solid 1px"
+        sidebar.style.borderRight = "white solid 1px";
+        button.querySelector("img").src = "Public/Images/icon/cross.png";
         hamburger = false;
     }else{
         sidebar.style.height = "80px";
         sidebar.style.backgroundColor = "transparent";
-        sidebar.style.borderRight = "none"
+        sidebar.style.borderRight = "none";
+        button.querySelector("img").src = "Public/Images/icon/hamburger.png";
         hamburger = true;
     }
   })
