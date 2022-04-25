@@ -40,17 +40,17 @@ button.addEventListener("click",()=>{
 })
 
 window.addEventListener("resize", function() {
-    if (window.matchMedia("(min-width: 900px)").matches) {
-        sidebar.style.width = "";
-        sidebar.style.backgroundColor = "#303030";
-        sidebar.style.borderRight = "white solid 1px";
-        button.querySelector("img").src = "Public/Images/icon/cross.png";
-        hamburger = false;
-    }else{
+    if (window.matchMedia("(max-width: 900px)").matches) {
         sidebar.style.width = "0px";
         sidebar.style.backgroundColor = "transparent";
         sidebar.style.borderRight = "none";
         button.querySelector("img").src = "Public/Images/icon/hamburger.png";
         hamburger = true;
+    }else{
+        sidebar.style.width = "";
+        sidebar.style.backgroundColor = "#303030";
+        sidebar.style.borderRight = "white solid 1px";
+        button.querySelector("img").src = "Public/Images/icon/cross.png";
+        hamburger = false;
     }
   })
