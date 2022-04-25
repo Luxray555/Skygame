@@ -1,6 +1,7 @@
 body{
   background: linear-gradient(#130b3d,#000000);
   overflow-x: hidden;
+  touch-action: pan-y;
 }
 .accueil{
   position: relative;
