@@ -46,7 +46,7 @@ if(document.referrer!="" && window.matchMedia("(max-width: 900px)").matches){
     hamburger = false;
 }
 window.addEventListener("resize", function() {
-    if (window.matchMedia("(max-width: 900px)").matches) {
+    if(window.matchMedia("(max-width: 900px)").matches) {
         sidebar.style.width = "0px";
         sidebar.style.backgroundColor = "transparent";
         sidebar.style.borderRight = "none";
@@ -60,3 +60,13 @@ window.addEventListener("resize", function() {
         hamburger = false;
     }
   })
+
+window.addEventListener("scroll",function(){
+    if (window.matchMedia("(max-width: 900px)").matches && !hamburger) {
+        sidebar.style.width = "0px";
+        sidebar.style.backgroundColor = "transparent";
+        sidebar.style.borderRight = "none";
+        button.querySelector("img").src = "Public/Images/icon/hamburger.png";
+        hamburger = true;
+    }
+})
