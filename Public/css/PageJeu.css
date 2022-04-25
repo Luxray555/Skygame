@@ -29,6 +29,7 @@ body{
   margin: auto;
   grid-area: Name;
   text-align: center;
+  animation:  2s h1Animation;
 }
 .top-game .info {
   border: solid black 3px;
