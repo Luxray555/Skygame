@@ -38,13 +38,6 @@ button.addEventListener("click",()=>{
         hamburger = true;
     }
 })
-if(document.referrer!="" && window.matchMedia("(max-width: 900px)").matches){
-    sidebar.style.width = "88px";
-    sidebar.style.backgroundColor = "#303030";
-    sidebar.style.borderRight = "white solid 1px";
-    button.querySelector("img").src = "Public/Images/icon/cross.png";
-    hamburger = false;
-}
 window.addEventListener("resize", function() {
     if(window.matchMedia("(max-width: 900px)").matches) {
         sidebar.style.width = "0px";
