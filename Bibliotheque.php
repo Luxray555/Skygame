@@ -207,10 +207,10 @@
       }
       if($jeu!=false && isset($game) && count($game)!=0){
         echo 'discover=document.querySelector(".discover-button");
-              button=document.querySelector(".discover-button button");
+              btn_discover=document.querySelector(".discover-button button");
               
-              button.onclick = function(){
-                discover.removeChild(button);
+              btn_discover.onclick = function(){
+                discover.removeChild(btn_discover);
                 discover.innerHTML = "<h3>'.substr($verifJeu['cleJeu'],0,4).'-'.substr($verifJeu['cleJeu'],4,4).'-'.substr($verifJeu['cleJeu'],8,12).'</h3>";
               }';
       }
