@@ -78,7 +78,7 @@ body{
     max-width: 200px;
     min-width: 100px;
 }
-.coin-box span{
+.coin-box .bonus{
     margin: 10px 0px;
     padding: 4px;
     background-color: green;
