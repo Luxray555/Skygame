@@ -4,12 +4,17 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 .wrapper{
-    height: 1400px;
-    width:100vw;
+    height:1400px;
+    width:calc(100vw - 88px);
     text-align:center;
     background-repeat:repeat;
     background-position: center;
-    background-size: auto,auto,cover;
+    background-size: auto,auto,auto;
+}
+@media screen and (max-width:900px) {
+    .wrapper{
+        width: 100vw;
+    }
 }
 .boutique-panel{
     width: 100%;
