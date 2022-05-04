@@ -264,6 +264,14 @@ h1{
       "Info"
       "PageLink";
     }
+    .Game img{
+        margin: auto auto 0px auto;
+        border-radius: 10px;
+        border: solid black 3px;
+        grid-area: Cover;
+        width: 100%;
+        height: auto;
+    }
     .Game .info{
       margin-left: 0px;
     }
