@@ -14,7 +14,7 @@ h1{
     margin: 0px 50px 50px 50px;
     display: grid;
     grid-template-columns: 1fr 2.5fr;
-    grid-template-rows: 1.4fr;
+    grid-template-rows: 700px;
     gap: 0px 50px;
     grid-auto-flow: row;
     justify-content: stretch;
