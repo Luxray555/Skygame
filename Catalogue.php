@@ -351,7 +351,6 @@
                         list[1][i].querySelector("a").href = "PageJeu.php?idJeu="+game[i+'.($_GET['page']-1)*16 .'].id;
                     }
                     if(game.length==0){
-                        console.log("ok");
                         document.querySelector(".game-panel").innerHTML = "<h3 class='."'".'no-game'."'".'>Aucun jeu trouvé</h3>";
                     }
                     document.querySelector(".nbPage span").innerHTML ="'.$_GET['page'].'"+" / "+(Math.ceil((game.length/16))).toString();

@@ -208,7 +208,7 @@ function mailExist($email,$bdd){
   if ($user) {
      return true;
   }else{
-      false;
+      return false;
   }
 }
 ?>
