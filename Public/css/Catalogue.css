@@ -190,8 +190,8 @@ a{
 .search-bar{
     margin: 15px auto;
     padding-bottom: 15px;
-    min-width: 250px;
-    max-width: 32%;
+    min-width: 270px;
+    max-width: 50%;
 }
 .search-bar .search{
     height: 40px;
@@ -227,7 +227,7 @@ a{
     color: white;
     height: 0;
     overflow: hidden;
-    transition: height .5s ease-out;
+    transition: all .5s ease-out;
 }
 .search-bar .filtreList hr{
     border: #838383 solid 1px;
