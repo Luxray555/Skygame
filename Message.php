@@ -202,7 +202,10 @@
     ?>
     </main>
     </body>
-    <script>
+    <?php
+    if(isset($_POST['idAmi'])){
+      echo'
+      <script>
         const scrollMsg = document.querySelector(".msg_history");
         const output = document.getElementById("lastMsg");
         scrollMsg.scroll(0,100000);
@@ -210,19 +213,20 @@
           var httpr = new XMLHttpRequest(); 
           httpr.open("POST", "FonctionPHP/GenerateChat.php");
 				  httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				  httpr.send("idUtilisateur1="+<?php
+				  httpr.send("idUtilisateur1="+';
           if(isset($user)){
             echo $user['idUtilisateur'];
           }
-          ?>+"&idUtilisateur2="+<?php
+          echo '+"&idUtilisateur2="+';
           if(isset($_POST['idAmi'])){
             echo $_POST['idAmi'];
           }
-          ?>
-          );
+          echo ');
           httpr.onload = function(){
-            document.querySelector('.msg_history').innerHTML = httpr.responseText;
+            document.querySelector(".msg_history").innerHTML = httpr.responseText;
           }
-        },3000)
-    </script>
+        },3000);
+    </script>';
+    }
+    ?>
 </html>
