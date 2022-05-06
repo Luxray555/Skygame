@@ -41,8 +41,8 @@
     <div class="sec" id="sec">
       <div class="imgGif"><img src="Public/Images/icon/LogoSkyGame.gif" alt="Logo Skygame"></div>
       <div class="home-block">
-        <img class="img1" src="Public/Images/background/no-screenshot-image.png">
-        <p class="text1">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
+        <img class="img1" src="Public/Images/background/accueil1.png">
+        <p class="text1">Skygame est un catalogue de jeux vidéo où vous pouvez avoir accès à tous les jeux en utilisant des skycoins. Grâce à nos nombreux partenaires, nous pouvons vous donner accès à quasiment la totalité des jeux du moment. De plus, Skygame est le meilleur dans sa catégorie grâce à son aspect social minutieusement réfléchi. </p>
         <p class="text2">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
         <img class="img2" src="Public/Images/background/no-screenshot-image.png">
       </div>
@@ -113,33 +113,17 @@
           <div>
             <img src="Public/Images/background/nous1.png">
             <h3>Votre vision, notre savoir faire</h3>
-            <p>rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg
-              rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg
-            </p>
+            <p>Toujours à l'écoute de nos clients, nous essayons de toujours vous satisfaire en mettant régulièrement le site à jour dans le but que les jeux les plus récent soient à votre disposition.</p>
           </div>
           <div>
             <img src="Public/Images/background/nous2.png">
             <h3>Vos données, notre écosystème</h3>
-            <p>rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg
-              rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg</p>
+            <p>Vous avez un libre accès à notre écosystème qui vous met à votre disposition un large choix de personnalisation de votre profil et toutes données personnelles stockées dans notre base de données sont sécurisés afin de protéger votre vie privée.</p>
           </div>
           <div>
             <img src="Public/Images/background/nous3.png">
-            <h3> Votre stratégie, notre expertise</h3>
-            <p>rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg
-              rtzhsttrzghzreiuhguitzreg
-              trzhrzthtrzh
-              rzthtzrhtgzrhttzrhg</p>
+            <h3>Nos services, notre catalogue</h3>
+            <p>Le catalogue qui est mis à votre disposition est constamment mis à jour par notre équipe. Ce qui vous permet d'avoir toujours accès aux derniers jeux proposer dans le monde. De plus, les informations de chaque jeux sont modifiées en temps réel.</p>
           </div>
         </div>
       </div>

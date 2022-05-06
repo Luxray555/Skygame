@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>SkyGame</title>
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<link rel="icon" href="Public/Images/icon/logo.ico" type="image/x-icon" />
+    	<link rel="apple-touch-icon" href="Public/Images/icon/logo.ico" type="image/x-icon"/>
 		<link rel="stylesheet" href="Public/css/Chargement.css">
+		<title>Skygame - Chargement</title>
 	</head>
 	<body>
 		<div class="scene">
