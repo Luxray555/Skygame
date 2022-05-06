@@ -43,8 +43,8 @@
       <div class="home-block">
         <img class="img1" src="Public/Images/background/accueil1.png">
         <p class="text1">Skygame est un catalogue de jeux vidéo où vous pouvez avoir accès à tous les jeux en utilisant des skycoins. Grâce à nos nombreux partenaires, nous pouvons vous donner accès à quasiment la totalité des jeux du moment. De plus, Skygame est le meilleur dans sa catégorie grâce à son aspect social minutieusement réfléchi. </p>
-        <p class="text2">SKY GAME est le meilleur catalogue de jeu video du momment indipensable pour les gamer il permet de trouve rtous le snouveau et enciens jeu souvent remis a jours notre catalogue de jeu est un des plus consequent dans le domaine du jeu video</p>
-        <img class="img2" src="Public/Images/background/no-screenshot-image.png">
+        <p class="text2">Skygame vous propose en plus des derniers jeux sortis, un système communautaire entre chaque utilisateur, ce qui vous permet d'ajouter en ami d'autres utilisateurs mais en plus de pouvoir communiquer avec eux par message.</p>
+        <img class="img2" src="Public/Images/background/accueil2.png">
       </div>
       <div class="slider">
         <h3>Les meilleurs jeux du moments</h3>
