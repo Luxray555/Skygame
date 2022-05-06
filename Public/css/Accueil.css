@@ -297,6 +297,7 @@ body{
   .home-block{
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 50px;
+    grid-column-gap: 30px;
   }
   .home-block img{
     width: 100%;
