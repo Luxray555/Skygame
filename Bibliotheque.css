@@ -1,0 +1,306 @@
+body{
+    background-size: cover;
+}
+h1{
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin: 50px;
+    font-size: 43px;
+    color: white;
+    font-family: RaceSportFree;
+    text-align: center;
+}
+
+.container {
+    margin: 0px 50px 50px 50px;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 700px;
+    gap: 0px 50px;
+    grid-auto-flow: row;
+    justify-content: stretch;
+        grid-template-areas:
+      "listGame Game";
+}
+.container-vide {
+    border: 2px solid white;
+    background:url("../Images/background/background-bibliotheque-no-game.jpg");
+    height: 80vh;
+    margin: 50px 50px;
+    border-radius: 10px;
+    position: relative;
+}
+.container-vide .container-mid{
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.container-vide img{
+    margin: auto;
+    margin-bottom: 20px;
+}
+.container-vide h2{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.container-vide a{
+    color: white;
+}
+
+.container-vide a button{
+    color: white;
+    font-size: 20px;
+    background-color: #5a5a5a;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .5s;
+}
+.container-vide a button:hover{
+    background-color: #414141;
+    cursor: pointer;
+}
+  
+.listGame {
+    height: 100%;
+    overflow: auto;
+    list-style-type: none;
+    background-color: black;
+    border-radius: 10px;
+    grid-area: listGame;
+}
+.listGame::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.listGame::-webkit-scrollbar-track {
+    background: #858585;
+    border-radius: 20px;
+    border: solid black 1px;
+}
+  
+  
+.listGame::-webkit-scrollbar-thumb {
+    background: rgb(46, 46, 46);
+    border-radius: 20px;
+    border: solid rgb(138, 138, 138) 1px;
+}
+  
+.listGame::-webkit-scrollbar-thumb:hover {
+    background: rgb(36, 36, 36);
+}
+  
+.Game {
+    transition: all .5s;
+    display: grid; 
+    gap: 0px 0px; 
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    grid-area: Game;
+}
+.Game img{
+    margin: auto auto 0px auto;
+    border-radius: 10px;
+    border: solid black 3px;
+    grid-area: Cover;
+    width: 100%;
+    height: 100%;
+}
+.Game h1{
+    transition: all .5s;
+    text-shadow: none;
+    font-size: 26px;
+    margin: auto;
+    grid-area: Name;
+    text-align: center;
+    color: black;
+  }
+.Game .info {
+    border: solid black 3px;
+    background-color: #dfdfdf;
+    border-radius: 10px;
+    grid-area: Info;
+    position: relative;
+    padding-bottom: 100px;
+}
+.Game a{
+    grid-area: PageLink;
+    margin: 0;
+}
+.Game a button{
+    height: 80%;
+    width: 100%;
+    border: solid black 1px;
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+    padding: 10px;
+    margin: 0;
+    margin-top: 15px;
+    font-weight: 650;
+    font-size: 20px;
+    transition: all .5s;
+}
+.Game a button:hover{
+    border: rgb(196, 0, 0) solid 1px;
+    color: rgb(196, 0, 0);
+    background-color: black;
+    cursor: pointer;
+}
+.Game .info .platforms{
+    margin-top: 40px;
+    text-align: center;
+}
+.Game .info .genres{
+    text-align: center;
+    margin: 20px 0px;
+  }
+.Game .info h4{
+    font-size: 25px;
+  }
+.Game .info div span{
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 20px;
+    background-color: #242424;
+    color: white;
+    padding: 6px;
+    margin: 5px;
+    display: inline-block;
+}
+.Game .info .discover-button{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    bottom: 0;
+    background-color: black;
+    text-align: center;
+}
+.Game .info .discover-button button{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff0000;
+    padding: 10px 25px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: max-content;
+    transition: all .5s;
+    border: rgb(0, 0, 0) solid 1px;
+    margin-top: 10px;
+}
+.Game .info .discover-button button:hover{
+    border: rgb(196, 0, 0) solid 1px;
+    color: rgb(196, 0, 0);
+    background-color: black;
+    cursor: pointer;
+}
+.Game .info .discover-button h3{
+    padding: 5px;
+    border-radius: 10px;
+    border: white solid 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: auto;
+    color: white;
+}
+@media screen and (max-width:1350px) {
+    .Game{
+        display: grid; 
+        grid-template-columns: 1.6fr 1.4fr; 
+        grid-template-rows: 1fr 2fr 0.3fr; 
+        gap: 0px 20px; 
+        grid-template-areas: 
+        "Name Name"
+        "Cover Info"
+        "PageLink PageLink"; 
+        justify-content: stretch;
+    }
+}
+@media screen and (min-width:1300px) {
+    .Game{
+        display: grid; 
+        grid-template-columns: 1.6fr 1.4fr; 
+        grid-template-rows: 1fr 2fr 0.3fr; 
+        gap: 0px 20px; 
+        grid-template-areas: 
+        "Cover Name"
+        "Cover Info"
+        "PageLink PageLink"; 
+        justify-content: stretch;
+    }
+}
+@media screen and (max-width:1201px) {
+    h1{
+        font-size:  5.5vw;
+    }
+    .container{
+        height: fit-content;
+        width: 90%;
+        margin: 50px auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr;
+        gap: 20px 0px;
+        grid-template-areas:
+      "listGame"
+      "Game";
+    }
+    .listGame{
+        width: 100%;
+        height: 100vh;
+    }
+    .Game{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 10px;
+      grid-template-areas: 
+      "Name"
+      "Cover"
+      "Info"
+      "PageLink";
+    }
+    .Game img{
+        margin: auto auto 0px auto;
+        border-radius: 10px;
+        border: solid black 3px;
+        grid-area: Cover;
+        width: 100%;
+        height: auto;
+    }
+    .Game .info{
+      margin-left: 0px;
+    }
+  }
+.listGame li{
+    transition: all .5s;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
+    color: white;
+    background-color: #4b4b4b;
+    border: solid black 1px;
+}
+.listGame .active{
+    margin: 10px;
+    background-color: #2e2e2e;
+}
+.listGame li:hover{
+    cursor: pointer;
+    background-color: #252525;
+}
+.listGame li h2{
+    font-size: 22px;
+    margin: auto 0px auto 20px;
+}
+.listGame li img{
+    border-radius: 2px;
+    border: solid 1px white;
+    height: 50px;
+}
+  
