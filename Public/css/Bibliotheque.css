@@ -93,6 +93,7 @@ h1{
 }
   
 .Game {
+    width: 100%;
     transition: all .5s;
     display: grid; 
     gap: 0px 0px; 
@@ -102,31 +103,60 @@ h1{
     grid-area: Game;
 }
 .Game img{
-    margin: auto auto 0px auto;
+    grid-column-start: 1;
+    margin: auto auto 0px 20px;
     border-radius: 10px;
     border: solid black 3px;
     grid-area: Cover;
-    max-width: 100%;
+    width: 480px;
     height: 100%;
 }
 .Game h1{
     transition: all .5s;
     text-shadow: none;
     font-size: 26px;
-    margin: auto;
+    margin: auto auto auto -15px;
     grid-area: Name;
     text-align: center;
     color: black;
   }
 .Game .info {
+    margin-right: 20px;
+    margin-left: -80px;
     border: solid black 3px;
     background-color: #dfdfdf;
     border-radius: 10px;
     grid-area: Info;
     position: relative;
+  
+    
     padding-bottom: 100px;
 }
-.Game a{
+@media screen and (max-width:1750px ) {
+    .Game h1{
+        transition: all .5s;
+        text-shadow: none;
+        font-size: 26px;
+        margin: auto ;
+        grid-area: Name;
+        text-align: center;
+        color: black;
+      }
+    
+    
+    .Game .info {
+        margin-right: 0px;
+        margin-left: 0px;
+        border: solid black 3px;
+        background-color: #dfdfdf;
+        border-radius: 10px;
+        position: relative;
+      padding-bottom: 100px;
+    }
+   
+}
+
+    .Game a{
     grid-area: PageLink;
     margin: 0;
 }
@@ -209,6 +239,110 @@ h1{
     margin: auto;
     color: white;
 }
+@media screen and (max-width:1300px ) {
+    
+    .Game h1{
+        transition: all .5s;
+        text-shadow: none;
+        font-size: 26px;
+        margin: auto ;
+        grid-area: Name;
+        text-align: center;
+        color: black;
+      }
+    
+    .Game img{
+        grid-column-start: 1;
+        margin: auto auto 0px 20px;
+        border-radius: 10px;
+        border: solid black 3px;
+        grid-area: Cover;
+        width: 300px;
+        height: 100%;
+    }
+    
+    
+    .Game .info .discover-button{
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        padding: 20px;
+        bottom: 0;
+        background-color: black;
+        text-align: center;
+    }
+    .Game .info .discover-button button{
+        
+        font-size: 13px;
+        font-weight: bold;
+        background-color: #ff0000;
+        padding: 5px 15px;
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        width: max-content;
+        transition: all .5s;
+        border: rgb(0, 0, 0) solid 1px;
+       margin-left: -12px;
+        margin-top: 10px;
+    }
+    .Game .info .discover-button button:hover{
+        border: rgb(196, 0, 0) solid 1px;
+        color: rgb(196, 0, 0);
+        background-color: black;
+        cursor: pointer;
+    }
+    .Game .info .discover-button h3{
+        padding: 5px;
+        border-radius: 10px;
+        border: white solid 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        margin: auto;
+        color: white;
+    }
+}
+@media screen and (max-width:1200px ) {
+.Game .info .discover-button{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    bottom: 0;
+    background-color: black;
+    text-align: center;
+}
+.Game .info .discover-button button{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff0000;
+    padding: 10px 25px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: max-content;
+    transition: all .5s;
+    border: rgb(0, 0, 0) solid 1px;
+    margin-top: 10px;
+}
+.Game .info .discover-button button:hover{
+    border: rgb(196, 0, 0) solid 1px;
+    color: rgb(196, 0, 0);
+    background-color: black;
+    cursor: pointer;
+}
+.Game .info .discover-button h3{
+    padding: 5px;
+    border-radius: 10px;
+    border: white solid 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: auto;
+    color: white;
+}
+}
 @media screen and (max-width:1350px) {
     .Game{
         display: grid; 
@@ -252,7 +386,7 @@ h1{
     }
     .listGame{
         width: 100%;
-        height: 80vh;
+        height: 100vh;
     }
     .Game{
       grid-template-columns: 1fr;
