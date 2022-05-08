@@ -102,25 +102,23 @@ h1{
     grid-area: Game;
 }
 .Game img{
-    margin: auto auto 0px 20px ;
+    margin: auto auto 0px auto;
     border-radius: 10px;
     border: solid black 3px;
     grid-area: Cover;
-    width: 82%;
+    width: 100%;
     height: 100%;
 }
 .Game h1{
     transition: all .5s;
     text-shadow: none;
     font-size: 26px;
-    margin: auto auto auto -10px ;
+    margin: auto;
     grid-area: Name;
     text-align: center;
     color: black;
   }
 .Game .info {
-  margin-left: -80px;
-   
     border: solid black 3px;
     background-color: #dfdfdf;
     border-radius: 10px;
