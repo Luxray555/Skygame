@@ -1,0 +1,249 @@
+.container{
+    height:100vh;
+    margin:auto;
+}
+.chat_img img{
+    max-width:100%;
+}
+.inbox_people {
+    background: linear-gradient(#130b3d,#000000);
+    float: left;
+    overflow: hidden;
+    width: 30%; border-right:1px solid #c4c4c4;
+    height: 100%;
+}
+.inbox_msg {
+    height: 100%;
+    border: 1px solid #c4c4c4;
+    clear: both;
+    overflow: hidden;
+}
+.top_spac{
+    margin: 20px 0 0;
+}
+
+
+.recent_heading {
+    float: left;
+    width:40%;
+}
+.srch_bar {
+    display: inline-block;
+    text-align: right;
+    width: 60%;
+}
+.headind_srch{
+    background-color: #05194e;
+    padding:20px 29px 20px 20px;
+    overflow:hidden;
+    border-bottom:1px solid #c4c4c4;
+}
+
+.recent_heading h4 {
+    color: #ffffff;
+    font-size: 21px;
+    margin: auto;
+}
+.srch_bar input{
+    border:1px solid #cdcdcd;
+    border-width:0 0 1px 0;
+    width:80%;
+    padding:4px 0 4px 6px;
+    background:none;
+}
+.srch_bar .input-group-addon button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    padding: 0;
+    color: #707070;
+    font-size: 18px;
+}
+.srch_bar .input-group-addon { margin: 0 0 0 -27px;}
+
+.chat_ib h5{
+    font-size:15px;
+    color:#ffffff;
+    margin:0 0 8px 0;
+}
+.chat_ib h5 span{
+    font-size:13px;
+    float:right;
+}
+.chat_ib p{
+    font-size:14px;
+    color:#cecece;
+    margin:auto
+}
+.chat_img {
+    float: left;
+    width: 11%;
+}
+.chat_img img{
+    border-radius: 100px;
+}
+.chat_ib {
+    float: left;
+    padding: 0 0 0 15px;
+    width: 88%;
+}
+
+.chat_people{
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    overflow:hidden;
+    clear:both;
+    padding: 20px;
+    text-align: left;
+}
+.chat_list {
+    border-bottom: 1px solid #c4c4c4;
+    margin: 0;
+    cursor: pointer;
+    transition: all .4s;
+}
+.chat_list:hover{
+    background-color: #10125e;
+}
+.inbox_chat {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.active_chat{
+    background:#000000;
+}
+
+.incoming_msg_img {
+    display: inline-block;
+    width: 6%;
+}
+.incoming_msg_img img{
+    max-width:100%;
+}
+.incoming_msg_img img{
+    border-radius: 100px;
+}
+.received_msg {
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    vertical-align: top;
+    width: 92%;
+ }
+ .received_withd_msg p {
+    background: #ebebeb none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #646464;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+    word-break: break-all;
+}
+.time_date {
+    color: #747474;
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 0;
+}
+.received_withd_msg {
+    width: 55%;
+}
+.mesgs {
+    background: linear-gradient(#000000,#130b3d);
+    float: left;
+    padding: 30px 0px 0px 25px;
+    width: 70%;
+    height: 100%;
+}
+
+ .sent_msg p {
+    background: #05728f none repeat scroll 0 0;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 0; color:#fff;
+    padding: 5px 10px 5px 12px;
+    width:100%;
+    word-break: break-all;
+}
+.outgoing_msg{
+    overflow:hidden;
+    margin: 20px;
+}
+.sent_msg {
+    float: right;
+    width: 60%;
+}
+.input_msg_write textarea {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    padding: 0px 50px 0px 20px;
+    color: #c5c5c5;
+    font-size: 25px;
+    resize: none;
+    line-height:40px;
+    width: 100%;
+}
+
+.type_msg {
+    border-top: 1px solid #c4c4c4;
+    position: relative;
+    margin-right: 20px;
+}
+.msg_send_btn {
+    background: #05728f none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    height: 33px;
+    position: absolute;
+    right: 5px;
+    top: 22px;
+    width: 33px;
+}
+.msg_send_btn img{
+    width: 65%;
+    vertical-align: middle;
+}
+.messaging {
+    border-radius: 10px;
+    height: 100%;
+}
+.msg_history {
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+.container h1{
+    font-family: RaceSportFree;
+    color: white;
+    text-align: center;
+}
+@media screen and (max-width:900px) {
+    .container{
+        height:1500px;
+    }
+    .inbox_msg{
+        display: flex;
+        flex-direction: column;
+    }
+    .inbox_people{
+        width: 100%;
+        float: none;
+        border-bottom: solid 5px white;
+    }
+    .mesgs{
+        height: 800px;
+        width: 100%;
+        float: none;
+    }
+    .sent_msg{
+        width: 80%;
+    }
+    .received_withd_msg {
+        width: 75%;
+    }
+}
